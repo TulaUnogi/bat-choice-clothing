@@ -56,6 +56,7 @@
 
 #### Data models
 
+<img src="readme-images/data-schema.png" alt="Data schema">
 
 
 ##### [ Back to Top ](#table-of-contents)
@@ -83,9 +84,25 @@
 ### Wireframes
 
 
-
 > Large to medium screens
 
+- Homepage:
+
+<img src="readme-images/homepage.png" alt="Homepage">
+
+- Clothing:
+
+<img src="readme-images/clothing-page.png" alt="Clothing wireframe">
+
+<img src="readme-images/clothing-mock-up.png" alt="Clothing mockup">
+
+- About:
+
+<img src="readme-images/about-page.png" alt="About page">
+
+- Contact Us:
+
+<img src="readme-images/contact.png" alt="Contact page">
 
 > Small screens
 
