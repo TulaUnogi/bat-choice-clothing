@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,6 +17,7 @@
     {% endblock %}
 
     {% block corecss %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     {% endblock %}
 
@@ -25,6 +27,7 @@
     {% block corejs %}
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f5fb20c689.js" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -33,32 +36,90 @@
     <title>Bat Choice Clothing {%block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top"></header>
+    <header class="container-fluid fixed-top bg-white"></header>
 
-    {% if messages %}
-    <div class="message-container">
-        <ul>
-            {% for message in messages %}
-            <li>{{message}}</li> 
-            {% endfor %}
+      {% if messages %}
+      <div class="message-container">
+        <ul class="container-fluid alert-dismissible fade show alert-info" role="alert">
+          {% for message in messages %}
+            <li class="p-3 list-unstyled alert">
+              {{message}}
+              <button type="button" class="close my-auto" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+          {% endfor %}
         </ul>
-    </div>
-    {% endif %}
+      </div>
+      {% endif %}
 
-    {% block page_header %}
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a href="{% url 'home' %}" class="navbar-brand mx-lg-auto">Bat Choice</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
-    {% endblock %}
-
+      <div id="navbar-top" class="row d-none d-lg-flex p-lg-2 w-100">
+        <div class="col-4 my-auto">
+          <ul class="list-inline list-unstyled text-center float-lg-left p-2 mt-2 mb-0">
+            <li class="list-inline-item"> 
+              <a class="{% if grand_total %} text-dark font-weight-bold{% else %}text-dark{% endif %} py-0 nav-link" href="">   
+                <i class="fa-solid fa-bag-shopping text-dark"></i>             
+                <div class="text-center">
+                  <p class="my-0">
+                    <small>
+                      {% if grand_total %}
+                        ${{ grand_total|floatformat:2 }}
+                      {% else %}
+                        0.00€
+                      {% endif %}
+                    </small>
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="list-inline-item dropdown">
+              <a class="text-dark nav-link py-0" href="" id="user-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-user"></i>
+                <div class="text-center">
+                  <p class="my-0 text-uppercase">
+                    <small>My Profile</small>
+                  </p>
+              </a>
+              <div class="dropdown-menu rounded-0 text-dark" aria-labelledby="user-toggle">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="#" class="dropdown-item"><strong>Manage Products</strong></a>
+                    {% endif %}
+                    <a href="#" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                    <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
+                {% endif %}
+              </div>
+            </li>
+        </div>
+        <div class="col-4 m-auto text-center">
+          <a href="{% url 'home' %}" class="mx-auto">
+            <img src="{% static 'images/logo.webp'%}" alt="Logo" width="300" height="58">
+          </a>
+        </div>
+        <div class="col-4 my-auto">
+          <form class="form-inline float-right">
+            <input class="form-control-lg rounded-0 border-dark" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-black rounded-0 btn-lg" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+      <div id="info-banner" class="row text-center">
+        <div class="col bg-purple text-white text-uppercase">
+          <h6 class="my-2"><strong>Free shipping</strong> on orders over 100€!</h6>         
+        </div>            
+      </div>      
+    </header>
+    
+    <main class="container">
     {% block content %}
     {% endblock %}
-    
+    </main>
+
     {% block postloadjs %}
     {% endblock %}
-
+    
   </body>
 </html>

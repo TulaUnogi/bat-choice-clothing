@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif!important;
+}
+
+main {
+    background-color: black!important;
+    min-height: 90%;
+}
+
+header {
+    background-color: white!important;
+}
+
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Megrim', system-ui;
+}
+
+.bg-purple {
+    background-color: #50304a;
+}
+
+.btn-black {
+    background-color: black!important;
+    color: white!important;
+}
+
+.btn-black:hover {
+    background-color: #2F2F2F!important;
+}
+
+.btn-black:focus {
+    background-color: #50304a!important;
+}
+
+.home-images {
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
