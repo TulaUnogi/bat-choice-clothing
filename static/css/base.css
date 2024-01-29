@@ -17,6 +17,9 @@ header {
     background-color: white!important;
 }
 
+#main-navbar,footer {
+    background-color: #2F2F2F!important;
+}
 
 h1,h2,h3,h4,h5 {
     font-family: 'Megrim', system-ui;
@@ -39,8 +42,8 @@ h1,h2,h3,h4,h5 {
     background-color: #50304a!important;
 }
 
-#main-navbar {
-    background-color: #2F2F2F;
+.text-secondary {
+    color: #7D7D7D!important;
 }
 
 .home-images {
