@@ -106,6 +106,20 @@
           </form>
         </div>
       </div>
+      <div class="row bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light w-100 p-0">
+          <div class="col-7 my-auto float-left d-lg-none">
+            <a href="{% url 'home' %}" class="p-2">
+              <img src="{% static 'images/logo.webp'%}" alt="Logo" width="200" height="38">
+            </a>
+          </div>
+            <button class="navbar-toggler border-0 mr-3" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navbar">
+                <span class="navbar-toggler-icon text-dark mx-auto p-3"></span>
+            </button>
+            {% include 'includes/header-mobile.html' %}
+            {% include 'includes/main-navbar.html' %}
+        </nav>
+      </div>
       <div id="info-banner" class="row text-center">
         <div class="col bg-purple text-white text-uppercase">
           <h6 class="my-2"><strong>Free shipping</strong> on orders over 100€!</h6>         
