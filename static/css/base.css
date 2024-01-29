@@ -5,20 +5,20 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif!important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 main {
-    background-color: black!important;
+    background-color: black !important;
     min-height: 90%;
 }
 
 header {
-    background-color: white!important;
+    background-color: white !important;
 }
 
 #main-navbar,footer {
-    background-color: #2F2F2F!important;
+    background-color: #2F2F2F !important;
 }
 
 h1,h2,h3,h4,h5 {
@@ -28,26 +28,45 @@ h1,h2,h3,h4,h5 {
 .bg-purple {
     background-color: #50304a;
 }
+.grey-banner {
+    background-color: #2F2F2F;
+}
 
 .btn-black {
-    background-color: black!important;
-    color: white!important;
+    background-color: black !important;
+    color: white !important;
 }
 
 .btn-black:hover {
-    background-color: #2F2F2F!important;
+    background-color: #2F2F2F !important;
 }
 
 .btn-black:focus {
-    background-color: #50304a!important;
+    background-color: #50304a !important;
 }
 
 .text-secondary {
     color: #7D7D7D!important;
 }
 
+.text-prpl {
+    color: #50304a !important;
+}
+
 .home-images {
     width: 100%;
     margin: 0%;
     padding: 0%;
+}
+
+.dropdown {
+    position: static !important;
+}
+
+.dropdown-menu {
+    margin-top: 0px !important;
+    margin-left: auto !important;
+    margin-right: auto !important; 
+    width: 100vw !important;
+    text-align: center !important;
 }

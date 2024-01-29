@@ -1,0 +1,42 @@
+<div class="container-fluid w-100 grey-banner row d-sm-flex d-lg-none p-2">
+    <ul class="w-auto m-auto text-center mobile-menu">
+        <li class="list-inline-item dropdown m-0">
+            <a class="text-dark nav-link py-2 text-center" href="" id="search-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-magnifying-glass text-secondary"></i>
+            </a>
+            <form class="form-inline dropdown-menu rounded-0" aria-labelledby="search-toggle">
+                <div class="dropdown-item p-2 input-group">
+                    <input class="form-control rounded-0 border-dark" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-black rounded-0" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </form>
+        </li>
+        <li class="list-inline-item dropdown ">
+                <a class="text-dark nav-link py-2 text-center" href="" id="user-sm-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-user text-secondary"></i>
+                </a>
+                <div class="dropdown-menu rounded-0" aria-labelledby="user-sm-toggle">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item"><strong>Manage Products</strong></a>
+                        {% endif %}
+                        <a href="#" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
+                    {% endif %}
+                </div>
+        </li>   
+        <li class="list-inline-item">
+                <a class="{% if grand_total %} text-prpl font-weight-bold{% else %}text-secondary{% endif %} text-center py-2 nav-link" href="">   
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+        </li>
+    </ul>  
+</div>
