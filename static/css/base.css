@@ -14,7 +14,7 @@ body {
     font-family: 'Montserrat', sans-serif !important;
     overflow-x: hidden;
     overflow-y: scroll;
-    color: black;
+    background-color: black !important;
     max-width: 100vw !important;
     max-height: 100vh !important;
 }
@@ -25,12 +25,27 @@ main {
     margin: 0 auto !important;
 }
 
+.frame-content {
+    padding: 2%;
+    margin: auto !important;
+}
+
+/* Fonts */
+
 h1,h2,h3,h4,h5 {
     font-family: 'Megrim', system-ui;
 }
 
 .font-light {
     font-weight: 100;
+}
+
+label, .small-font {
+    font-size: small !important;
+}
+
+.megrim {
+    font-family: 'Megrim', system-ui;
 }
 
 /* Navigation */
@@ -43,8 +58,23 @@ header {
     background-color: #2F2F2F !important;
 }
 
+#navbar-top {
+    background-color: white !important;
+}
 
-/* Background and font colours */
+
+/* Backgrounds and font colours */
+
+.bg-frame {
+    background-image: url(/static/images/container-img.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    padding: 5% 2% 2%;
+    height: 67vh !important;
+    margin: 0 auto;
+}
 
 .bg-purple {
     background-color: #50304a;
@@ -139,7 +169,7 @@ header {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .dropdown {
         position: static !important;
     }
@@ -158,16 +188,43 @@ header {
         height: 85vh !important;
     }
 
+    .bg-frame {
+        height: 45vh !important;
+    }
+
+    .frame-content {
+        margin-top: 2vh !important;
+    }
+
+    .allauth-frames {
+        margin-top: 8vh !important;
+        height: 60vh !important;
+
+    }
+
+    .allauth-frames .frame-content {
+        padding: 2% !important;
+    }
 }
 
 @media (max-width: 576px) {
     .carousel .one, .carousel .two, .carousel .three {
         height: 77vh !important;
+        background-size: cover;
     }
 
     .home-container {
         margin-top: 35vh !important;
         padding: 1%;
+    }
+
+    .bg-frame {
+        background-image: url(/static/images/container-img-mobile.webp);
+        height: 74vh !important;
+    }
+
+    .allauth-frames {
+        margin-top: 0 !important;
     }
 }
 
@@ -176,11 +233,26 @@ header {
         margin-top: 30vh !important;
         padding: 0;
     }
+
+    .bg-frame {
+        height: 80vh !important;
+        background-position: top;
+        margin-top: 3vh !important;
+    }
+
+    allauth-frames .frame-content {
+        padding: 1% !important;
+    }
 }
 
 @media (max-width: 279px) {
     footer ul > .list-inline-item, .mobile-menu {
         margin: 0 !important;
         padding: 0 !important;
+    }
+
+    .bg-frame {
+        background-image: none !important;
+        background-color: white;
     }
 }
