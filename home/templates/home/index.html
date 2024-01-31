@@ -2,18 +2,17 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid h-100">
+<div class="container-fluid p-0 h-100">
     <div class="row w-100">
-        <div id="carouselHomepageIndicators" class="carousel slide col-7 col-md-6 my-auto min-vw-100" data-ride="carousel" data-interval="7000">
+        <div id="carouselHomepageIndicators" class="carousel slide border-0 col-7 col-md-6 my-auto min-vw-100" data-ride="carousel" data-interval="7000">
             <ol class="carousel-indicators">
                 <li data-target="#carouselHomepageIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselHomepageIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselHomepageIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner min-vw-100 m-0 p-0">
-                <div class="carousel-item active">
+                <div class="carousel-item one active">
                     <div class="d-flex align-items-end justify-content-start">
-                        <img src="{% static 'home/newsletter.jpg' %}" class="d-block home-images" id="#newsletter" alt="Coven in the forest">
                         <div class="home-container float-left">
                             <h1 class="text-uppercase">Join the coven</h1>
                             <p class="font-light">Sign up to our newsletter for news, events and promo codes!</p>
@@ -23,9 +22,8 @@
                         </div>
                     </div>              
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item two">
                     <div class="d-flex align-items-end justify-content-start" >
-                        <img src="{% static 'home/shop-new.jpg' %}" height="100" class="d-block home-images overflow-hidden" id="shop-new" alt="Gothic girl holding a glass of wine">
                         <div class="home-container float-left">
                             <h1 class="text-uppercase">Become a thrift goddess</h1>
                             <p class="font-light">Find new treasures every Wednesday. No luck spells needed!</p>
@@ -35,9 +33,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="d-flex align-items-end justify-content-start" >
-                        <img src="{% static 'home/shop-shoes.jpg' %}" class="d-block home-images" id="shop-shoes" alt="Demonia platform shoes">
+                <div class="carousel-item three">
+                    <div class="d-flex align-items-end justify-content-start">
                         <div class="home-container float-left">
                             <h1 class="text-uppercase">Stomp into the darkness</h1>
                             <p class="font-light">Rock your style with our selection of footwear!</p>
