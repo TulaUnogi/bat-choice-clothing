@@ -6,28 +6,30 @@
 html {
     max-width: 100vw;
     background-color: black;
-    max-height: 100vh !important;
+    height: 100vh !important;
     overflow: hidden;
 }
 
 body {
     font-family: 'Montserrat', sans-serif !important;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden !important;
     background-color: black !important;
     max-width: 100vw !important;
-    max-height: 100vh !important;
+    height: 100vh !important;
 }
 
 main {
     background-color: black !important;
     max-width: 100vw;
     margin: 0 auto !important;
-}
+    padding-top: 10vh !important;
+    }
 
-.frame-content {
+.main-content {
     padding: 2%;
     margin: auto !important;
+    overflow-y: scroll;
 }
 
 /* Fonts */
@@ -52,6 +54,9 @@ label, .small-font {
 
 header {
     background-color: white !important;
+    overflow-x: hidden !important;
+    z-index: 999999;
+    padding-right: 0 !important;
 }
 
 #main-navbar,footer {
@@ -115,8 +120,7 @@ header {
 /* Scroll bar */
 
 ::-webkit-scrollbar {
-   width: 0px;
-   display: none;
+    width: 0;
 }
   
 
@@ -139,6 +143,7 @@ header {
     -moz-background-size: contain !important;
     height: 70vh !important;
     max-width: 100vw !important;
+    bottom: 0;
 }
 
 .carousel .two {
@@ -192,7 +197,7 @@ header {
         height: 45vh !important;
     }
 
-    .frame-content {
+    .main-content {
         margin-top: 2vh !important;
     }
 
@@ -202,7 +207,7 @@ header {
 
     }
 
-    .allauth-frames .frame-content {
+    .allauth-frames .main-content {
         padding: 2% !important;
     }
 }
@@ -223,8 +228,16 @@ header {
         height: 74vh !important;
     }
 
+    .main-content {
+        margin-top: 3vh !important;
+    }
+
     .allauth-frames {
         margin-top: 0 !important;
+    }
+
+    header {
+        right: 1px;
     }
 }
 
@@ -240,12 +253,12 @@ header {
         margin-top: 3vh !important;
     }
 
-    allauth-frames .frame-content {
+    allauth-frames .main-content {
         padding: 1% !important;
     }
 }
 
-@media (max-width: 279px) {
+@media (max-width: 292px) {
     footer ul > .list-inline-item, .mobile-menu {
         margin: 0 !important;
         padding: 0 !important;
@@ -255,4 +268,9 @@ header {
         background-image: none !important;
         background-color: white;
     }
+
+    .main-content {
+        margin-top: 1vh !important;
+    }
+
 }
