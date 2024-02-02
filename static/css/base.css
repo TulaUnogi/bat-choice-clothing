@@ -55,9 +55,6 @@ label, .small-font {
 
 header {
     background-color: white !important;
-    overflow-x: hidden !important;
-    z-index: 999999 !important;
-    padding-right: 0 !important;
 }
 
 #main-navbar,footer {
@@ -68,6 +65,9 @@ header {
     background-color: white !important;
 }
 
+footer {
+    z-index: 99999 !important;
+}
 
 /* Backgrounds and font colours */
 
@@ -255,13 +255,15 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 991px) {
+    .dropdown { 
+        position: static !important; 
+    } 
 
     .dropdown-menu {
-        margin: 0 !important;
-        width: 100vw !important;
+        margin-left: -20vw !important;
+        margin-right: -20vw !important;
+        min-width: 100vw !important;
         text-align: center !important;
-        padding-left: 15% !important;
-        padding-right: 6% !important;
 }
 
     .carousel .one, .carousel .two, .carousel .three {
@@ -316,10 +318,6 @@ input[type="checkbox"] {
 
     .allauth-frames {
         margin-top: 0 !important;
-    }
-
-    header {
-        right: 1px;
     }
 
     .form-group {
