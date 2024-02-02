@@ -56,9 +56,9 @@
       <div id="navbar-top" class="row d-none d-lg-flex p-lg-2 w-100">
         <div class="col-4 my-auto">
           <ul class="list-inline list-unstyled text-center float-lg-left p-2 mt-2 mb-0">
-            <li class="list-inline-item"> 
+            <li class="list-inline-item">
               <a class="{% if grand_total %} text-dark font-weight-bold{% else %}text-dark{% endif %} py-0 nav-link" href="">   
-                <i class="fa-solid fa-bag-shopping text-dark"></i>             
+                <i class="fa-solid fa-bag-shopping text-dark"></i>
                 <div class="text-center">
                   <p class="my-0">
                     <small>
@@ -82,14 +82,14 @@
               </a>
               <div class="dropdown-menu rounded-0 text-dark" aria-labelledby="user-toggle">
                 {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                        <a href="#" class="dropdown-item"><strong>Manage Products</strong></a>
-                    {% endif %}
-                    <a href="#" class="dropdown-item">My Profile</a>
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
-                {% else %}
-                    <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
-                    <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
+                  {% if request.user.is_superuser %}
+                  <a href="#" class="dropdown-item"><strong>Manage Products</strong></a>
+                  {% endif %}
+                  <a href="#" class="dropdown-item">My Profile</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
+                  {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
                 {% endif %}
               </div>
             </li>
@@ -122,9 +122,9 @@
       </div>
       <div id="info-banner" class="row text-center">
         <div class="col bg-purple text-white text-uppercase">
-          <h6 class="my-1"><strong>Free shipping</strong> on orders over 100€!</h6>         
-        </div>            
-      </div>      
+          <h6 class="my-1"><strong>Free shipping</strong> on orders over 100€!</h6>
+        </div>
+      </div>
     </header>
     
     <main class="container-fluid p-0 d-block">
@@ -136,15 +136,15 @@
       <div class="d-flex">
         <ul class="list-inline m-auto col-7 text-center d-flex justify-content-around">
           <li class="list-inline-item">
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-secondary"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-secondary"><i class="fa-brands fa-square-instagram"></i></a>
           </li>
           <li class="list-inline-item">
             <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-secondary"><i class="fa-brands fa-facebook"></i></a>
           </li>
           <li class="list-inline-item">
-              <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-secondary"><i class="fa-brands fa-square-x-twitter"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="text-secondary"><i class="fa-brands fa-square-x-twitter"></i></a>
           </li>
-      </ul>
+        </ul>
       </div>
     </footer>
 
