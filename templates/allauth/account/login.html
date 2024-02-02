@@ -3,6 +3,9 @@
 {% load i18n %}
 {% load account socialaccount %}
 
+{% load crispy_forms_filters %} 
+{% load crispy_forms_tags %}
+
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
@@ -64,7 +67,7 @@
     <form class="login rounded-0" method="POST" action="{% url 'account_login' %}">
 
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ form|crispy }}
       {% if redirect_field_value %}#
 
       <input class="border border-dark" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
