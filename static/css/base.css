@@ -198,6 +198,11 @@ input {
     border-radius: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
+    background: white !important;
+}
+
+input:focus {
+    box-shadow: 3px 3px 20px #50304a !important;
 }
 
 .form-check-input {
