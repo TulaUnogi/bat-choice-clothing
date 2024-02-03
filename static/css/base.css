@@ -39,6 +39,7 @@ main {
 
 h1,h2,h3,h4,h5 {
     font-family: 'Megrim', system-ui;
+    text-shadow: 1px 1px 4px #9e0081 !important;
 }
 
 .font-light {
@@ -147,6 +148,10 @@ footer {
     color: white;
     margin-top: 37vh !important;
     backdrop-filter: blur(1px);
+}
+
+.home-container p {
+    text-shadow: 1px 1px 2px #9e0081 !important;
 }
 
 .carousel .one {
