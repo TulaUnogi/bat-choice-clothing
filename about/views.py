@@ -10,3 +10,8 @@ def faq(request):
     """ A view to return the faq page """
     
     return render(request, "about/faq.html")
+
+def our_story(request):
+    """ A view to return the faq page """
+    
+    return render(request, "about/our-story.html")
