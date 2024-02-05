@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "FAQ" %}{% endblock %}
+
+{% block content %}
+<div class="bg-darkground">
+  <div class="text-light my-3 p-3 middle-container">
+    <h1 class="my-3 display-4 text-center uppercase">Frequently asked questions</h1>
+    <div class="accordion my-5" id="faqordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              What is your shipping policy?
+            </button>
+          </h2>
+        </div>
+    
+        <div id="collapseOne" class="collapse collapsed" aria-labelledby="headingOne" data-parent="#faqordion">
+          <div class="card-body">
+            <p>
+              <strong>We ship worldwide!</strong>
+            </p>
+            <p>Your items will be dispatched within 2-3 working days from receiving your payment.</p>
+            <p>Orders are picked and packed 7 days a week, and are dispatched Mon-Fri.</p>
+            <p>Shipping is calculated at checkout.</p>
+            <p>Shipping is non-refundable in case of a return.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              What about the return policy?
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqordion">
+          <div class="card-body">
+            <p>Since our products are mostly in a used or vintage condition there may be some signs of wear and tear.</p>
+            <p>We will always do our best to select products of the highest quality for you to enjoy.</p>
+            <p>Any visible signs of wear and tear are highlithed in product's description.</p>
+            <p>We only accept returns when:
+              <ul>
+                <li>you applied for the return within 14 days of placing your order,</li>
+                <li>the product description does not match the received product,</li>
+                <li>the purchased product <b>has been only tried on</b> and does not fit your size,</li>
+                <li>there is a visible damage to the product, that was <b>not included in a description,</b></li>
+                <li>the damage to the product was not caused by the shipping provider,</li>
+                <li>the damage was not caused after receiving the product.</li>
+              </ul> 
+            </p>
+            <p>You can apply for the return using our contact form. Please make sure to include any necessary details.</p>
+            <p>Refunds will be processed within 2 working days after receiving returned products.</p>
+            <p>Shipping costs are non-refundable.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Do you have a physical store?
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqordion">
+          <div class="card-body">
+            <p>No, we are a very small business and we only sell online!</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingFour">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseFour">
+              How often you add new products? 
+            </button>
+          </h2>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqordion">
+          <div class="card-body">
+            <p>We add new products every Monday and Thursday! For new products check our "New In" tab!</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              Are international duties and taxes included?
+            </button>
+          </h2>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqordion">
+          <div class="card-body">
+            <p>We do not take responsibility for any additional duties, taxes and advancement fees that may apply to your order.</p>
+            <p>Please make sure to to pay these charges if and when asked to by your local authorities.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingSix">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              Can I change or cancel my order?
+            </button>
+          </h2>
+        </div>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqordion">
+          <div class="card-body">
+            <p>We are sorry, but once the payment has been received we can not cancel or modify your order.</p>
+            <p>If you are not happy with your order, you can return it according to our return policies.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingSeven">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              How will I know my order status?
+            </button>
+          </h2>
+        </div>
+        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqordion">
+          <div class="card-body">
+            <p>Once you purchased your order we will keep you updated via email.</p>
+            <p>You can also check your order status in your profile!</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingEight">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              My order hasn't arrived!
+            </button>
+          </h2>
+        </div>
+        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#faqordion">
+          <div class="card-body">
+            <p>We're sorry if that happened!</p>
+            <p>Please contact us as soon as possible via our contact page to find a solution!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

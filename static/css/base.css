@@ -24,15 +24,19 @@ main {
     max-width: 100vw;
     margin: 0 auto !important;
     padding-top: 10vh !important;
-    max-height: 90vh !important;
+    height: 70vh !important;
     overflow-y: auto !important;
     overflow-x: hidden;
-    position: sticky;
 }
 
 .main-content {
     padding: 2%;
     margin: auto !important;
+}
+
+.middle-container {
+    max-width: 65vw;
+    margin: auto auto;
 }
 
 /* Fonts */
@@ -119,6 +123,12 @@ footer {
     background-color: black !important;
     border: 4px solid #50304a !important;
     color: white !important;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+    text-decoration: none !important;
+    
 }
 
 /* Scroll bar */
@@ -230,6 +240,46 @@ input[type="submit"] {
     width: 25% !important;
 }
 
+
+/* FAQ */
+
+.bg-darkground {
+    background-image: url(/static/images/peter-gargiulo-cGNCepznaV8-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    width: 100vw;
+    margin: 0 auto !important;
+    overflow-y: auto !important;
+}
+
+.card {
+    border-color: #50304a !important;
+    border-radius: 0 !important;
+    background-color: #08080875 !important;
+    backdrop-filter: blur(2px);
+    max-width: 65vw !important;   
+}
+
+.card .btn-link {
+    color: #50304a;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 4px #9e0081 !important;
+}
+
+.card .btn-link:hover {
+    color: white;
+    text-decoration: none;
+    
+}
+
+.card-header {
+    background-color: #2f2f2f42 !important;
+    backdrop-filter: blur(2px);    
+}
+
+
 /* Media queries */
 
 @media (min-width: 2000.99px) {
@@ -283,6 +333,10 @@ input[type="submit"] {
 }
 
 @media (max-width: 991px) {
+    main {
+        height: 85vh !important;
+    }
+
     .dropdown { 
         position: static !important; 
     } 
@@ -322,9 +376,19 @@ input[type="submit"] {
     .form-group {
         width: 35% !important;
     }
+
+    .bg-darkground {
+        width: 100vw !important;
+        height: 91vh !important;
+        background-size: cover;
+    }
 }
 
 @media (max-width: 576px) {
+    main {
+        height: 77vh !important;
+    }
+
     .carousel .one, .carousel .two, .carousel .three {
         height: 77vh !important;
         background-size: cover;
@@ -350,6 +414,18 @@ input[type="submit"] {
 
     .form-group {
         width: 67% !important;
+    }
+
+    .card {
+        text-align: justify !important;
+    }
+
+    .display-4 {
+        font-size: 2.1rem !important;
+    }
+
+    .display-2 {
+        font-size: 3.5rem !important;
     }
 }
 
@@ -384,5 +460,4 @@ input[type="submit"] {
     .main-content {
         margin-top: 1vh !important;
     }
-
 }
