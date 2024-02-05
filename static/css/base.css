@@ -89,6 +89,18 @@ footer {
     margin: 1vh auto 0 auto;
 }
 
+.bg-darkground {
+    background-image: url(/static/images/peter-gargiulo-cGNCepznaV8-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 70vh !important;
+    margin: 0 auto !important;
+    overflow-y: auto !important;
+}
+
 .bg-purple {
     background-color: #50304a;
 }
@@ -130,6 +142,16 @@ footer {
     text-decoration: none !important;
     
 }
+
+
+/* Images */
+
+.founders {  
+    height: 68vh !important;
+    position: fixed;
+    overflow: hidden !important;
+}
+
 
 /* Scroll bar */
 
@@ -242,17 +264,6 @@ input[type="submit"] {
 
 
 /* FAQ */
-
-.bg-darkground {
-    background-image: url(/static/images/peter-gargiulo-cGNCepznaV8-unsplash.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-attachment: fixed;
-    width: 100vw;
-    margin: 0 auto !important;
-    overflow-y: auto !important;
-}
 
 .card {
     border-color: #50304a !important;

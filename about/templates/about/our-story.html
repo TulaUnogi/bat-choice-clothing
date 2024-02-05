@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block head_title %}{% trans "FAQ" %}{% endblock %}
+
+{% block content %}
+<div class="bg-darkground text-light d-flex flex-row justify-content-between">
+  <div class="col-4 mx-auto">
+    <h2 class="p-2 display-4 uppercase">Our Story</h1>
+      <p class="font-light p-2">
+        When in 2020 pandemic hit just as we were graduating from the Fashion Design Academy in Dublin
+        we thought that the world is about to end. <br>
+        Back in those days we would have never thought that we're gonna be in the place we are now!
+        Coming out of the dark pandemic times we realised just how much we care about our planet 
+        and caring for it's sustainability. <br>
+        From our combined love to alt fashion and thrifting we decided to create the very first Irish 
+        online alternative thrift store! <br>
+        There's no more need to leave your bat cave to score some gothic gems anymore - just get cosy 
+        and let's get thrifting!
+      </p>      
+  </div>
+  <div class="col-4 mx-auto px-3 d-flex flex-column align-items-center">
+    <img class="founders mx-auto" src="{% static 'images/founders.webp' %}" alt="Alt couple- founders">
+  </div>
+  <div class="col-4 mx-auto text-right">
+    <h2 class="p-2 display-4 uppercase">Our Promise</h1>
+      <p class="font-light p-2 text-right">
+        We're a small business with a big dream! <br>
+        We love making our customers happy while sharing the spirit of sustainability! <br>
+        We promise that all of our products (even if some of them may still have their tags on!)
+        have been handpicked by us to guarantee that they are sourced by sustainable means. <br>
+        Although most of our products are in a used/ vintage condition we always make sure to deliver
+        the highest possible quality and to provide you with a description of any visible defects or 
+        signs of wear and tear. <br>
+        Happy thrifting!
+      </p>
+  </div>
+  
+</div>
+{% endblock %}
