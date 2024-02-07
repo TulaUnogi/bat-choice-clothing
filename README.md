@@ -276,10 +276,17 @@ To better visualise it I used [this colour palette generator](https://coolors.co
 
 > Pictures
 
+- [cottonbro studio on Pexels](https://www.pexels.com/photo/woman-in-pink-dress-and-man-in-black-leather-jacket-standing-beside-brick-wall-10189421/) for 'founders'
+- [freestocks.org on Pexels](https://www.pexels.com/photo/women-s-black-coach-212410/) for 'shop-new'
+- [Sierra Koder on Unsplash](https://unsplash.com/photos/a-group-of-women-dressed-up-in-witches-costumes-IzBFvkhf_HI) for 'newsletter'
+- [Robbie Noble on Unsplash](https://unsplash.com/photos/person-wearing-pair-of-black-leather-dress-shoes-on-gray-surface-hSygsHzG9ok) for 'shop-new'
+-[Peter Gargiulo on Unsplash](https://unsplash.com/photos/a-black-and-white-photo-of-a-dark-background-cGNCepznaV8) for black background
+-[Logo.com](https://app.logo.com/) for making a logo design much easier
 
 
 > Code
 
+- [Devin B. on Stack Overflow](https://stackoverflow.com/a/52417275/23072594) for admin 404 image error fix
 
 
 > Acknowledgements 
