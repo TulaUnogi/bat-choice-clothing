@@ -1,16 +1,52 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load static %}
 
 {% block head_title %}{% trans "Products" %}{% endblock %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row text-light">
-        <div class="col">
-            {{ products }}
+<div class="container-fluid">
+    <h1 class="my-4 text-light text-center display-4 mx-auto">
+        {{ product_title }} Products
+    </h1>
+    <div class="row text-light text-center product-container mx-auto">
+
+        {% for product in products %}
+
+        <div class="col-lg-3 col-md-5 col-sm-6 col-xl-2 mx-auto my-5">
+            <div class="card border-0 w-100 mx-auto">  
+
+                {% if product.image %}
+
+                <a href="">
+                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                </a>
+
+                {% else %}
+
+                <a href="">
+                    <img src="{{ MEDIA_URL }}no-img.webp" class="card-img-top img-fluid" alt="{{ product.name }}">
+                </a>
+
+                {% endif %}
+
+                <div class="card-body text-center font-light">
+                    <p class="card-text"> 
+                        <strong>{{product.name}} - {{product.size}}</strong>
+                    </p>
+                </div>
+                <div class="card-footer font-light text-center">
+                    <p class="mb-0">
+                        {{product.price}}€
+                    </p>
+                </div>
+            </div>
         </div>
+
+        {% endfor %}
+
     </div>
 </div>
 

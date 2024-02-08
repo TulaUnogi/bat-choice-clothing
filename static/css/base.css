@@ -292,6 +292,18 @@ input[type="submit"] {
 }
 
 
+/* Products */
+
+.product-container {
+    width: 90vw !important;
+}
+
+.card-body {
+    height: 10vh !important;
+    padding: 1% !important;
+}
+
+
 /* Media queries */
 
 @media (min-width: 2000.99px) {
@@ -450,6 +462,11 @@ input[type="submit"] {
 
     .founders {
         height: 30vh !important;
+    }
+
+    .card-body {
+        height: fit-content !important;
+        padding-bottom: 3%;
     }
 }
 
