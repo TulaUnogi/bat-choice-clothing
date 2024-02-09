@@ -58,6 +58,10 @@ label, .small-font {
     font-family: 'Megrim', system-ui;
 }
 
+.total-font {
+    font-size: xxx-large;
+}
+
 /* Navigation */
 
 header {
@@ -303,6 +307,12 @@ input[type="submit"] {
     padding: 1% !important;
 }
 
+.product-img {
+    height: 50vh !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
 
 /* Media queries */
 
@@ -467,6 +477,10 @@ input[type="submit"] {
     .card-body {
         height: fit-content !important;
         padding-bottom: 3%;
+    }
+
+    .mt-3 > .middle-container {
+        width: 97vw !important;
     }
 }
 

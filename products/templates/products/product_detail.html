@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}{% trans "{{ product.name }}" %}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid mt-3">
+    <div class="middle-container mx-md-auto mx-sm-0 p-sm-0 p-md-2">
+        <div class="row mx-auto">
+            <div class="col-lg-6 col-md-10">
+
+                {% if product.image %}
+
+                <a href="{{ product.image.url }}" target="_blank">
+                    <img src="{{ product.image.url }}" class="img-fluid product-img" alt="{{ product.name }}">
+                </a>
+
+                {% else %}
+
+                <a href="{{ product.image.url }}">
+                    <img src="{{ MEDIA_URL }}no-img.webp" class="img-fluid product-img" alt="{{ product.name }}">
+                </a>
+
+                {% endif %}
+
+            </div>
+            <div class="col-lg-6 col-md-8 text-light p-2">
+                <h2>{{ product.name }}</h2>
+                <p>
+                    {{ product.description }}
+                </p>
+                <p>
+                    <u class="text-uppercase">Size: {{ product.size }}</u>
+                </p>
+                <p class="text-prpl total-font float-md-left float-sm-right">
+                    <b>{{ product.price }}€</b>
+                </p>                    
+            </div>
+        </div>
+        <div class="row container-fluid">
+            <div class="col text-center">
+                <button class="mx-auto btn button-bl-prpl text-light megrim mt-4 mx-sm-0 rounded-0 px-5" 
+                        type="submit">Add to basket</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -20,13 +20,13 @@
 
                 {% if product.image %}
 
-                <a href="">
+                <a href="{% url 'product_details' product.id %}">
                     <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
                 </a>
 
                 {% else %}
 
-                <a href="">
+                <a href="{% url 'product_details' product.id %}">
                     <img src="{{ MEDIA_URL }}no-img.webp" class="card-img-top img-fluid" alt="{{ product.name }}">
                 </a>
 
