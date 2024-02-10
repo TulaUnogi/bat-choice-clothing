@@ -15,16 +15,16 @@
                 Clothing
             </a>
             <div class="dropdown-menu border-dark rounded-0 text-uppercase text-center" aria-labelledby="clothing-all">
-                <a href="" class="dropdown-item ">Skirts</a>
-                <a href="" class="dropdown-item">Dresses</a>
-                <a href="" class="dropdown-item ">Tops</a>
-                <a href="" class="dropdown-item ">Trousers</a>
-                <a href="" class="dropdown-item ">Outerwear</a>
+                <a href="{% url 'products' %}?category=skirts" class="dropdown-item ">Skirts</a>
+                <a href="{% url 'products' %}?category=dresses" class="dropdown-item">Dresses</a>
+                <a href="{% url 'products' %}?category=tops" class="dropdown-item ">Tops</a>
+                <a href="{% url 'products' %}?category=trousers" class="dropdown-item ">Trousers & shorts</a>
+                <a href="{% url 'products' %}?category=outerwear" class="dropdown-item ">Outerwear</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
         <li class="nav-item d-block">
-            <a class="font-weight-light nav-link text-white mr-lg-5 text-uppercase" href="" id="shoes">
+            <a class="font-weight-light nav-link text-white mr-lg-5 text-uppercase" href="{% url 'products' %}?category=footwear" id="shoes">
                 Shoes
             </a>
         </li>
