@@ -4,7 +4,7 @@
             <a class="text-dark nav-link py-2 text-center" href="" id="search-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="fa-solid fa-magnifying-glass text-secondary"></i>
             </a>
-            <form class="form-inline collapse navbar-collapse dropdown-menu rounded-0" aria-labelledby="search-toggle">
+            <form method="GET" action="{% url 'products' %}" name="searchForm" class="form-inline collapse navbar-collapse dropdown-menu rounded-0" aria-labelledby="search-toggle">
                 <div class="dropdown-item p-2 input-group">
                     <input class="form-control rounded-0 border-dark" type="search" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">

@@ -100,7 +100,7 @@
           </a>
         </div>
         <div class="col-4 my-auto">
-          <form class="form-inline float-right">
+          <form method="GET" action="{% url 'products' %}" name="searchForm" class="form-inline float-right">
             <input class="form-control-lg rounded-0 border-dark" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-black rounded-0 btn-lg" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
