@@ -299,16 +299,22 @@ input[type="submit"] {
 /* Products */
 
 .product-container {
-    width: 90vw !important;
+    width: 90vw;
 }
 
-.card-body {
+.details-container {
+    width: 70vw;
+    min-height: 70vh;
+    margin: auto;
+}
+
+.product .card-body {
     height: 10vh !important;
     padding: 1% !important;
 }
 
 .product-img {
-    height: 50vh !important;
+    max-height: 50vh !important;
     margin-left: 0 !important;
     padding-left: 0 !important;
 }
@@ -322,8 +328,8 @@ input[type="submit"] {
     }
     
     button {
-        height: calc(1.5em + 0.75rem + 2px);
-        font-size: xx-large !important;
+        height: calc(1.5em + 1.7rem + 2px);
+        font-size: x-large !important;
     }
 
     .bg-frame {
@@ -357,6 +363,19 @@ input[type="submit"] {
 
     h6 {
         font-size: xx-large !important;
+    }
+}
+
+@media (max-width: 1250px) {
+
+    .details-container {
+        width: 95vw;
+    }
+
+    .details-buttons {
+        flex-direction: column !important;
+        justify-content: start !important;
+        width: 50vw !important;
     }
 }
 
@@ -424,6 +443,25 @@ input[type="submit"] {
         object-position: 0 8%;
         position: relative !important;
     }
+
+    .product-img {
+        margin-bottom: 10%;
+    }
+
+    .details-container {
+        padding: 15%;
+        text-align: center;
+    }
+
+    .details-container .row .row .col-12 > button {
+        margin-bottom: 5% !important
+    }
+
+    .details-buttons {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -479,9 +517,10 @@ input[type="submit"] {
         padding-bottom: 3%;
     }
 
-    .mt-3 > .middle-container {
-        width: 97vw !important;
+    .details-container {
+        padding: 0;
     }
+
 }
 
 @media (max-width: 320px) {    
@@ -496,7 +535,7 @@ input[type="submit"] {
         margin-top: 3vh !important;
     }
 
-    allauth-frames .main-content {
+    .allauth-frames .main-content {
         padding: 1% !important;
     }
 }
