@@ -1,10 +1,66 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load static %}
 
 {% block head_title %}{% trans "Contact Us" %}{% endblock %}
 
-{% block content %}
-<h1>Contact</h1>
+{% block extra_js %}
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "flS08y5UmgSnJ6VXt",
+      });
+   })();
+</script>
 
 {% endblock %}
+
+{% block content %}
+<div class="bg-darkground text-light">
+    <h1 class="my-3  display-4 text-center uppercase my-4">Contact</h1>
+    <div class="row mb-5">
+        <div class="col-sm-12 col-lg-6 border-light border-right py-3 px-5">
+            <h2 class="uppercase mb-4">Can't find an answer in our faq?</h2>
+            <p class="font-light mb-4">
+                No worries! Don't hesitate to reach out to us and ask your questions, share your opinions or report an issue. 
+                We're here for you!
+            </p>
+            <p class="font-light mb-5">
+                You can expect an answer to your emails within 24 business hours Mon-Sat.
+                Alternatively, you can call us anytime between GMT 9am-5pm Mon-Fri.
+            </p>
+            <p class="font-light">
+                <i class="fa-solid fa-square-phone"></i> +353 424 242  424
+            </p>
+        </div>
+        <div class="col-sm-12 col-lg-6 py-0 px-5">
+            <form onsubmit="return sendMail(this);" class="contact-form">
+                <label for="from_name">Your full name</label>
+                <input type="text" name="name" id="from_name" placeholder="Your full name" class="form-control border-dark rounded-0"
+                       autocomplete="name" required>
+                <label for="from_email">Your email</label>
+                <input type="email" name="emailaddress" id="from_email" placeholder="Your email" class="form-control border-dark rounded-0" 
+                       autocomplete="email" required>
+                <label for="message">Your message</label>
+                <textarea rows="5" name="contact-message" id="message" placeholder="Your message" 
+                          class="form-control border-dark rounded-0" autocomplete="off" required></textarea>
+                <button type="submit" class="btn button-bl-prpl px-5 mt-3 uppercase megrim rounded-0 d-block mx-auto">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+
+<script src = "{% static 'js/sendEmail.js' %}"></script>
+
+{% endblock %}
+

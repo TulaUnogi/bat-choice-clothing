@@ -267,6 +267,11 @@ input[type="submit"] {
     width: 25% !important;
 }
 
+.contact-form {
+    margin-top: -2vh !important;
+    padding: 0 8%;
+}
+
 
 /* FAQ */
 
