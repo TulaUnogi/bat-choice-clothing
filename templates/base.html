@@ -62,8 +62,8 @@
                 <div class="text-center">
                   <p class="my-0">
                     <small>
-                      {% if grand_total %}
-                        ${{ grand_total|floatformat:2 }}
+                      {% if subtotal %}
+                        ${{ subtotal|floatformat:2 }}
                       {% else %}
                         0.00€
                       {% endif %}
@@ -124,7 +124,7 @@
       </div>
       <div id="info-banner" class="row text-center">
         <div class="col bg-purple text-white text-uppercase">
-          <h6 class="my-1"><strong>Free shipping</strong> on orders over 100€!</h6>
+          <h6 class="my-1"><strong>Free shipping</strong> on orders over {{ free_shipping_treshold }}€!</h6>
         </div>
       </div>
     </section>
