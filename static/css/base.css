@@ -80,6 +80,18 @@ footer {
     z-index: 99999 !important;
 }
 
+/* Dropdowns */
+
+.dropdown-menu {
+    z-index: 1800 !important;
+}
+
+.dropdown-item:hover, .dropdown-item:active {
+    background-color: #50304a !important;
+    color: white !important;
+}
+
+
 /* Backgrounds and font colours */
 
 .bg-frame {

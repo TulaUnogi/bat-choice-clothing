@@ -287,6 +287,7 @@ To better visualise it I used [this colour palette generator](https://coolors.co
 > Code
 
 - [Devin B. on Stack Overflow](https://stackoverflow.com/a/52417275/23072594) for admin 404 image error fix
+- [crimsonpython24 on Stack Overflow](https://stackoverflow.com/a/63047180/23072594) for an idea on how to do a product count
 
 
 > Acknowledgements 

@@ -31,9 +31,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    def return_friendly(self):
-        return self.friendly_name
-
 
 # Products
 class Product(models.Model):
