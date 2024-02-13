@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}{% trans "Shopping Bag" %}{% endblock %}
+
+
+{% block content %}
+<div class="bg-darkground text-light">
+    <h1 class="my-3 display-4 text-center uppercase my-4">Your shopping bag</h1>
+    {% if bag_items %}
+    <div class="row mb-5 text-center text-lg-left">
+        <div class="col-sm-12 col-lg-6 border-light border-right py-3 px-5">
+           
+        </div>
+        <div class="col-sm-12 col-lg-6 py-0 px-5 mt-5 mt-lg-0">
+            
+        </div>
+    </div>
+    {% else %}
+    <div class=" p-5 text-center">
+        <p class="h4 text-center megrim">
+            <i class="fa-solid fa-skull-crossbones text-prpl"></i>
+            Oh no!
+            <i class="fa-solid fa-skull-crossbones text-prpl"></i>
+        </p>
+        <p class="h4 text-center megrim">Your bag is empty!</p>
+    </div>
+    <div class=" p-5 text-center">
+        <a href="">
+            <button class="btn btn-lg button-bl-prpl text-light megrim mt-3 rounded-0 px-4" type="submit">
+                Back to shop
+            </button>
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
