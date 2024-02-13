@@ -86,6 +86,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', # `allauth` needs this from django
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.in_bag',
             ],
         },
     },
@@ -175,6 +176,14 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Shipping values
+
+FREE_SHIPPING_TRESHOLD = 100
+MINIMUM_SHIPPING_COST = 8
+STANDARD_SHIPPING_PERCENTAGE = 18
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
