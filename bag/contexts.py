@@ -1,5 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from products.models import Product
 
 
 def in_bag(request):
@@ -7,6 +9,17 @@ def in_bag(request):
     bag_items = []
     subtotal = 0
     product_count = 0
+    bag = request.session.get('bag', {})
+
+    for item_id, quantity in bag.items():
+        product = get_object_or_404(Product, pk=item_id)
+        product_count += quantity
+        subtotal += quantity * product.price
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        })
 
     if subtotal < settings.FREE_SHIPPING_TRESHOLD:
         shipping = subtotal * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
