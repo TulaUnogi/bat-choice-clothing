@@ -336,6 +336,12 @@ input[type="submit"] {
     padding-left: 0 !important;
 }
 
+.qty_invisible {
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+}
+
 
 /* Media queries */
 
