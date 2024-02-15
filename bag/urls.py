@@ -2,5 +2,6 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('bag', views.bag, name='bag'),
+    path('', views.bag_view, name='bag_view'),
+    path('add/<item_id>/', views.bag_add, name='bag_add'),
 ]
