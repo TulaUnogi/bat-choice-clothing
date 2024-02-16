@@ -362,6 +362,10 @@ input[type="submit"] {
     padding: 1.5rem !important;
 }
 
+.remove-product {
+    cursor: pointer !important;
+}
+
 /* Media queries */
 
 @media (min-width: 2000.99px) {

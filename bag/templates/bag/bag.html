@@ -32,9 +32,9 @@
                                 <p class="my-sm-4 my-lg-0 text-center">{{ item.product.price }}</p>
                             </td>
                             <td class="bag">
-                                <p class="my-sm-4 my-lg-0 text-center">
+                                <a class="my-sm-4 my-lg-0 text-center remove-product" id="remove_{{ item.item_id }}">
                                     <i class="fa-solid fa-trash text-prpl"></i>
-                                </p>
+                                </a>
                             </td>
                         </tr>
                         
@@ -98,3 +98,26 @@
 </div>
 {% endblock %}
 
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script type="text/javascript">
+
+    // Remove item from bag by clicking on a trash icon
+
+    $('.remove-product').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/bag/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+    
+
+</script>
+
+{% endblock %}
