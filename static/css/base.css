@@ -353,6 +353,15 @@ input[type="submit"] {
     width: 5vw !important;
 }
 
+.price-total {
+    font-size: xx-large !important;
+    font-weight: bold !important;
+}
+
+.bag {
+    padding: 1.5rem !important;
+}
+
 /* Media queries */
 
 @media (min-width: 2000.99px) {
@@ -495,6 +504,14 @@ input[type="submit"] {
         justify-content: space-between !important;
         width: 100% !important;
     }
+
+    .bag {
+        padding: 1.3rem !important;
+    }
+
+    .border-sm-top {
+        border-top: 1px solid white;
+    }
 }
 
 @media (max-width: 576px) {
@@ -554,6 +571,10 @@ input[type="submit"] {
         padding: 0;
     }
 
+    .bag {
+        padding: .7rem !important;
+    }
+
 }
 
 @media (max-width: 320px) {    
@@ -570,6 +591,10 @@ input[type="submit"] {
 
     .allauth-frames .main-content {
         padding: 1% !important;
+    }
+
+    .bag {
+        padding: 0.5rem !important;
     }
 }
 
