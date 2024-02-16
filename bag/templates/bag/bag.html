@@ -9,10 +9,58 @@
 {% block content %}
 <div class="bg-darkground text-light">
     <h1 class="my-3 display-4 text-center uppercase my-4">Your shopping bag</h1>
+    
     {% if bag_items %}
+    
     <div class="row mb-5 text-center text-lg-left">
         <div class="col-sm-12 col-lg-6 border-light border-right py-3 px-5">
-           {{ bag_items }}
+            <div class="table-responsive">
+                <table class="table-transparent">
+                    <thead>
+                        <tr class="border-bottom">                            
+                            <th class="p-3 text-center" scope="col">
+                                <p>
+                                    Product details
+                                </p> 
+                            </th>
+                            <th class="p-3">
+                            <th class="p-3 text-center" scope="col">
+                                <p>
+                                    Quantity
+                                </p> 
+                            </th>
+                            <th class="p-3 text-center" scope="col">
+                                <p>
+                                    Price
+                                </p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for item in bag_items %}
+
+                        <tr>
+                            <td class="p-4">
+                                <img class="img-bag-checkout" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            </td>
+                            <td class="p-4">
+                                <p class="my-0">{{ item.product.name }}</p>
+                            </td>
+                            <td class="p-4">
+                                <p class="my-0 text-center">{{ item.product.quantity }}</p>
+                            </td>
+                            <td class="p-4">
+                                <p class="my-0 text-center">{{ item.product.price }}</p>
+                            </td>
+                        </tr>
+                        
+                       {% endfor %}
+
+                    </tbody>
+                </table>              
+            </div>
+            
         </div>
         <div class="col-sm-12 col-lg-6 py-0 px-5 mt-5 mt-lg-0">
             

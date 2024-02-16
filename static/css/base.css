@@ -343,6 +343,16 @@ input[type="submit"] {
 }
 
 
+/* Bag */
+
+.table-transparent {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.img-bag-checkout {
+    width: 5vw !important;
+}
+
 /* Media queries */
 
 @media (min-width: 2000.99px) {
