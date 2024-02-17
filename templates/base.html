@@ -38,22 +38,6 @@
   </head>
   <body>
     <header>
-
-      {% if messages %}
-      <div class="message-container">
-        <ul class="container-fluid alert-dismissible fade show alert-info" role="alert">
-          {% for message in messages %}
-            <li class="p-3 list-unstyled alert">
-              {{message}}
-              <button type="button" class="close my-auto" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
-
       <div id="navbar-top" class="row d-none d-lg-flex p-lg-2 w-100">
         <div class="col-4 my-auto">
           <ul class="list-inline list-unstyled text-center float-lg-left p-2 mt-2 mb-0">
@@ -108,6 +92,26 @@
         </div>
       </div>
     </header>
+
+    {% if messages %}
+      <div class="message-container">        
+          {% for message in messages %}
+            {% with message.level as level %}
+              {% if message.level == 40 %}
+                {% include 'includes/toasts/toast_error.html' %}
+              {% elif message.level == 30 %}
+                {% include 'includes/toasts/toast_warning.html' %}
+              {% elif message.level == 25 %}
+                {% include 'includes/toasts/toast_success.html' %}
+              {% else %}
+                {% include 'includes/toasts/toast_info.html' %}
+              {% endif %}
+            {% endwith %}
+           
+          {% endfor %}
+      </div>
+      {% endif %}
+
     <section>
       <div class="row bg-white">
         <nav class="navbar navbar-expand-lg navbar-light w-100 p-0">
@@ -152,6 +156,11 @@
     </footer>
 
     {% block postloadjs %}
+
+    <script type="text/javascript">
+      $('.toast').toast('show');
+    </script>
+
     {% endblock %}
     
   </body>
