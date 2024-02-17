@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
@@ -11,7 +11,7 @@ def bag_view(request):
 def bag_add(request, item_id):
     """ Add product to the bag """
 
-    product = Product.objects.get(pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -33,9 +33,11 @@ def bag_remove_item(request, item_id):
 
     try:
 
+        product = get_object_or_404(Product, pk=item_id)
         bag = request.session.get('bag', {})
 
         bag.pop(item_id)
+        messages.success(request, f'{ product.name } has been removed from your bag!')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
@@ -43,3 +45,4 @@ def bag_remove_item(request, item_id):
     except Exception as e:
 
         return HttpResponse(status=500)
+        messages.error(request, f'Error removing product: {e}')
