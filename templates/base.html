@@ -91,26 +91,25 @@
           </form>
         </div>
       </div>
-    </header>
-
-    {% if messages %}
-      <div class="message-container">        
-          {% for message in messages %}
-            {% with message.level as level %}
-              {% if message.level == 40 %}
-                {% include 'includes/toasts/toast_error.html' %}
-              {% elif message.level == 30 %}
-                {% include 'includes/toasts/toast_warning.html' %}
-              {% elif message.level == 25 %}
-                {% include 'includes/toasts/toast_success.html' %}
-              {% else %}
-                {% include 'includes/toasts/toast_info.html' %}
-              {% endif %}
-            {% endwith %}
-           
-          {% endfor %}
-      </div>
+      {% if messages %}
+        <div class="message-container">        
+            {% for message in messages %}
+              {% with message.level as level %}
+                {% if message.level == 40 %}
+                  {% include 'includes/toasts/toast_error.html' %}
+                {% elif message.level == 30 %}
+                  {% include 'includes/toasts/toast_warning.html' %}
+                {% elif message.level == 25 %}
+                  {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                  {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+              {% endwith %}
+            
+            {% endfor %}
+        </div>
       {% endif %}
+    </header>
 
     <section>
       <div class="row bg-white">
