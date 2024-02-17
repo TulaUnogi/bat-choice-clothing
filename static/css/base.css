@@ -39,14 +39,24 @@ main {
     margin: auto auto;
 }
 
+/* Toasts */
+
 .message-container {
     position: fixed;
     z-index: 999999999;
+    overflow: visible;
 }
 
 .toast-top {
     height: 4px;
 }
+
+.bag-toast-container {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: 100px !important;
+}
+
 
 /* Fonts */
 
@@ -183,19 +193,21 @@ footer {
 
 ::-webkit-scrollbar {
     position: absolute;
-    width: 0.7em;
-    background: rgba(0, 0, 0, 0);
+    width: 1em;
+    background: rgba(0, 0, 0, 0.259);
+    z-index: 999999999999999999999999 !important;
+
 }
 
 ::-webkit-scrollbar-thumb {
     background: #50304a74 !important;
-    width: 0.7em;
+    width: 1em;
+    z-index: 9999999999999999999999999 !important;
 }
 
 ::-webkit-scrollbar-track-piece {
     display:none !important;
-}
-  
+}  
 
 /* Homepage */
 
