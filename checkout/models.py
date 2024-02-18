@@ -20,8 +20,8 @@ class Order(models.Model):
     city = models.CharField(max_length=85, null=False, blank=False)
     postcode = models.CharField(max_length=30, null=True, blank=True)
     country = models.CharField(max_length=56, null=False, blank=False)
-    order_number = models.UUIDField(
-        default=uuid.uuid4, unique=True, db_index=True, editable=False
+    order_number = models.CharField(
+        max_length=32, null=False, unique=True, db_index=True, editable=False
     )
     order_status = models.CharField(max_length=40, null=False, blank=False)
 
@@ -50,6 +50,9 @@ class OrderLineItem(models.Model):
     )
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE
+    )
+    product_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0
     )
     product_quantity = models.IntegerField(default=1, null=False) #single items only
     order_subtotal = models.DecimalField(
