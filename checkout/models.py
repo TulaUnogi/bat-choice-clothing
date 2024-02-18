@@ -44,7 +44,7 @@ class OrderLine(models.Model):
     def update_order_totals(self):
 
         # Calculate order subtotal (from Code Institute Boutique Ado walktrough)
-        self.order_subtotal = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.order_subtotal = self.lineitems.aggregate(Sum('product_total'))['product_total__sum']
         
         # Calculate discount value
         if self.discount.code:
@@ -66,6 +66,21 @@ class OrderLine(models.Model):
         # Calculate grand total
         self.grand_total = self.order_total + self.delivery_cost
 
+    def create_order_number(self):
+        """ Use UUID to create a unique order number"""
+
+        return uuid.uuid4().hex.upper()
+
+    def save(self, *args, **kwargs):
+        """ 
+        Override the default save to set the order number if it wasn't there yet.
+        From Boutique Ado walktrough.
+        """
+
+        if not self.order_number:
+            self.order_number = self._create_order_number()
+            super().save(*args, **kwargs)
+
     def __str__(self):
         return f'Order grand total: {self.grand_total}€'
 
@@ -79,3 +94,18 @@ class Discount(models.Model):
 
     def __str__(self):
         return f'{self.discount_percent}% off with code: {self.discount_code}'
+
+
+class OrderLineItem(models.Model):
+    """ Stores ordered product data """
+    product = ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    product_total = DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    product_quantity = IntegerField(default=1, max=1, min=1, null=False) #single items only
+
+    def save(self, *args, **kwargs):
+        """ Overrides the default save to set total """
+        self.product_total = self.product.price * self.quantity
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.product_total
