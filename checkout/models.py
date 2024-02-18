@@ -5,32 +5,35 @@ from django.db.models import Sum
 import uuid
 
 
-class Order(models.Model):
-    """ Stores all customer order data """
-    
-    order_date_time = models.DateTimeField(auto_now_add=True)
-    first_name = models.CharField(max_length=50, null=False, blank=False)
-    last_name = models.CharField(max_length=50, null=False, blank=False)
-    email = models.EmailField(max_length=300, null=False, blank=False)
-    phone_number = models.CharField(max_length=19, null=False, blank=False)
-    address_line1 = models.CharField(max_length=70, null=False, blank=False)
-    address_line2 = models.CharField(max_length=70, null=False, blank=False)
-    address_line3 = models.CharField(max_length=70, null=True, blank=True)
-    region = models.CharField(max_length=85, null=False, blank=False)
-    city = models.CharField(max_length=85, null=False, blank=False)
-    postcode = models.CharField(max_length=30, null=True, blank=True)
-    country = models.CharField(max_length=56, null=False, blank=False)
-    order_number = models.UUIDField(default=uuid.uuid4, unique=True, db_index=True, editable=False)
-    order_status = models.CharField(max_length=40, null=False, blank=False)
+class Discount(models.Model):
+    """ Stores active discount codes and their values """
+
+    code = models.CharField(max_length=30, null=True, blank=True)
+    percent = models.PositiveIntegerField(null=True, default=0)
+    is_active = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.order_number
+        return f'{self.discount_percent}% off with code: {self.discount_code}'
+
+
+class OrderLineItem(models.Model):
+    """ Stores ordered product data """
+    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+    product_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    product_quantity = models.IntegerField(default=1, null=False) #single items only
+
+    def save(self, *args, **kwargs):
+        """ Overrides the default save to set total """
+        self.product_total = self.product.price * self.quantity
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.product_total
 
 
 class OrderLine(models.Model):    
     """ Stores data related to calculated order totals """
 
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE)
     order_line_items = models.ForeignKey(Product, null=False, blank=False, 
                                          on_delete=models.CASCADE, 
                                          related_name='lineitems')
@@ -85,27 +88,24 @@ class OrderLine(models.Model):
         return f'Order grand total: {self.grand_total}€'
 
 
-class Discount(models.Model):
-    """ Stores active discount codes and their values """
-
-    code = models.CharField(max_length=30, null=True, blank=True)
-    percent = models.PositiveIntegerField(max_digits=2, null=True, default=0)
-    is_active = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f'{self.discount_percent}% off with code: {self.discount_code}'
-
-
-class OrderLineItem(models.Model):
-    """ Stores ordered product data """
-    product = ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    product_total = DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    product_quantity = IntegerField(default=1, max=1, min=1, null=False) #single items only
-
-    def save(self, *args, **kwargs):
-        """ Overrides the default save to set total """
-        self.product_total = self.product.price * self.quantity
-        super().save(*args, **kwargs)
+class Order(models.Model):
+    """ Stores all customer order data """
+    
+    order = models.ForeignKey(OrderLine, null=False, blank=False, on_delete=models.CASCADE)
+    order_date_time = models.DateTimeField(auto_now_add=True)
+    first_name = models.CharField(max_length=50, null=False, blank=False)
+    last_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=300, null=False, blank=False)
+    phone_number = models.CharField(max_length=19, null=False, blank=False)
+    address_line1 = models.CharField(max_length=70, null=False, blank=False)
+    address_line2 = models.CharField(max_length=70, null=False, blank=False)
+    address_line3 = models.CharField(max_length=70, null=True, blank=True)
+    region = models.CharField(max_length=85, null=False, blank=False)
+    city = models.CharField(max_length=85, null=False, blank=False)
+    postcode = models.CharField(max_length=30, null=True, blank=True)
+    country = models.CharField(max_length=56, null=False, blank=False)
+    order_number = models.UUIDField(default=uuid.uuid4, unique=True, db_index=True, editable=False)
+    order_status = models.CharField(max_length=40, null=False, blank=False)
 
     def __str__(self):
-        return self.product_total
+        return self.order_number
