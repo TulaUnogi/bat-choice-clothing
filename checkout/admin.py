@@ -1,5 +1,5 @@
 from django.contrib import admin
-from checkout.models import OrderLineItem, Order
+from checkout.models import OrderLineItem, Order, Discount
 
 
 class OrderLineItemAdminInlines(admin.TabularInline):
@@ -30,3 +30,4 @@ class OrderAdmin(admin.ModelAdmin):
     ordering = ('-order_date_time',)
 
 admin.site.register(Order, OrderAdmin)
+admin.site.register(Discount)
