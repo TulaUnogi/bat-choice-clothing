@@ -140,4 +140,4 @@ class Discount(models.Model):
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.discount_percent}% off with code: {self.discount_code}'
+        return f'{self.percent}% off with code: {self.code}'
