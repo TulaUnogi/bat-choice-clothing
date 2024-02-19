@@ -295,7 +295,7 @@ input[type="submit"] {
     margin-bottom: 2% !important;
 }
 
-.form-group {
+.main-content .form-group {
     margin: 0 auto !important;
     width: 25% !important;
 }
@@ -305,6 +305,19 @@ input[type="submit"] {
     padding: 0 8%;
 }
 
+#pay_form fieldset {
+    width: 40vw !important;
+    margin: 0 auto !important;
+}
+
+#pay_form input {
+    width: 40vw !important;
+    
+}
+
+.discount label {
+    width: 1px !important;
+}
 
 /* FAQ */
 
@@ -377,6 +390,7 @@ input[type="submit"] {
 .price-total {
     font-size: xx-large !important;
     font-weight: bold !important;
+    line-height: 1.1em !important;
 }
 
 .bag {
@@ -386,6 +400,19 @@ input[type="submit"] {
 .remove-product {
     cursor: pointer !important;
 }
+
+/* Checkout */
+
+.product-capper {
+    width: 50%;
+}
+
+.checkout-products {
+    height: 20vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 
 /* Media queries */
 
@@ -540,6 +567,15 @@ input[type="submit"] {
 
     .toast {
         margin-top: 35% !important;
+    }
+
+    #pay_form fieldset {
+        width: 90vw !important;
+        margin: 0 auto !important;
+    }
+    
+    #pay_form input {
+        width: 90vw !important;        
     }
 }
 

@@ -3,7 +3,123 @@
 {% load i18n %}
 {% load static %}
 
+{% load crispy_forms_filters %} 
+{% load crispy_forms_tags %}
+
 {% block head_title %}{% trans "Checkout" %}{% endblock %}
 
 {% block content %}
+<div class="bg-darkground text-light">
+    
+    {% if bag_items %}
+    
+    <div class="row mb-5 text-center text-lg-left">
+        <div class="col-sm-12 col-lg-6">
+            <h2 class="uppercase display-4 text-center my-3">Order Details</h2>
+            <div class="bag mt-4 my-2">            
+                <div class="d-flex flex-row flex-wrap justify-content-between checkout-products"> 
+
+                    {% for item in bag_items %}
+                        
+                        <div class="row p-1 my-auto product-capper">
+                            <div class="col-3">
+                                <img class="img-bag-checkout" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            </div>
+                            <div class="col-9">
+                                <small>
+                                    <p class="m-0"><b>{{ item.product.name }}</b></p>                                
+                                    <p>{{ item.product.price }}</p>
+                                </small>
+                            </div>                            
+                        </div>  
+                    
+                    {% endfor %}
+
+                </div>                    
+                <div class="row bag border-top my-2">
+                    <div class="col-lg-8 col-sm-12 text-left">
+                        <small>
+                            <p>
+                                <b>Subtotal:</b> {{ subtotal }}
+                            </p>
+                            <p>
+                                <b>Shipping:</b> {{ shipping }}
+                            </p>
+                        </small>
+                        <form action="" method="POST" class="d-flex flex-row justify-content-start discount">
+                            {% csrf_token %}
+                            <label for="discount_input" aria-labelledby="discount_input">
+                                Enter your discount code here
+                            </label>
+                            <span>
+                                <input type="text" name="discount" id="discount_input" placeholder="Enter discount code" 
+                                   class="form-control border-dark rounded-0" autocomplete="name">
+                            </span>
+                            <span>
+                                <input class="btn btn-lg megrim rounded-0 px-2 font-weight-bold" type="submit" 
+                                    value="%" aria-label="Add discount">
+                            </span>
+                            
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 d-flex flex-row justify-content-end">                        
+                        <h3 class="text-uppercase mr-4">Total:</h3>                        
+                        <span class="text-prpl price-total">
+                            {{ subtotal }}€
+                        </span>
+                    </div>
+                </div>           
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
+            <h2 class="uppercase display-4 text-center my-3">
+                Shipping and Card details
+            </h2>
+            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left">
+                <form action="{% url 'checkout' %}" method="POST" id="pay_form" class="my-auto">
+                    {% csrf_token %}
+                    <fieldset class="rounded-0 my-5 my-auto">
+                        <legend class="fieldset-label megrim text-uppercase">
+                            Your details
+                        </legend>
+                        {{ order_form.first_name | as_crispy_field }}
+                        {{ order_form.last_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="rounded-0 my-5 my-auto">
+                        <legend class="fieldset-label megrim text-uppercase">
+                            Shipping details
+                        </legend>
+                        {{ order_form.address_line1 | as_crispy_field }}
+                        {{ order_form.address_line2 | as_crispy_field }}
+                        {{ order_form.address_line3 | as_crispy_field }}
+                        {{ order_form.city | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.region | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class=" p-5 text-center">
+        <p class="h4 text-center megrim">
+            <i class="fa-solid fa-skull-crossbones text-prpl"></i>
+            Oh no!
+            <i class="fa-solid fa-skull-crossbones text-prpl"></i>
+        </p>
+        <p class="h4 text-center megrim">Your bag is empty!</p>
+    </div>
+    <div class=" p-5 text-center">
+        <a href="{% url 'products' %}">
+            <button class="btn btn-lg button-bl-prpl text-light megrim mt-3 rounded-lg-0 px-4" type="submit">
+                Back to shop
+            </button>
+        </a>
+    </div>
+    {% endif %}
+</div>
 {% endblock %}
