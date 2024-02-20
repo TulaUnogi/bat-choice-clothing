@@ -1,0 +1,1 @@
+web: gunicorn bat-choice-clothing.wsgi:application

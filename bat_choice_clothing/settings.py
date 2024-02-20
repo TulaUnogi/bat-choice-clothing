@@ -26,7 +26,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # Setting up debug
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-tulaunogi-batchoiceclot-6rs6vrwdjeg.ws-eu108.gitpod.io',]
+ALLOWED_HOSTS = ['8000-tulaunogi-batchoiceclot-6rs6vrwdjeg.ws-eu108.gitpod.io',
+                 'https://bat-choice-clothing-ff8ff2b21dca.herokuapp.com/',
+                 'localhost',]
 
 
 # Application definition
@@ -120,16 +122,16 @@ WSGI_APPLICATION = 'bat_choice_clothing.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if DEBUG:
+if "DATABASE_URL" in os.environ:
+    DATABASES = {
+            'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        }
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
 
 
