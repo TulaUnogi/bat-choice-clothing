@@ -43,7 +43,7 @@
                                 <b>Subtotal:</b> {{ subtotal }}
                             </p>
                             <p>
-                                <b>Shipping:</b> {{ shipping }}
+                                <b>Shipping:</b> {{ shipping|floatformat:2 }}
                             </p>
                         </small>
                         <form action="" method="POST" class="d-flex flex-row justify-content-start discount">
@@ -66,7 +66,7 @@
                     <div class="col-lg-4 col-sm-12 d-flex flex-row justify-content-end">                        
                         <h3 class="text-uppercase mr-4">Total:</h3>                        
                         <span class="text-prpl price-total">
-                            {{ subtotal }}€
+                            {{ grand_total|floatformat:2 }}€
                         </span>
                     </div>
                 </div>           
@@ -99,7 +99,54 @@
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.region | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
+                        <div class="form-check form-check-inline float-right mr-0 text-light">
+							{% if user.is_authenticated %}
+								<label class="form-check-label my-auto visible" for="checkout-save-info">Save this shipping details to my profile</label>
+                                <input class="form-check-input ml-2 mr-0 mt-3" type="checkbox" id="checkout-save-info" name="save-info" checked>
+							{% else %}
+								<label class="form-check-label" for="checkout-save-info">
+                                    <a class="text-prpl font-weight-bold" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-prpl font-weight-bold" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+							{% endif %}
+						</div>
                     </fieldset>
+                    <fieldset class="rounded-0 my-5 my-auto">
+                        <legend class="fieldset-label megrim text-uppercase">Payment</legend>
+                        <!-- Room for Stripe card -->
+                        <div class="mb-3" id="card-element"></div>
+
+                        <!-- For form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+
+                    <div class="row d-flex flex-row justify-content-between order-buttons-container">
+                        <div class="col-6">                   
+                            <a href="{% url 'bag_view' %}" class="btn">
+                                <span>
+                                    <i class="fa-solid fa-arrow-left text-prpl"></i>
+                                </span>
+                                <span class="megrim text-light text-uppercase font-weight-bold">Adjust Bag</span>
+                            </a>
+                        </div>
+                        <div class="col-6 text-right mr-0 p-0">
+                            <button id="submit-button" class="btn button-bl-prpl px-4 rounded-0">
+                                <span class="icon">
+                                    <i class="fas fa-lock text-prpl"></i>
+                                </span>
+                                <span class="megrim font-weight-bold">Complete Order</span>
+                                
+                            </button>
+                            <p class="text-danger my-0">
+                                <span class="icon">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </span>
+                                <span>
+                                    <small>Your card will be charged <strong>{{ grand_total|floatformat:2 }}€</strong></small>
+                                </span>
+                            </p>
+                        </div>
+					</div>
                 </form>
             </div>
         </div>

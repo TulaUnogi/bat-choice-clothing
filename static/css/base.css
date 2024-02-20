@@ -263,6 +263,8 @@ label {
     font-size: x-small !important;
 }
 
+.main-content label
+
 label[for="id_remember"] {
     visibility: visible !important;
     height: unset;
@@ -315,9 +317,14 @@ input[type="submit"] {
     
 }
 
+#pay_form input[type="checkbox"] {
+    width: unset !important;
+}
+
 .discount label {
     width: 1px !important;
 }
+
 
 /* FAQ */
 
@@ -411,6 +418,14 @@ input[type="submit"] {
     height: 20vh;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.order-buttons-container {
+    width: 40vw !important;
+}
+
+.icon {
+    font-size: smaller;
 }
 
 
@@ -576,6 +591,10 @@ input[type="submit"] {
     
     #pay_form input {
         width: 90vw !important;        
+    }
+
+    .order-buttons-container {
+        width: 90vw !important;
     }
 }
 
