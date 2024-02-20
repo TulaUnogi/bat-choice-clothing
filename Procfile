@@ -1,1 +1,1 @@
-web: gunicorn bat-choice-clothing.wsgi:application
+web: gunicorn bat_choice_clothing.wsgi:application
