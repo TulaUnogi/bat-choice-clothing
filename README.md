@@ -240,7 +240,7 @@ To better visualise it I used [this colour palette generator](https://coolors.co
  
 ## Known bugs 
 
-
+The app is currently not finished yet, so there is no product management, User profile or Stripe payments present yet.
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -250,15 +250,128 @@ To better visualise it I used [this colour palette generator](https://coolors.co
 
 #### The deployment stage of the website should follow the steps below:
 
+> Create the Heroku app
 
+- Sign up / Log in to Heroku
+- In Heroku Dashboard page select 'New' and then 'Create New App'
+- Name a project - I decided on the bat-choice-clothing (the app's name must be unique)
+- Select EU as that was my region in the moment of creating the app
+- Select "Create App"
+- In the "Deploy" tab choose GitHub as the deployment method
+- Connect your GitHub account/ find and connect your GitHub repository
+
+> Set up enviroment variables
+
+- In the Django app editor create env.py in the top level
+- In env.py import os
+- In env.py set up necessary enviroment variables:
+  - add a secret key using: os.environ['SECRET_KEY'] = 'your secret key'
+  - in settings.py replace value of SECRET_KEY variable with os.environ.get('SECRET_KEY')
+  - in settings.py change the DATABASES to:
+  ```
+  if "DATABASE_URL" in os.environ:
+    DATABASES = {
+            'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+  ```
+- In Django app's settings.py on top of the file add:
+```
+from pathlib import Path
+import os
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
+```
+
+- Set up [Amazon AWS S3 bucket](https://aws.amazon.com/s3/)
+- Install django-storages and boto3
+- Navigate to the "Settings" tab in Heroku.
+- Open the "Config Vars" section and add DATABASE_URL as Key and the database link as Value
+- Add SECRET_KEY for the Key value and the secret key value from env.py as the Value
+- Set variable "USE_AWS" to "True"
+- Add AWS bucket "AWS_ACCESS_KEY_ID" and "AWS_SECRET_ACCESS_KEY" and set their values (downloaded from S3 AWS)
+- In custom_storages.py:
+```
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+
+```
+- In the terminal migrate the models over to the new database connection
+- In settings.py add the STATIC files settings as follows:
+```
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if 'USE_AWS' in os.environ:
+
+    AWS_STORAGE_BUCKET_NAME = 'ckz8780-boutique-ado'
+    AWS_S3_REGION_NAME = 'us-east-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+- Change the templates directory in settings.py to: TEMPLARES_DIR = os.path.join(BASE_DIR, 'templates')
+- In TEMPLATES variable change the 'DIRS' key to look like this: 'DIRS': [TEMPLARES_DIR],
+- Add Heroku to the ALLOWED_HOSTS list (the format will be your-app-name.herokuapp.com, you can copy it from the Domains section in Settings tab in your Heroku app)
+- If you haven't done that up to this point, then create in your Django app's code editor new top level folders: static and templates
+- Create a new file on the top level directory - Procfile, remembering to use a capital letter
+- Within the Procfile add following:
+```
+web: guincorn PROJECT_NAME.wsgi
+``` 
+- In the terminal, add the changed files, commit and push to GitHub
+
+> Heroku deployment
+
+- In Heroku, navigate to the Deployment tab and deploy the branch manually 
+- Heroku will display a build log- watch the build logs for any errors
+- Once the build process is completed Heroku displays 'Your App Was Successfully Deployed' message and a link to the app to visit the live site
 
 #### Forking the repository
 
+By forking the GitHub Repository you can make a copy of the original repository to view or change without it effecting the original repository. You can do this with following steps:
 
+- Log in to GitHub or create an account
+- Enter this [repository link](https://github.com/TulaUnogi/bat-choice-clothing)
+- Select "Fork" from the top of the repository
+- A copy of the repository should now be created in your own repository
 
 #### Create a clone of this repository
 
+Creating a clone enables you to make a copy of the current version of this repository to run the project locally. To do this follow steps below:
 
+- Navigate to https://github.com/TulaUnogi/bat-choice-clothing
+- Click on the <>Code button at the top of the list of files
+- Select the "HTTPS" option on the "Local" tab and copy the URL it provides to the clipboard
+- Navigate to your code editor and in the terminal change the directory to your chosen location 
+- Type "git clone" and paste the GitHub repository's link
+- Press enter and git will clone the repository for you
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -266,7 +379,12 @@ To better visualise it I used [this colour palette generator](https://coolors.co
 
 ## Resources
 
-
+- [Code Institute Full Stack Development course materials](https://codeinstitute.net/global/full-stack-software-development-diploma/) 
+- [Django documentation](https://www.djangoproject.com/)
+- [Crispy forms docs](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [Bootstrap docs](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Stack overflow](https://stackoverflow.com/)
+- [Slack](https://slack.com/intl/en-ie/)
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -286,6 +404,8 @@ To better visualise it I used [this colour palette generator](https://coolors.co
 
 > Code
 
+- [Boutique Ado walktrough](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/250e2c2b8e43cccb56b4721cd8a8bd4de6686546) from [Code Institute](https://learn.codeinstitute.net/) for the walktrough lessons on how to build an e-commerce web app
+- [Lesson about using EmailJS](https://github.com/Code-Institute-Solutions/InteractiveFrontendDevelopment-Resume/tree/master/03-SendingEmailsUsingEmailJS/06-sending_emails) for other than Django approach to handling emails
 - [Devin B. on Stack Overflow](https://stackoverflow.com/a/52417275/23072594) for admin 404 image error fix
 - [crimsonpython24 on Stack Overflow](https://stackoverflow.com/a/63047180/23072594) for an idea on how to do a product count
 
