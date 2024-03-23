@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # Setting up debug
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-tulaunogi-batchoiceclot-6rs6vrwdjeg.ws-eu108.gitpod.io',
+ALLOWED_HOSTS = ['8000-tulaunogi-batchoiceclot-y8abkjs09jj.ws-eu110.gitpod.io',
                  'bat-choice-clothing-ff8ff2b21dca.herokuapp.com',
                  'localhost',]
 
