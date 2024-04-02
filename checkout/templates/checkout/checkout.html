@@ -23,7 +23,17 @@
                         
                         <div class="row p-1 my-auto product-capper">
                             <div class="col-3">
+
+                                {% if item.product.image %}
+
                                 <img class="img-bag-checkout" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+
+                                {% else %}
+                
+                                <img src="{% static 'images/no-img.webp' %}" class="img-bag-checkout" alt="{{ item.product.name }}">
+                                
+                                {% endif %}
+
                             </div>
                             <div class="col-9">
                                 <small>

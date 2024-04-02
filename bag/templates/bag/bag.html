@@ -23,7 +23,17 @@
 
                         <tr>
                             <td class="bag">
+                                
+                                {% if item.product.image %}
+
                                 <img class="img-bag-checkout" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+
+                                {% else %}
+                
+                                <img src="{% static 'images/no-img.webp' %}" class="img-bag-checkout" alt="{{ item.product.name }}">
+                                
+                                {% endif %}
+
                             </td>
                             <td class="bag">
                                 <p class="my-sm-4 my-lg-0">{{ item.product.name }}</p>
