@@ -19,11 +19,9 @@
                 </a>
 
                 {% else %}
-
-                <a href="{{ product.image.url }}">
-                    <img src="{{ MEDIA_URL }}no-img.webp" class="img-fluid product-img" alt="{{ product.name }}">
-                </a>
-
+                
+                <img src="{% static 'images/no-img.webp' %}" class="img-fluid product-img" alt="{{ product.name }}">
+                
                 {% endif %}
 
             </div>
