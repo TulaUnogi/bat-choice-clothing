@@ -175,8 +175,7 @@ footer {
 
 .btn:focus {
     box-shadow: none !important;
-    text-decoration: none !important;
-    
+    text-decoration: none !important;  
 }
 
 
@@ -209,51 +208,6 @@ footer {
     display:none !important;
 }  
 
-/* Homepage */
-
-.home-container {
-    z-index: 9999 !important;
-    float: left;
-    padding-left: 15%;
-    color: white;
-    margin-top: 37vh !important;
-    backdrop-filter: blur(1px);
-}
-
-.home-container p {
-    text-shadow: 1px 1px 2px #9e0081 !important;
-}
-
-.carousel .one {
-    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), url('/static/images/newsletter.webp') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    -moz-background-size: contain !important;
-    height: 70vh !important;
-    max-width: 100vw !important;
-    bottom: 0;
-}
-
-.carousel .two {
-    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), url('/static/images/shop-new.webp') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    -moz-background-size: contain !important;
-    height: 70vh !important;
-    max-width: 100vw !important;
-}
-
-.carousel .three {
-    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), url('/static/images/shop-shoes.webp') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    -moz-background-size: contain !important;
-    height: 70vh !important;
-    max-width: 100vw !important;
-}
 
 /* Forms */
 
@@ -323,89 +277,6 @@ input[type="submit"] {
 
 .discount label {
     width: 1px !important;
-}
-
-
-/* FAQ */
-
-.card {
-    border-color: #50304a !important;
-    border-radius: 0 !important;
-    background-color: #08080875 !important;
-    backdrop-filter: blur(2px);
-    max-width: 65vw !important;   
-}
-
-.card .btn-link {
-    color: #50304a;
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 4px #9e0081 !important;
-}
-
-.card .btn-link:hover {
-    color: white;
-    text-decoration: none;
-    
-}
-
-.card-header {
-    background-color: #2f2f2f42 !important;
-    backdrop-filter: blur(2px);    
-}
-
-
-/* Products */
-
-.product-container {
-    width: 90vw;
-}
-
-.details-container {
-    width: 70vw;
-    min-height: 70vh;
-    margin: auto;
-}
-
-.product .card-body {
-    height: 10vh !important;
-    padding: 1% !important;
-}
-
-.product-img {
-    max-height: 50vh !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
-
-.qty_invisible {
-    visibility: hidden;
-    width: 1px;
-    height: 1px;
-}
-
-
-/* Bag */
-
-.table-transparent {
-    background-color: rgba(0, 0, 0, 0) !important;
-}
-
-.img-bag-checkout {
-    width: 5vw !important;
-}
-
-.price-total {
-    font-size: xx-large !important;
-    font-weight: bold !important;
-    line-height: 1.1em !important;
-}
-
-.bag {
-    padding: 1.5rem !important;
-}
-
-.remove-product {
-    cursor: pointer !important;
 }
 
 
