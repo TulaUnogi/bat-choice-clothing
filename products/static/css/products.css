@@ -1,0 +1,28 @@
+/* Products */
+
+.product-container {
+    width: 90vw;
+}
+
+.details-container {
+    width: 70vw;
+    min-height: 70vh;
+    margin: auto;
+}
+
+.product .card-body {
+    height: 10vh !important;
+    padding: 1% !important;
+}
+
+.product-img {
+    max-height: 50vh !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.qty_invisible {
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+}
