@@ -3,6 +3,10 @@
 {% load i18n %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% load crispy_forms_filters %} 
 {% load crispy_forms_tags %}
 
@@ -179,4 +183,13 @@
     </div>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+
 {% endblock %}
