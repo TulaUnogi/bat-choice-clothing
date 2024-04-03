@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="toast rounded-0 shadow border-0 mr-2" data-autohide="false">
     <div class="toast-top bg-success w-100"></div>
     <div class="toast-header text-success shadow rounded-0 border-0">
@@ -27,7 +29,15 @@
 
             <div class="row mr-3">
                 <div class="col-3 my-1">
-                    <img class="w-100" src="{{ item.product.image.url }}">
+                    {% if item.product.image %}
+
+                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+
+                    {% else %}
+        
+                        <img src="{% static 'images/no-img.webp' %}" class="w-100" alt="{{ item.product.name }}">
+                        
+                    {% endif %}
                 </div>
                 <div class="my-1 col-9">
                     <p class="my-0 text-break">
