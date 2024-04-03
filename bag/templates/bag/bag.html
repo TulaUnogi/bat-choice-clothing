@@ -3,6 +3,10 @@
 {% load i18n %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
+{% endblock %}
+
 {% block head_title %}{% trans "Shopping Bag" %}{% endblock %}
 
 
