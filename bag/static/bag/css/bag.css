@@ -4,16 +4,6 @@
     background-color: rgba(0, 0, 0, 0) !important;
 }
 
-.img-bag-checkout {
-    width: 5vw !important;
-}
-
-.price-total {
-    font-size: xx-large !important;
-    font-weight: bold !important;
-    line-height: 1.1em !important;
-}
-
 .bag {
     padding: 1.5rem !important;
 }
