@@ -217,8 +217,6 @@ label {
     font-size: x-small !important;
 }
 
-.main-content label
-
 label[for="id_remember"] {
     visibility: visible !important;
     height: unset;
@@ -259,24 +257,6 @@ input[type="submit"] {
 .contact-form {
     margin-top: -2vh !important;
     padding: 0 8%;
-}
-
-#pay_form fieldset {
-    width: 40vw !important;
-    margin: 0 auto !important;
-}
-
-#pay_form input {
-    width: 40vw !important;
-    
-}
-
-#pay_form input[type="checkbox"] {
-    width: unset !important;
-}
-
-.discount label {
-    width: 1px !important;
 }
 
 
