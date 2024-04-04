@@ -9,9 +9,10 @@ var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
-        color: '#000',
+        color: '#495057',
         fontSmoothing: 'antialiased',
-        fontSize: '16px',
+        fontFamily: '"Montserrat", sans-serif',
+        fontSize: '1rem',
         '::placeholder': {
             color: '#aab7c4'
         }
