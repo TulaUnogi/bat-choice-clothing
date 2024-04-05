@@ -26,7 +26,8 @@
 }
 
 #pay_form input, #pay_form fieldset, .stripe-style-input {
-    width: 40vw;    
+    width: 40vw;
+    font-family: "Montserrat", sans-serif ;
 }
 
 #pay_form input[type="checkbox"] {
@@ -61,4 +62,9 @@
 
 .stripe-style-input::placeholder {
     color: #aab7c4;
+}
+
+#card-element {
+    padding-top: 0.5em;
+    padding-left: 0.2em;
 }
