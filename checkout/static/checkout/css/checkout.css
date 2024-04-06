@@ -11,11 +11,15 @@
 }
 
 .order-buttons-container {
-    width: 40vw !important;
+    width: 42vw;
 }
 
 .icon {
     font-size: smaller;
+}
+
+.border-checkout {
+    border-left: 1px solid white;
 }
 
 

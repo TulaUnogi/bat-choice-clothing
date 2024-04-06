@@ -25,8 +25,8 @@
 
                     {% for item in bag_items %}
                         
-                        <div class="row p-1 my-auto product-capper">
-                            <div class="col-3">
+                        <div class="row p-1 my-auto product-capper d-flex flex-column flex-md-row">
+                            <div class="col-md-3">
 
                                 {% if item.product.image %}
 
@@ -39,8 +39,8 @@
                                 {% endif %}
 
                             </div>
-                            <div class="col-9">
-                                <small>
+                            <div class="col-md-9">
+                                <small class="p-1">
                                     <p class="m-0"><b>{{ item.product.name }}</b></p>                                
                                     <p>{{ item.product.price }}</p>
                                 </small>
@@ -51,7 +51,7 @@
 
                 </div>                    
                 <div class="row bag border-top my-2">
-                    <div class="col-lg-8 col-sm-12 text-left">
+                    <div class="col-lg-8 col-sm-12 text-lg-left text-right justify-content-end justify-content-lg-start">
                         <small>
                             <p>
                                 <b>Subtotal:</b> {{ subtotal }}
@@ -60,7 +60,7 @@
                                 <b>Shipping:</b> {{ shipping|floatformat:2 }}
                             </p>
                         </small>
-                        <form action="" method="POST" class="d-flex flex-row justify-content-start discount">
+                        <form action="" method="POST" class="d-flex flex-row justify-content-lg-start justify-content-end discount">
                             {% csrf_token %}
                             <label for="discount_input" aria-labelledby="discount_input">
                                 Enter your discount code here
@@ -90,7 +90,7 @@
             <h2 class="uppercase display-4 text-center my-3">
                 Shipping and Card details
             </h2>
-            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left">
+            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-checkout">
                 <form action="{% url 'checkout' %}" method="POST" id="pay_form" class="my-auto">
                     {% csrf_token %}
                     <fieldset class="rounded-0 my-5 my-auto">
@@ -134,24 +134,24 @@
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
 
-                    <div class="row d-flex flex-row justify-content-between order-buttons-container">
-                        <div class="col-6">                   
-                            <a href="{% url 'bag_view' %}" class="btn">
+                    <div class="row d-flex flex-row justify-content-between order-buttons-container mt-3">
+                        <div class="col-12 col-md-5 mr-0 my-2 p-2 text-center text-md-left">                   
+                            <a href="{% url 'bag_view' %}" class="btn mx-3 mx-lg-0">
                                 <span>
                                     <i class="fa-solid fa-arrow-left text-prpl"></i>
                                 </span>
                                 <span class="megrim text-light text-uppercase font-weight-bold">Adjust Bag</span>
                             </a>
                         </div>
-                        <div class="col-6 text-right mr-0 p-0">
-                            <button id="submit-button" class="btn button-bl-prpl px-4 rounded-0">
+                        <div class="col-12 col-md-7 mr-0 my-2 text-center text-md-right">
+                            <button id="submit-button" class="btn button-bl-prpl px-4 mx-3 mx-lg-0 rounded-0">
                                 <span class="icon">
                                     <i class="fas fa-lock text-prpl"></i>
                                 </span>
                                 <span class="megrim font-weight-bold">Complete Order</span>
                                 
                             </button>
-                            <p class="text-danger my-0">
+                            <p class="text-danger mb-4 mr-1 text-center text-md-right">
                                 <span class="icon">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
                                 </span>
