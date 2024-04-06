@@ -575,7 +575,7 @@ input[type="submit"] {
     }
 
     .bag {
-        padding: 0.5rem !important;
+        padding: 0.3rem !important;
     }
 
     .toast {
@@ -600,4 +600,9 @@ input[type="submit"] {
     .toast {
         margin-top: 52% !important;
     }
+
+    .bag {
+        padding: 0.2rem !important;
+    }
+
 }
