@@ -44,7 +44,6 @@ class Product(models.Model):
     secondary_colour = models.CharField(choices=COLOURS, default='BLACK', max_length=50)
     image = models.ImageField(null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
-    is_sold_out = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'products'
