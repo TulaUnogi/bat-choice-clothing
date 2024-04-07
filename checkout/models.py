@@ -6,7 +6,7 @@ import uuid
 
 
 class Order(models.Model):
-    """Stores all customer order data"""
+    """Stores all customer order data and calculates order total"""
     
     order_date_time = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=50, null=False, blank=False)
@@ -24,43 +24,11 @@ class Order(models.Model):
         max_length=32, null=False, unique=True, db_index=True, editable=False
     )
     order_status = models.CharField(max_length=40, null=False, blank=False)
-
-    def __str__(self):
-        return self.order_number
-
-    def order_total(self):
-        return self.order_total
-
-    def shipping_cost(self):
-        return self.shipping_cost
-
-    def grand_total(self):
-        return self.grand_total
-
-
-class OrderLineItem(models.Model):
-    """
-    Stores ordered product data
-    & data related to calculated order totals
-    """
-
-    order_line = models.ForeignKey(
-        Order, null=False, blank=False, on_delete=models.CASCADE,
-        related_name="lineitems",
-    )
-    product = models.ForeignKey(
-        Product, null=False, blank=False, on_delete=models.CASCADE
-    )
-    product_total = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, default=0
-    )
-    product_quantity = models.IntegerField(default=1, null=False) #single items only
     order_subtotal = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, default=0
-    )
+        max_digits=6, decimal_places=2, null=False, default=0)
     discount = models.OneToOneField(
-        "Discount", on_delete=models.CASCADE, related_name="discount"
-    )  # one code per order
+        "Discount", null=True, on_delete=models.CASCADE, related_name="discount"
+    )  # one code per order    
     order_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0
     )
@@ -128,9 +96,43 @@ class OrderLineItem(models.Model):
             self.grand_total = self.update_grand_total()
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return f'Order grand total: {self.grand_total}€'
+    def order_total(self):
+        return self.order_total
 
+    def shipping_cost(self):
+        return self.shipping_cost
+
+    def grand_total(self):
+        return self.grand_total
+    
+    def __str__(self):
+        return f'Order grand total for order number {self.order_number}: {self.grand_total}€'
+
+
+class OrderLineItem(models.Model):
+    """
+    Stores ordered product data
+    """
+
+    order = models.ForeignKey(
+        Order, null=False, blank=False, on_delete=models.CASCADE,
+        related_name="lineitems",
+    )
+    product = models.ForeignKey(
+        Product, null=False, blank=False, on_delete=models.CASCADE
+    )
+    product_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0
+    )
+    product_quantity = models.IntegerField(default=1, null=False) #single items only
+    
+    def save(self, *args, **kwargs):
+        """
+        Override default save function to set the product_total.
+        """
+        self.product_total = self.product.price * self.quantity
+        super().save(*args, **kwargs)    
+    
 
 class Discount(models.Model):
     """Stores active discount codes and their values"""
