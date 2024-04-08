@@ -115,10 +115,10 @@
                         {{ order_form.country | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0 text-light">
 							{% if user.is_authenticated %}
-								<label class="form-check-label my-auto visible" for="checkout-save-info">Save this shipping details to my profile</label>
-                                <input class="form-check-input ml-2 mr-0 mt-3" type="checkbox" id="checkout-save-info" name="save-info" checked>
+								<label class="form-check-label my-auto visible" for="info_save">Save this shipping details to my profile</label>
+                                <input class="form-check-input ml-2 mr-0 mt-3" type="checkbox" id="info_save" name="info_save" checked>
 							{% else %}
-								<label class="form-check-label" for="checkout-save-info">
+								<label class="form-check-label" for="info_save">
                                     <a class="text-prpl font-weight-bold" href="{% url 'account_signup' %}">Create an account</a> or 
                                     <a class="text-prpl font-weight-bold" href="{% url 'account_login' %}">login</a> to save this information
                                 </label>
