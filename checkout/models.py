@@ -44,19 +44,19 @@ class Order(models.Model):
         # Calculate order subtotal (from Code Institute Boutique Ado walktrough)
         self.order_subtotal = self.lineitems.aggregate(Sum("product_total"))[
             "product_total__sum"
-        ]
-
-    def update_product_total(self):
-        self.product_total = self.product.price * self.quantity
+        ] or 0
+        self.save()
 
     def update_discounted_total(self):
         # Calculate discount value
         if self.discount.code:
             discount_value = (self.subtotal * self.discount.percent) / 100
+            self.save()
         else:
             discount_value = 0
         # Calculate total
         self.order_total = self.order_subtotal - discount_value
+        self.save()
 
     def update_shipping_cost(self):
         # Calculate shipping costs
@@ -64,6 +64,7 @@ class Order(models.Model):
             self.shipping_cost = (
                 self.order_subtotal * settings.STANDARD_DELIVERY_PERCENTAGE / 100
             )
+            self.save()
         elif self.shipping_cost < settings.MINIMUM_SHIPPING_COST:
             self.shipping_cost = settings.MINIMUM_SHIPPING_COST
         else:
@@ -72,8 +73,9 @@ class Order(models.Model):
     def update_grand_total(self):
         # Calculate grand total
         self.grand_total = self.order_total + self.delivery_cost
+        self.save()
 
-    def create_order_number(self):
+    def _create_order_number(self):
         """Use UUID to create a unique order number"""
 
         return uuid.uuid4().hex.upper()
@@ -90,7 +92,7 @@ class Order(models.Model):
             self.order_subtotal = self.update_order_total()
         elif not self.order_total:
             self.order_total = self.update_order_total()
-        elif not self.order_s:
+        elif not self.shipping_cost:
             self.shipping_cost = self.update_shipping_cost()
         elif not self.order_total:
             self.grand_total = self.update_grand_total()
@@ -106,7 +108,7 @@ class Order(models.Model):
         return self.grand_total
     
     def __str__(self):
-        return f'Order grand total for order number {self.order_number}: {self.grand_total}€'
+        return self.order_number
 
 
 class OrderLineItem(models.Model):
@@ -130,7 +132,7 @@ class OrderLineItem(models.Model):
         """
         Override default save function to set the product_total.
         """
-        self.product_total = self.product.price * self.quantity
+        self.product_total = self.product.price * self.product_quantity
         super().save(*args, **kwargs)    
     
 
