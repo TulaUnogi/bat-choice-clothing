@@ -45,7 +45,6 @@ def checkout(request):
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
-                    print('product does not exist')
                     messages.error(request, "One or more of the products in your bag \
                         hasn't been found in the database. Please contact us for assistance.")
                     order.delete()
@@ -55,18 +54,16 @@ def checkout(request):
                 #         in your bag is already sold out!")
                 #     order.delete()
                 #     return redirect(reverse('bag_view'))
-            print(f'Form valid {order}')
             request.session['info_save'] = 'info_save' in request.POST
             return redirect(reverse('success_checkout_page', args=[order.order_number]))
         else:
             messages.error(request, 'Oops! There was an error with your form! \
                 Please make sure to provide correct information.')
-            print('Form issues')
+
 
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            print('No bag found!')
             messages.error(request, 'Oops! Nothing in your bag yet!')
             return redirect(reverse('products'))
         
@@ -78,15 +75,13 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(f'{bag_now}')
+        order_form = OrderForm()
 
     if not stripe_public_key:
-        print('Oops! Missing Stripe public key! \
-            Please set it up in your environment!')
         messages.warning(request, 'Oops! Missing Stripe public key! \
             Please set it up in your environment!')
 
-    order_form = OrderForm()
+
     template = "checkout/checkout.html"
     context = {
         'order_form': order_form,
