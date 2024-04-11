@@ -408,10 +408,13 @@ Creating a clone enables you to make a copy of the current version of this repos
 - [Lesson about using EmailJS](https://github.com/Code-Institute-Solutions/InteractiveFrontendDevelopment-Resume/tree/master/03-SendingEmailsUsingEmailJS/06-sending_emails) for other than Django approach to handling emails
 - [Devin B. on Stack Overflow](https://stackoverflow.com/a/52417275/23072594) for admin 404 image error fix
 - [crimsonpython24 on Stack Overflow](https://stackoverflow.com/a/63047180/23072594) for an idea on how to do a product count
+- [Ashot Aleqsanyan on Stack Overflow](https://stackoverflow.com/a/56985340/23072594) for custom font integration for Stripe
 
 
 > Acknowledgements 
 
+- Tutors:
+    - Holly for helping me with Stripe orders not processing 
 
 
 ##### [ Back to Top ](#table-of-contents)
