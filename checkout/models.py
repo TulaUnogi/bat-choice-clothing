@@ -64,11 +64,12 @@ class Order(models.Model):
             self.shipping_cost = (
                 self.order_subtotal * settings.STANDARD_DELIVERY_PERCENTAGE / 100
             )
-            self.save()
         elif self.shipping_cost < settings.MINIMUM_SHIPPING_COST:
             self.shipping_cost = settings.MINIMUM_SHIPPING_COST
         else:
             self.shipping_cost = 0
+        self.save()
+        
 
     def update_grand_total(self):
         # Calculate grand total
@@ -89,9 +90,9 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._create_order_number()
         elif not self.order_subtotal:
-            self.order_subtotal = self.update_order_total()
+            self.order_subtotal = self.update_order_subtotal()
         elif not self.order_total:
-            self.order_total = self.update_order_total()
+            self.order_total = self.update_discounted_total()
         elif not self.shipping_cost:
             self.shipping_cost = self.update_shipping_cost()
         elif not self.order_total:
