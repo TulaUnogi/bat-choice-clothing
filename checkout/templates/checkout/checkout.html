@@ -13,6 +13,7 @@
 {% block head_title %}{% trans "Checkout" %}{% endblock %}
 
 {% block content %}
+
 <div class="bg-darkground text-light">
     
     {% if bag_items %}
@@ -163,6 +164,14 @@
 					</div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div id="checkout-loading">
+        <div class="text-center spinner">
+            <button class="button-bl-prpl btn-lg" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
         </div>
     </div>
     {% else %}

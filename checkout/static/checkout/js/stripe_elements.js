@@ -9,11 +9,11 @@ var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements({
     fonts: [
       {
-        // integrate your font into stripe
+        // integrate font into stripe
         cssSrc: 'https://fonts.googleapis.com/css2?family=Megrim&family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap',
       }
     ]
-  });;
+  });
 
 var style = {
     base: {
@@ -59,6 +59,8 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
+    $('#pay_form').fadeToggle(100);
+    $('#checkout-loading').fadeToggle(100);
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
@@ -72,6 +74,8 @@ form.addEventListener('submit', function(ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
+            $('#pay_form').fadeToggle(100);
+            $('#checkout-loading').fadeToggle(100);
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
         } else {
