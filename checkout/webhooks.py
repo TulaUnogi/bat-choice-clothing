@@ -24,7 +24,7 @@ def webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-        payload, sig_header, webhook_secret
+            payload, sig_header, webhook_secret
         )
     except ValueError as e:
         # When there's an invalid payload
@@ -41,7 +41,7 @@ def webhook(request):
     # Map webhook events to the right handlers
     event_map = {
         'payment_intent.succeeded': handler.handle_payment_intent_succeeded,
-        'payment_intent.payment_failed': handler.handle_payment_intent_payment_failed,
+        'payment_intent.payment_failed': handler.handle_payment_intent_failed,
     }
 
     # Get the webhook type
@@ -49,7 +49,7 @@ def webhook(request):
 
     """ Get a handler from the event map
     or use the generic one by default """
-    event_handler = event_map.get(event_type, handler.handle_event)
+    event_handler = event_map.get(event_type, handler.handle_webhook_event)
 
     response = event_handler(event)
     print('success!')
