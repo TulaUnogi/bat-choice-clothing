@@ -65,14 +65,8 @@
     </div>
     <div class="row text-center">
         <div class="col-12">
-            <p class="text-prpl font-weight-bold">First Name:</p>
-            <p class="font-italic">{{ order.first_name }}</p>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col-12">
-            <p class="text-prpl font-weight-bold">Last Name:</p>
-            <p class="font-italic">{{ order.last_name }}</p>
+            <p class="text-prpl font-weight-bold">Full Name:</p>
+            <p class="font-italic">{{ order.full_name }}</p>
         </div>
     </div>
     <div class="row text-center">
@@ -99,18 +93,6 @@
             <p class="font-italic">{{ order.address_line2 }}</p>
         </div>
     </div>
-
-    {% if order.address_line3 %}
-
-    <div class="row text-center">
-        <div class="col-12">
-            <p class="text-prpl font-weight-bold">Address Line 3:</p>
-            <p class="font-italic">{{ order.address_line3 }}</p>
-        </div>
-    </div>
-
-    {% endif %}
-
     <div class="row text-center">
         <div class="col-12">
             <p class="text-prpl font-weight-bold">Region or County:</p>

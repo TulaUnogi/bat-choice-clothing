@@ -45,13 +45,11 @@ def checkout(request):
     if request.method == 'POST':
         bag = request.session.get('bag', {})
         form_data = {
-            'first_name': request.POST['first_name'],
-            'last_name': request.POST['last_name'],
+            'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'address_line1': request.POST['address_line1'],
             'address_line2': request.POST['address_line2'],
-            'address_line3': request.POST['address_line3'],
             'region': request.POST['region'],
             'city': request.POST['city'],
             'postcode': request.POST['postcode'],

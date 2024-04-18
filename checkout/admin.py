@@ -17,11 +17,10 @@ class OrderAdmin(admin.ModelAdmin):
 
     fields = ('order_number','order_date_time',
               'order_total', 'shipping_cost',
-              'grand_total', 'first_name', 'last_name',
-              'email', 'phone_number', 'address_line1',
-              'address_line2', 'address_line3',
-              'region', 'city', 'postcode', 'country',
-              'order_status',)
+              'grand_total', 'full_name', 'email', 
+              'phone_number', 'address_line1',
+              'address_line2', 'region', 'city', 
+              'postcode', 'country', 'order_status',)
     
     list_display = ('order_number', 'order_date_time',
                     'order_total', 'shipping_cost',

@@ -9,13 +9,11 @@ class Order(models.Model):
     """Stores all customer order data and calculates order total"""
     
     order_date_time = models.DateTimeField(auto_now_add=True)
-    first_name = models.CharField(max_length=50, null=False, blank=False)
-    last_name = models.CharField(max_length=50, null=False, blank=False)
+    full_name = models.CharField(max_length=100, null=False, blank=False, default="")
     email = models.EmailField(max_length=300, null=False, blank=False)
     phone_number = models.CharField(max_length=19, null=False, blank=False)
-    address_line1 = models.CharField(max_length=70, null=False, blank=False)
-    address_line2 = models.CharField(max_length=70, null=False, blank=False)
-    address_line3 = models.CharField(max_length=70, null=True, blank=True)
+    address_line1 = models.CharField(max_length=200, null=False, blank=False, default="")
+    address_line2 = models.CharField(max_length=200, null=False, blank=False, default="")
     region = models.CharField(max_length=85, null=False, blank=False)
     city = models.CharField(max_length=85, null=False, blank=False)
     postcode = models.CharField(max_length=30, null=True, blank=True)
