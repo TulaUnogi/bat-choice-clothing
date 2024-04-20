@@ -6,6 +6,18 @@ from decimal import Decimal
 import uuid
 
 
+ORDER_STATUS = (
+    ("Awaiting Fulfillment", "Awaiting Fulfillment"),
+    ("Awaiting Shipment", "Awaiting Shipment"),
+    ("Order Shipped", "Order Shipped"),
+    ("Order Completed", "Order Completed"),
+    ("Cancelled", "Cancelled"),
+    ("Refunded", "Refunded"),
+    ("Partially Refunded", "Partially Refunded"),
+    ("Disputed", "Disputed"),
+)
+
+
 class Order(models.Model):
     """Stores all customer order data and calculates order total"""
     
@@ -22,7 +34,10 @@ class Order(models.Model):
     order_number = models.CharField(
         max_length=32, null=False, unique=True, db_index=True, editable=False
     )
-    order_status = models.CharField(max_length=40, null=False, blank=False)
+    order_status = models.CharField(
+        choices=ORDER_STATUS, max_length=40, null=False, 
+        blank=False, default="Awaiting Fulfillment"
+    )
     order_subtotal = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     discount = models.OneToOneField(
