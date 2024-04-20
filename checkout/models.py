@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from products.models import Product
 from django.db.models import Sum
+from decimal import Decimal
 import uuid
 
 
@@ -44,35 +45,39 @@ class Order(models.Model):
             "product_total__sum"
         ] or 0
         self.save()
-
+        return self.order_subtotal
+ 
     def update_discounted_total(self):
         # Calculate discount value
-        if self.discount.code:
-            discount_value = (self.subtotal * self.discount.percent) / 100
+        if self.discount:
+            discount_value = self.subtotal * Decimal(self.discount.percent / 100)
             self.save()
         else:
             discount_value = 0
         # Calculate total
         self.order_total = self.order_subtotal - discount_value
         self.save()
+        return self.order_total
 
     def update_shipping_cost(self):
         # Calculate shipping costs
-        if self.order_subtotal < settings.FREE_SHIPPING_THRESHOLD:
+        if self.order_subtotal < settings.FREE_SHIPPING_TRESHOLD:
             self.shipping_cost = (
-                self.order_subtotal * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+                self.order_subtotal * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
             )
         elif self.shipping_cost < settings.MINIMUM_SHIPPING_COST:
             self.shipping_cost = settings.MINIMUM_SHIPPING_COST
         else:
             self.shipping_cost = 0
         self.save()
+        return self.shipping_cost
         
 
     def update_grand_total(self):
         # Calculate grand total
-        self.grand_total = self.order_total + self.delivery_cost
+        self.grand_total = self.order_total + self.shipping_cost
         self.save()
+        return self.grand_total
 
     def _create_order_number(self):
         """Use UUID to create a unique order number"""
@@ -87,24 +92,7 @@ class Order(models.Model):
 
         if not self.order_number:
             self.order_number = self._create_order_number()
-        elif not self.order_subtotal:
-            self.order_subtotal = self.update_order_subtotal()
-        elif not self.order_total:
-            self.order_total = self.update_discounted_total()
-        elif not self.shipping_cost:
-            self.shipping_cost = self.update_shipping_cost()
-        elif not self.order_total:
-            self.grand_total = self.update_grand_total()
         super().save(*args, **kwargs)
-
-    def order_total(self):
-        return self.order_total
-
-    def shipping_cost(self):
-        return self.shipping_cost
-
-    def grand_total(self):
-        return self.grand_total
     
     def __str__(self):
         return self.order_number
@@ -138,7 +126,7 @@ class OrderLineItem(models.Model):
 class Discount(models.Model):
     """Stores active discount codes and their values"""
 
-    code = models.CharField(max_length=30, null=True, blank=True)
+    discount_code = models.CharField(max_length=30, null=True, blank=True)
     percent = models.PositiveIntegerField(null=True, default=0)
     is_active = models.BooleanField(default=False)
 
