@@ -39,6 +39,10 @@ main {
     margin: auto auto;
 }
 
+.border-left-white {
+    border-left: 1px solid white;
+}
+
 /* Toasts */
 
 .message-container {
