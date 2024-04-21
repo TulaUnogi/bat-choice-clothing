@@ -231,7 +231,7 @@ input {
 }
 
 input:focus {
-    box-shadow: 3px 3px 20px #50304a !important;
+    box-shadow: 3px 3px 15px #7e0167, -3px -3px 10px #7e0167 !important;
 }
 
 .form-check-input {
@@ -257,6 +257,19 @@ input[type="submit"] {
 .contact-form {
     margin-top: -2vh !important;
     padding: 0 8%;
+}
+
+select, select option {
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+select:focus {
+    box-shadow: 3px 3px 15px #7e0167, -3px -3px 10px #7e0167 !important;
+}
+
+select:invalid, select option[value=""]{
+    color: #aab7c4 !important;
 }
 
 

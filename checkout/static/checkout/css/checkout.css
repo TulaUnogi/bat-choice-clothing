@@ -57,7 +57,7 @@
 }
 
 .StripeElement--focus {
-    box-shadow: 3px 3px 20px #50304a !important;
+    box-shadow: 3px 3px 15px #7e0167, -3px -3px 10px #7e0167 !important;
 }
 
 .StripeElement--webkit-autofill {
