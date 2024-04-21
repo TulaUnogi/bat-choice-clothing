@@ -31,7 +31,7 @@ class Order(models.Model):
     region = models.CharField(max_length=85, null=False, blank=False)
     city = models.CharField(max_length=85, null=False, blank=False)
     postcode = models.CharField(max_length=30, null=True, blank=True)
-    country = CountryField(blank_label="--Country--", null=False, blank=False)
+    country = CountryField(blank_label="Country *", null=False, blank=False)
     order_number = models.CharField(
         max_length=32, null=False, unique=True, db_index=True, editable=False
     )
