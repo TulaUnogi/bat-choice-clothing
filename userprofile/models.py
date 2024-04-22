@@ -21,10 +21,9 @@ class UserProfile(models.Model):
     saved_postcode = models.CharField(max_length=30, null=True, blank=True)
     saved_country = CountryField(blank_label="Country *", null=True, blank=True)
 
-
     def __str__(self):
         if self.user:
-            return self.email
+            return self.saved_email
 
 @receiver(post_save, sender=User)
 def user_profile_create_update(sender, instance, created, **kwargs):
