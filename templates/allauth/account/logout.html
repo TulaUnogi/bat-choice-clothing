@@ -6,21 +6,23 @@
 
 {% block content %}
 
-<div class="bg-frame allauth-frames d-flex align-items-around">
-  <div class="main-content">
-    <h1>{% trans "Sign Out" %}</h1>
-    <small>
-      <p class="text-prpl py-2">{% trans 'Are you sure you want to sign out?' %}</p>
-    </small>
-    <form method="post" action="{% url 'account_logout' %}">
-      {% csrf_token %}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-      {% endif %}
-      <button type="submit" class="btn button-bl-prpl px-5 uppercase megrim rounded-0 d-block mx-auto">{% trans 'Sign Out' %}</button>
-    </form>
+  <div class="bg-darkground">
+    <div class="bg-frame allauth-frames d-flex align-items-around">
+      <div class="main-content">
+        <h1>{% trans "Sign Out" %}</h1>
+        <small>
+          <p class="text-prpl py-2">{% trans 'Are you sure you want to sign out?' %}</p>
+        </small>
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+          {% endif %}
+          <button type="submit" class="btn button-bl-prpl px-5 uppercase megrim rounded-0 d-block mx-auto">{% trans 'Sign Out' %}</button>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
 
 
 {% endblock %}
