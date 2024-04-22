@@ -68,7 +68,7 @@
                   {% if request.user.is_superuser %}
                   <a href="#" class="dropdown-item"><strong>Manage Products</strong></a>
                   {% endif %}
-                  <a href="#" class="dropdown-item">My Profile</a>
+                  <a href="{% url 'my-profile' %}" class="dropdown-item">My Profile</a>
                   <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                   {% else %}
                   <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
