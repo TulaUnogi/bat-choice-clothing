@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block extra_css %}
+    
+{% endblock %}
+
+{% load crispy_forms_filters %} 
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "My Profile" %}{% endblock %}
+
+{% block content %}
+
+<div class="bg-darkground text-light">    
+    <div class="row mb-5 text-center text-lg-left">
+        <div class="col-sm-12 col-lg-6">
+            <h2 class="uppercase display-4 text-center my-3">My Details</h2>
+            <div class="mt-4 my-2">            
+                     
+                
+                         
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
+            <h2 class="uppercase display-4 text-center my-3">
+                My Order History
+            </h2>
+            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left-white">
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
