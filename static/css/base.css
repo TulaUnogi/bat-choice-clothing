@@ -126,6 +126,9 @@ footer {
     padding: 0% 2%;
     height: 67vh !important;
     margin: 1vh auto 0 auto;
+    -webkit-mask:radial-gradient(circle at 25% 90%, transparent , #fff 50%);
+    mask:radial-gradient(circle at 25% 90%, transparent , #fff 50%);
+    opacity: 0.75;
 }
 
 .bg-darkground {
