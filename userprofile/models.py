@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django_countries.fields import CountryField
@@ -23,7 +23,18 @@ class UserProfile(models.Model):
 
     def __str__(self):
         if self.user:
-            return self.saved_email
+            return self.user.email
+
+
+@receiver(pre_save, sender=User)
+def use_email_as_username(sender, instance, **kwargs):
+    user_email = instance.email
+    username = user_email[:30]
+    n = 1
+    while User.objects.exclude(pk=instance.pk).filter(username=username).exists():
+        n += 1
+        username = user_email[:(29 - len(str(n)))] + '-' + str(n)
+    instance.username = username
 
 @receiver(post_save, sender=User)
 def user_profile_create_update(sender, instance, created, **kwargs):
