@@ -6,7 +6,6 @@ from products.models import Product
 from userprofile.models import UserProfile
 
 from decimal import Decimal
-from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
 import uuid
 
@@ -33,7 +32,7 @@ class Order(models.Model):
                                       null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=100, null=False, blank=False, default="")
     email = models.EmailField(max_length=300, null=False, blank=False)
-    phone_number = PhoneNumberField(blank=True, null=True)
+    phone_number = models.CharField(max_length=17, blank=True, null=True)
     address_line1 = models.CharField(max_length=200, null=False, blank=False, 
                                      default="")
     address_line2 = models.CharField(max_length=200, null=False, blank=False, 

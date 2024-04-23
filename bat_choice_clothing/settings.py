@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'storages',
-    'phonenumber_field',
     # bat-choice apps:
     'home',
     'about',
@@ -121,9 +120,6 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
-
-PHONENUMBER_DB_FORMAT = "INTERNATIONAL"
-PHONENUMBER_DEFAULT_FORMAT = "INTERNATIONAL"
 
 
 WSGI_APPLICATION = 'bat_choice_clothing.wsgi.application'

@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 
 from django_countries.fields import CountryField
-from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UserProfile(models.Model):
@@ -15,7 +14,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     saved_full_name = models.CharField(max_length=100, null=True, blank=True, default="")
     saved_email = models.EmailField(max_length=300, null=True, blank=True)
-    saved_phone_number = PhoneNumberField(blank=True, null=True)
+    saved_phone_number = models.CharField(max_length=17, blank=True, null=True)
     saved_address_line1 = models.CharField(max_length=200, null=True, blank=True, default="")
     saved_address_line2 = models.CharField(max_length=200, null=True, blank=True, default="")
     saved_region = models.CharField(max_length=85, null=True, blank=True)
