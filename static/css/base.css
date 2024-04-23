@@ -280,6 +280,22 @@ select:invalid, select option[value=""]{
 }
 
 
+/* Checkout & Profile common form styles */
+
+#pay_form fieldset {
+    margin: 0 auto !important;
+}
+
+#pay_form input, #pay_form fieldset, .my-input {
+    width: 40vw;
+    font-family: "Montserrat", sans-serif ;
+}
+
+#pay_form input[type="checkbox"] {
+    width: unset !important;
+}
+
+
 /* Cards */
 
 .card {

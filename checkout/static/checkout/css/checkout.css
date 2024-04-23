@@ -18,22 +18,6 @@
     font-size: smaller;
 }
 
-
-/* Form */
-
-#pay_form fieldset {
-    margin: 0 auto !important;
-}
-
-#pay_form input, #pay_form fieldset, .stripe-style-input {
-    width: 40vw;
-    font-family: "Montserrat", sans-serif ;
-}
-
-#pay_form input[type="checkbox"] {
-    width: unset !important;
-}
-
 .discount label {
     width: 1px !important;
 }
@@ -60,7 +44,7 @@
   background-color: #fefde5 !important;
 }
 
-.stripe-style-input::placeholder {
+.my-input::placeholder {
     color: #aab7c4;
 }
 
