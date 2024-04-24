@@ -13,6 +13,8 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import OrderLineItem, Order
 from products.models import Product
+from userprofile.forms import ProfileForm
+from userprofile.models import UserProfile
 from bag.contexts import in_bag
 import stripe
 import json
@@ -121,7 +123,31 @@ def success_checkout_page(request, order_number):
 
     info_save = request.session.get('info_save')
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Your order number is {order_number}. \
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
+    if info_save:
+        profile_data = {
+            'saved_full_name': order.full_name,
+            'saved_email': order.email,
+            'saved_phone_number': order.phone_number,
+            'saved_address_line1': order.address_line1,
+            'saved_address_line2': order.address_line2,
+            'saved_city': order.city,
+            'saved_region': order.region,
+            'saved_postcode': order.postcode,
+            'saved_country': order.country,
+        }
+
+        profile_form = ProfileForm(profile_data, instance=profile)
+        if profile_form.is_valid():
+            profile_form.save()
+        
+        messages.success(request, f'Your order number is {order_number}. \
         We will send you a confirmation email to {order.email}.')
 
     if 'bag' in request.session:
