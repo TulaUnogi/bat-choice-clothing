@@ -14,27 +14,74 @@
 
 {% block content %}
 
-<div class="bg-darkground text-light">    
-    <div class="row mb-5 text-center text-lg-left">
-        <div class="col-sm-12 col-lg-6">
-            <h2 class="uppercase display-4 text-center my-3">My Details</h2>
-            <div class="mt-4 my-2">            
-                     
-                <p class="text-center my-2">
-                    {{ profile }}
-                </p>
-                         
+    <div class="bg-darkground text-light">    
+        <div class="row mb-5 text-center text-lg-left">
+            <div class="col-sm-12 col-lg-6">
+                <h2 class="uppercase display-4 text-center my-3">My Shipping Details</h2>
+                <div class="mt-4 my-2 p-5 mx-auto">            
+                    <form action="{% url 'my-profile' %}" method="POST" id="userprofile_update" class="mx-auto my-input text-center">
+                        
+                        {% csrf_token %}
+                        {{ form|crispy }}
+
+                        <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light ">
+                            Update
+                        </button>
+                    </form>  
+                </div>
             </div>
-        </div>
-        <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
-            <h2 class="uppercase display-4 text-center my-3">
-                My Order History
-            </h2>
-            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left-white">
-                
+            <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
+                <h2 class="uppercase display-4 text-center my-3">
+                    My Order History
+                </h2>
+                <div class="col py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left-white">
+                    <div class="table-responsive p-3">
+
+                        <table class="table-sm table-borderless text-light">
+                            <thead>
+                                <tr class="border-bottom border-white my-1">
+                                    <th class="p-3 text-center">
+                                        <b>Order Number</b>
+                                    </th>
+                                    <th class="p-3 text-center">
+                                        <b>Date</b>
+                                    </th>
+                                    <th class="p-3 text-center">
+                                        <b>Order Total</b>
+                                    </th>
+                                    <th class="p-3 text-center">
+                                        <b>Products</b>
+                                    </th>
+                                </tr>    
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                    <tr class="p-3 text-center">
+                                        <td class="p-3 text-center">
+                                            <a href="{% url 'order_history' order.order_number %}" 
+                                                title="{{ order.order_number }}"
+                                                class="text-prpl small">
+                                                <b>{{ order.order_number|truncatechars:6 }}</b>
+                                            </a>
+                                        </td>
+                                        <td class="p-3 text-center small">{{ order.order_date_time }}</td>
+                                        <td class="p-3 text-center small">€{{ order.grand_total }}</td>
+                                        <td class="text-center p-3">
+                                            <ul class="list-unstyled text-center m-0">
+                                                {% for item in order.lineitems.all %}
+                                                    <li class="small p-1">
+                                                        {{ item.product.name }} x 1
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>        
     </div>
-    
-</div>
 {% endblock %}
