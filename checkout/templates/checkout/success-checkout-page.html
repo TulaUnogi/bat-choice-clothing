@@ -135,6 +135,21 @@
     </div>
     <hr class="border-bottom border-light my-5 mb-1">
     <div class="row text-center">
+
+    {% if from_profile %}
+    <!-- Renders an old order confirmation 
+    if user came to this page from their profile -->
+
+        <div class="col p-5">
+            <a href="{% url 'my-profile' %}">
+                <button class="mx-auto btn btn-lg button-bl-prpl text-light megrim mt-3 rounded-lg-0 px-4" type="button">
+                    Back to my profile!
+                </button>
+            </a>
+        </div>
+
+    {% else %}
+
         <div class="col p-5">
             <p class="h4 megrim">
                 Check out more of our products!
