@@ -1,0 +1,44 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation of your order at Bat Choice Clothing.
+Thank you for choosing our store!
+
+You can find your order information below:
+
+---
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.order_date_time}}
+
+Order Summary:
+
+{% for item in order.lineitems.all %}
+    {{ item.product.name }}
+{% endfor %}
+
+Order Total: {{ order.grand_total|floatformat:2 }}€
+
+
+Your order will be shipped to:
+
+{{ order.full_name }}
+{{ order.address_line1 }}
+{{ order.address_line2 }}
+{{ order.region }}
+{{ order.city }}
+{% if postcode %}
+    {{ order.postcode }}
+{% endif %}
+{{ order.country }}
+
+Your provided contact details are as follows:
+
+Phone: {{ order.phone_number }}
+Email: {{ order.email }}
+
+---
+
+If you have any questions please don't hesitate to contact us!
+Stay dark!
+
+Bat Choice Clothing
