@@ -85,6 +85,10 @@ label, .small-font {
     font-size: xxx-large;
 }
 
+.icon {
+    font-size: smaller;
+}
+
 /* Navigation */
 
 header {
@@ -178,6 +182,11 @@ footer {
     background-color: black !important;
     border: 4px solid #50304a !important;
     color: white !important;
+}
+
+.button-delete {
+    /* Changes only border */
+    border: 4px solid #5c1010 !important;
 }
 
 .btn:focus {
