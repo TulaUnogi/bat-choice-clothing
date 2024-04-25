@@ -44,10 +44,6 @@
   background-color: #fefde5 !important;
 }
 
-.my-input::placeholder {
-    color: #aab7c4;
-}
-
 #card-element {
     padding-top: 0.5em;
     padding-left: 0.2em;
