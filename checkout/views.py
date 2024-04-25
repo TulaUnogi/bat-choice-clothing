@@ -104,6 +104,26 @@ def checkout(request):
         )
         order_form = OrderForm()
 
+    # Prepopulates form with saved data if User is authenticated
+    if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.saved_full_name,
+                    'email': profile.user.email,
+                    'phone_number': profile.saved_phone_number,
+                    'country': profile.saved_country,
+                    'postcode': profile.saved_postcode,
+                    'city': profile.saved_city,
+                    'address_line1': profile.saved_address_line1,
+                    'address_line2': profile.saved_address_line2,
+                    'region': profile.saved_region,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+    else:
+        order_form = OrderForm()
+
     if not stripe_public_key:
         messages.warning(request, 'Oops! Missing Stripe public key! \
             Please set it up in your environment!')
