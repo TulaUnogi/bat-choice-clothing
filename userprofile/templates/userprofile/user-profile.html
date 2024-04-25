@@ -3,10 +3,6 @@
 {% load i18n %}
 {% load static %}
 
-{% block extra_css %}
-    
-{% endblock %}
-
 {% load crispy_forms_filters %} 
 {% load crispy_forms_tags %}
 
@@ -14,21 +10,33 @@
 
 {% block content %}
 
-    <div class="bg-darkground text-light">    
+    <div class="bg-darkground text-light">
+        
+        {% if user.is_authenticated %}
+
         <div class="row mb-5 text-center text-lg-left">
             <div class="col-sm-12 col-lg-6">
                 <h2 class="uppercase display-4 text-center my-3">My Shipping Details</h2>
-                <div class="mt-4 my-2 p-5 mx-auto">            
-                    <form action="{% url 'my-profile' %}" method="POST" id="userprofile_update" class="mx-auto my-input text-center">
+                <div class="mt-4 my-2 p-5 mx-auto text-center">            
+                    <form action="{% url 'my-profile' %}" method="POST" id="userprofile_update" 
+                            class="mx-auto my-input text-center rounded-0">
                         
                         {% csrf_token %}
                         {{ form|crispy }}
 
-                        <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light ">
+                        <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light mx-auto" type="submit">
                             Update
                         </button>
-                    </form>  
+                    </form>
+                    <a href="{% url 'delete_profile' %}" class="text-center mt-3">
+                        <button class="btn btn-lg button-bl-prpl button-delete rounded-0 mt-3 megrim text-light" type="submit">
+                            <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
+                            Delete Profile
+                            <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
+                        </button>
+                    </a>
                 </div>
+
             </div>
             <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
                 <h2 class="uppercase display-4 text-center my-3">
@@ -82,6 +90,26 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+        
+        {% else %}
+
+        <div class="row-fluid d-flex justify-content-center">
+            <div class="col-lg-7 text-center">
+                <h1 class="display-4 m-5">Please Log in</h1>
+                <p>
+                    To access this page you need to 
+                    <a href="{% url 'account_login' %}" aria-label="Log in" class="text-prpl">log in</a> 
+                    first.
+                </p>
+                <p>If you don't have an account yet please 
+                    <a href="{% url 'signup' %}" aria-label="Sign up" class="text-prpl">sign up</a>!
+                </p>
+            </div>
+        </div>
+
+        {% endif %}
+    
     </div>
+
 {% endblock %}

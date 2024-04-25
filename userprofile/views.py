@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 from .models import UserProfile
 from checkout.models import Order
@@ -30,6 +31,20 @@ def profile(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_profile(request):
+
+    user = get_object_or_404(User, id=request.user.id)
+
+    try:
+        user.delete()
+        messages.success(request, 'Your profile has been deleted successfully!')
+        return redirect('home')
+    except Exception as e: 
+        messages.error(request, f'Oops! Error occured: {e}')
+        return redirect('home')
 
 
 @login_required
