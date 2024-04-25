@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from .models import Order, Product, OrderLineItem
+from userprofile.models import UserProfile
 
 import stripe
 import json
@@ -43,6 +44,27 @@ class Stripe_Webhook_Handler:
             if value == "":
                 shipping_details.address[field] = None
         
+        # Update profile information after info_save is checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if info_save:
+                profile.saved_full_name = shipping_details.name
+                profile.saved_email = billing_details.email
+                profile.saved_phone_number = shipping_details.phone
+                profile.saved_country = shipping_details.address.country
+                profile.saved_postcode = shipping_details.address.postal_code
+                profile.saved_city = shipping_details.address.city
+                profile.saved_address_line1 = (
+                    shipping_details.address.line1
+                    )
+                profile.address_line2 = (
+                    shipping_details.address.line2
+                    )
+                profile.saved_region = shipping_details.address.state
+                profile.save()
+        
         
         order_exists = False
         attempt = 1
@@ -60,7 +82,6 @@ class Stripe_Webhook_Handler:
                     postcode__iexact=shipping_details.address.postal_code,
                     country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
-                    # order_subtotal=grand_total,
                 )
                 order_exists = True
                 break
