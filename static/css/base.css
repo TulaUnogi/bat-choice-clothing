@@ -188,6 +188,7 @@ input[type="file"]  {
 
 input[type="file"] {
     width: 240px !important;
+    margin-top: 3% !important;
 }
 
 .button-delete {
@@ -529,6 +530,12 @@ select:invalid, select option[value=""],
     
     .border-checkout {
         border-left: none !important;
+    }
+
+    .product-form, .product-form .form-group {
+        width: 80vw !important;
+        margin: auto;
+        padding: 1.5%;
     }
 }
 
