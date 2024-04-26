@@ -23,13 +23,16 @@ COLOURS = (
 
 # Categories of Products
 class Category(models.Model):
-    name = models.CharField(max_length=100, null=True, blank=True) 
+    name = models.CharField(max_length=100, null=True, blank=True,) 
 
     class Meta:
         verbose_name_plural = 'categories'
+    
+    def __str__(self):
+        return self.name
 
     def display_name(self):
-        return self.name
+        return f'--{self.name}--'
 
 
 # Products
