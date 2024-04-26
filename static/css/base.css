@@ -178,10 +178,16 @@ footer {
     background-color: #50304a !important;
 }
 
-.button-bl-prpl, input[type="submit"] {
+.button-bl-prpl, 
+input[type="submit"],
+input[type="file"]  {
     background-color: black !important;
     border: 4px solid #50304a !important;
     color: white !important;
+}
+
+input[type="file"] {
+    width: 240px !important;
 }
 
 .button-delete {
