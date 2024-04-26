@@ -33,14 +33,41 @@
 
 ### Purpose
 
+Three core ideas behind BatChoice would be the following:
 
+> Ease of use 
 
-### Business Model
+Simple and comfortable way for customers to browse through second hand gothic and alternative style clothing.
 
+> Reliability 
 
+Providing a single trustworthy and quality checked point for these pieces of clothing.
 
-### Marketing
+> Sustainability
 
+Helping customers towards making good and enviromentally friendly fashion choices.
+
+All of which combined, with a community focused on aestethic and quality, shall provide a standing ground for future growth. 
+Possibly even into international spaces.
+
+### Business Model and Marketing
+
+The initial starting points for getting grounded, would be advertising through various forms of Social Media. 
+Obvious choices for visibility would be Facebook, Twitter, Instagram. However, spreading out and creating tendrils on other platfroms such as Tiktok would only help with visibility as well as providing website traffic and growth at a future date. 
+
+Once a presence has been established on these platforms, and users have begun registering themselves to the site, we plan on keeping them informed and updated on everything Bat-Choice
+through a newsletter system. To avoid avoid coming across or being seen as spam, these 'newsletters' should be rolled out on a semi-regular basis. The key insights we would want to provide should show our users updates on currently stocked lines, seasonal discounting, stock highlights or even aspects of the growth/changes of the business.
+
+> Facebook page
+
+The sample facebook page has been created at the following address: https://www.facebook.com/bat.choice.clothing
+It includes basic information about company and posts related to the website.
+
+<img src="readme-images/fb-page-1.png" alt="Top of the page at the current state">
+
+<img src="readme-images/fb-page-2.png" alt="A post including a 'goth vs visigoth' meme">
+
+<img src="readme-images/fb-page-3.png" alt="Example of a post advertising a discount">
 
 
 ##### [ Back to Top ](#table-of-contents)
