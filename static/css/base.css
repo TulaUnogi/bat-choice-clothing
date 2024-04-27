@@ -321,8 +321,11 @@ select:invalid, select option[value=""],
     border-radius: 0 !important;
     background-color: #08080875 !important;
     backdrop-filter: blur(2px);
-    max-width: 65vw !important;
-    box-shadow: 1px 1px 30px #9e008179 !important;   
+    max-width: 65vw !important;   
+}
+
+.card-shadow {
+    box-shadow: 1px 1px 30px #9e008179 !important;
 }
 
 .card .btn-link {
