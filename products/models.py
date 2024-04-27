@@ -17,13 +17,24 @@ COLOURS = (
     ('COPPER', 'COPPER'),
     ('SILVER', 'SILVER'),
     ('MULTICOLOUR', 'MULTICOLOUR'),
+)
 
+CATEGORIES = (
+    ('unknown category', 'unknown category'),
+    ('tops', 'tops'),
+    ('trousers', 'trousers'),
+    ('skirts', 'skirts'),
+    ('dresses', 'dresses'),
+    ('footwear', 'footwear'),
+    ('outerwear', 'outerwear'),
 )
 
 
 # Categories of Products
 class Category(models.Model):
-    name = models.CharField(max_length=100, null=True, blank=True,) 
+    name = models.CharField(max_length=100, choices=CATEGORIES, 
+                            null=False, blank=False,
+                            default='unknown category') 
 
     class Meta:
         verbose_name_plural = 'categories'
@@ -37,7 +48,9 @@ class Category(models.Model):
 
 # Products
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey('Category', null=False, blank=False, 
+                                 default=1,
+                                 on_delete=models.SET_DEFAULT)
     name = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField()
     condition = models.CharField(max_length=200, null=True, blank=True)
