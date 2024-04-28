@@ -7,7 +7,7 @@
 .details-container {
     width: 70vw;
     min-height: 70vh;
-    margin: auto;
+    margin: 0 auto !important;
 }
 
 .product .card-body {
