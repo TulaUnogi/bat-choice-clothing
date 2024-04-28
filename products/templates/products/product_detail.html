@@ -11,10 +11,10 @@
 
 {% block content %}
 
-<div class="container-fluid mt-3">
-    <div class="details-container my-auto mx-md-auto mx-sm-0 p-sm-0 p-md-2">
-        <div class="row mx-auto details-container">
-            <div class="col-lg-6 col-sm-12 my-auto">
+<div class="container-fluid p-0 mt-3">
+    <div class="details-container mx-md-auto mx-sm-0 p-0">
+        <div class="row mx-auto details-container p-0">
+            <div class="col-lg-6 col-md-12 mx-auto text-center">
 
                 {% if product.image %}
 
@@ -26,6 +26,29 @@
                 
                 <img src="{% static 'images/no-img.webp' %}" class="img-fluid product-img" alt="{{ product.name }}">
                 
+                {% endif %}
+
+                {% if request.user.is_superuser  %}
+
+                <div class="row mt-2 mb-3 mx-auto">
+                    <div class="col-12 border-top border-light">   
+                        <div class="row d-flex justify-content-between">                     
+                            <div class="col-lg-6 col-sm-12 my-2">
+                                <a class="btn btn-lg mt-sm-4 mt-lg-0 mb-0 p-1 megrim text-light" href="{% url 'delete_product' product.id %}">
+                                    <i class="fa-solid fa-skull-crossbones mr-1 icon text-danger"></i>
+                                    Delete
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-sm-12 my-2">
+                                <a class="btn btn-lg mt-sm-2 mt-lg-0 mb-0 p-1 megrim text-light" href="{% url 'edit_product' product.id %}">
+                                    <i class="fa-solid fa-pen-to-square mr-1 icon text-prpl"></i>
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {% endif %}
 
             </div>
@@ -53,8 +76,7 @@
                             <input class="btn btn-lg button-bl-prpl text-light megrim mt-3 rounded-0 px-4 py-1" type="submit" 
                                     value="Add to bag">
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </form>
-                        
+                        </form>                        
                     </div>
                     <div class="col-12 col-lg-5 my-auto d-flex justify-content-lg-end justify-content-center details-buttons">
                         <a class="mt-3" href="{% url 'products' %}">
@@ -64,7 +86,7 @@
                             </button>
                         </a>
                     </div>
-                </div>                    
+                </div>
             </div>            
         </div>
     </div>

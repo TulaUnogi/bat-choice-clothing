@@ -165,6 +165,38 @@
                     <p class="mb-0">
                         {{product.price}}€
                     </p>
+
+                    {% if request.user.is_superuser  %}
+
+                    <div class="row d-flex justify-content-between border-top border-light mt-2">
+                        <div class="col-6 mt-2">
+                            <a href="{% url 'delete_product' product.id %} " class="text-decoration-none">
+                                <small class="text-danger">
+                                    <span>
+                                        <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
+                                    </span>
+                                    <span>
+                                        <b>Delete</b>
+                                    </span>
+                                </small>
+                            </a>
+                        </div>
+                        <div class="col-6 mt-2">
+                            <a href="{% url 'edit_product' product.id %}" class="text-decoration-none">
+                                <small class="text-prpl">
+                                    <span>
+                                        <i class="fa-solid fa-pen-to-square mr-1 icon"></i>
+                                    </span>
+                                    <span>
+                                        <b>Edit</b>
+                                    </span>
+                                </small>
+                            </a>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
                 </div>
             </div>
         </div>
