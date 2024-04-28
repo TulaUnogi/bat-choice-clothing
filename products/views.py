@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404,redirect, reverse
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
 from django.db.models import Q
 from django.db.models.functions import Lower
+
 from .models import Product, Category
 from .forms import ProductForm
-
 
 
 def products_all(request):
@@ -69,6 +71,7 @@ def product_details(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
 def add_product(request):
     if not request.user.is_superuser:
         messages.error(
