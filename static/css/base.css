@@ -240,6 +240,14 @@ label {
     font-size: x-small !important;
 }
 
+.product-form label {
+    visibility: visible !important;
+    font-size: medium !important;
+    text-shadow: 1px 1px 10px #fd00cf !important;
+    text-decoration: overline #50304a;
+    padding-bottom: 2%;
+}
+
 label[for="id_remember"] {
     visibility: visible !important;
     height: unset;
