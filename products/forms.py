@@ -32,10 +32,7 @@ class ProductForm(forms.ModelForm):
 
         self.fields['category'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'category':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].label = False
+            placeholder = f'{placeholders[field]}...' 
+            label = f'{placeholders[field]}'
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = label.replace('"', '')
