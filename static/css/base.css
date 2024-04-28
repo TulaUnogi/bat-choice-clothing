@@ -605,6 +605,8 @@ select:invalid, select option[value=""],
     }
 
     .details-container {
+        margin-right: 1.2em;
+        width: 95vw !important;
         padding: 0;
     }
 
