@@ -332,10 +332,6 @@ select:invalid, select option[value=""],
     max-width: 65vw !important;   
 }
 
-.card-shadow {
-    box-shadow: 1px 1px 30px #9e008179 !important;
-}
-
 .card .btn-link {
     color: #50304a;
     font-size: 1.5rem;
@@ -363,6 +359,12 @@ select:invalid, select option[value=""],
     font-size: xx-large !important;
     font-weight: bold !important;
     line-height: 1.1em !important;
+}
+
+/* Other */
+
+.prpl-shadow {
+    box-shadow: 1px 1px 30px #9e008179 !important;
 }
 
 
