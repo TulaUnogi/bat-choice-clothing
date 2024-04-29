@@ -556,6 +556,10 @@ select:invalid, select option[value=""],
         margin: auto;
         padding: 1.5%;
     }
+
+    ::-webkit-scrollbar {
+        display: none !important;
+    }
 }
 
 @media (max-width: 576px) {
