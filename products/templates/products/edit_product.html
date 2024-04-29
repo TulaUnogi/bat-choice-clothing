@@ -18,14 +18,14 @@
         <div class="col-sm-12 col-lg-8 mx-auto">
             <form action="{% url 'edit_product' product.id %}" class="product-form text-left" method="post" enctype="multipart/form-data">
                 
-                {% csrf_token %}
-
                 {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
 
-                    {{ field| as_crispy_field }}
-
-                {% endfor %}   
-                
                 <div class="text-center mb-5">
                     <a href="{% url 'products' %}" class="btn btn-lg m-lg-5 m-sm-2">
                         <span>
