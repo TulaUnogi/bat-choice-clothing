@@ -22,7 +22,7 @@
             <div class="dropdown-menu rounded-0" aria-labelledby="user-sm-toggle">
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
-                        <a href="#" class="dropdown-item"><strong>Manage Products</strong></a>
+                        <a href="{% url 'add_product' %}" class="dropdown-item"><strong>Manage Products</strong></a>
                     {% endif %}
                     <a href="{% url 'my-profile' %}" class="dropdown-item">My Profile</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
