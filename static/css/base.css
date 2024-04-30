@@ -532,7 +532,7 @@ select:invalid, select option[value=""],
         display: block !important;
     }
 
-    #pay_form fieldset, #userprofile_update {
+    #pay_form fieldset, select[id="id_country"], #userprofile_update {
         width: 90vw !important;
         margin: 0 auto !important;
     }
