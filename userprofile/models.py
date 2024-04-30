@@ -12,11 +12,11 @@ class UserProfile(models.Model):
     Allows saving shipping details and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    saved_full_name = models.CharField(max_length=100, null=True, blank=True, default="")
+    saved_full_name = models.CharField(max_length=100, null=True, blank=True)
     saved_email = models.EmailField(max_length=300, null=True, blank=True)
     saved_phone_number = models.CharField(max_length=17, blank=True, null=True)
-    saved_address_line1 = models.CharField(max_length=200, null=True, blank=True, default="")
-    saved_address_line2 = models.CharField(max_length=200, null=True, blank=True, default="")
+    saved_address_line1 = models.CharField(max_length=200, null=True, blank=True)
+    saved_address_line2 = models.CharField(max_length=200, null=True, blank=True)
     saved_region = models.CharField(max_length=85, null=True, blank=True)
     saved_city = models.CharField(max_length=85, null=True, blank=True)
     saved_postcode = models.CharField(max_length=30, null=True, blank=True)
@@ -42,7 +42,7 @@ def user_profile_create_update(sender, instance, created, **kwargs):
     """
     Create or update the user profile
     """
-    if created:
-        UserProfile.objects.create(user=instance)
+    #if created:
+    UserProfile.objects.create(user=instance)
     # Only save profile details if the profile exists
     instance.userprofile.save()
