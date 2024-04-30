@@ -10,202 +10,227 @@
 {% block head_title %}{% trans "Products" %}{% endblock %}
 
 {% block content %}
-<div class="min-vw-100 bg-white row text-dark border border-dark text-center sticky-top
-            d-flex justify-content-sm-end justify-content-center pr-5">
-    <div class="row p-0">         
-        <div class="col border-dark border-right py-0">
-            <p class="my-0">
-                <small class="py-0 text-center text-uppercase">Showing {{ count }} products</small>
-            </p>
-        </div>
-        <div class="col-3 border-dark pr-3">
-            <button class="dropdown-toggle p-0 btn" type="button" data-toggle="dropdown" aria-expanded="false">
-                <small class="text-uppercase">Sort</small>
-            </button>
-            <div class="dropdown-menu rounded-0 text-center mr-sm-2 ">
-                {% if "category=skirts" in request.get_full_path %}
-                    <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>            
-                    <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                {% elif "category=dresses" in request.get_full_path %}
-                    <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>            
-                    <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                {% elif "category=tops" in request.get_full_path %}
-                    <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>            
-                    <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                {% elif "category=trousers" in request.get_full_path %}
-                    <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>            
-                    <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                {% elif "category=footwear" in request.get_full_path %}
-                    <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>            
-                    <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                    {% elif "category=outerwear" in request.get_full_path %}
-                    <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>            
-                    <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                {% elif '?q' %}
-                    <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>            
-                    <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                {% else %}
-                    <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">
-                        <small>price low to high</small>
-                    </a>
 
-                    <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">
-                        <small>price high to low</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">
-                        <small>A-Z</small>
-                    </a>
-                    <a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=desc">
-                        <small>Z-A</small>
-                    </a>
-                {% endif %}
+{% if products %}
+    <div class="min-vw-100 bg-white row text-dark border border-dark text-center sticky-top
+                d-flex justify-content-sm-end justify-content-center pr-5">
+        <div class="row p-0">         
+            <div class="col border-dark border-right py-0">
+                <p class="my-0">
+                    <small class="py-0 text-center text-uppercase">Showing {{ count }} products</small>
+                </p>
+            </div>
+            <div class="col-3 border-dark pr-3">
+                <button class="dropdown-toggle p-0 btn" type="button" data-toggle="dropdown" aria-expanded="false">
+                    <small class="text-uppercase">Sort</small>
+                </button>
+                <div class="dropdown-menu rounded-0 text-center mr-sm-2 ">
+                    {% if "category=skirts" in request.get_full_path %}
+                        <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>            
+                        <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=skirts&sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% elif "category=dresses" in request.get_full_path %}
+                        <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>            
+                        <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=dresses&sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% elif "category=tops" in request.get_full_path %}
+                        <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>            
+                        <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=tops&sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% elif "category=trousers" in request.get_full_path %}
+                        <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>            
+                        <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=trousers&sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% elif "category=footwear" in request.get_full_path %}
+                        <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>            
+                        <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=footwear&sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% elif "category=outerwear" in request.get_full_path %}
+                        <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>            
+                        <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=outerwear&sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% elif '?q' %}
+                        <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>            
+                        <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?q={{ request.GET.q }}&sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% else %}
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">
+                            <small>price low to high</small>
+                        </a>
+
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">
+                            <small>price high to low</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">
+                            <small>A-Z</small>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=desc">
+                            <small>Z-A</small>
+                        </a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid">
-    <h1 class="my-2 text-light text-center display-4 mx-auto">
-        {{ product_title }} Products
-    </h1>
-    <div class="row text-light text-center product-container mx-auto">
+    <div class="container-fluid">
+        <h1 class="my-2 text-light text-center display-4 mx-auto">
+            {{ product_title }} Products
+        </h1>
+        <div class="row text-light text-center product-container mx-auto">
 
-        {% for product in products %}
+            {% for product in products %}
 
-        <div class="col-lg-3 col-md-5 col-sm-6 col-xl-2 mx-auto my-5">
-            <div class="card border-0 w-100 mx-auto product">  
+            <div class="col-lg-3 col-md-5 col-sm-6 col-xl-2 mx-auto my-5">
+                <div class="card border-0 w-100 mx-auto product">  
 
-                {% if product.image %}
+                    {% if product.image %}
 
-                    <a href="{% url 'product_details' product.id %}">
-                        <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
-                    </a>
+                        <a href="{% url 'product_details' product.id %}">
+                            <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                        </a>
 
-                {% else %}
+                    {% else %}
 
-                    <a href="{% url 'product_details' product.id %}">
-                        <img src="{% static 'images/no-img.webp' %}" class="card-img-top img-fluid" alt="{{ product.name }}">
-                    </a>
-
-                {% endif %}
-
-                <div class="card-body text-center font-light">
-                    <p class="card-text"> 
-                        <strong>{{product.name}} - {{product.size}}</strong>
-                    </p>
-                </div>
-                <div class="card-footer font-light text-center">
-                    <p class="mb-0">
-                        {{product.price}}€
-                    </p>
-
-                    {% if request.user.is_superuser  %}
-
-                    <div class="row d-flex justify-content-between border-top border-light mt-2">
-                        <div class="col-6 mt-2">
-                            <a href="{% url 'delete_product' product.id %} " class="text-decoration-none">
-                                <small class="text-danger">
-                                    <span>
-                                        <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
-                                    </span>
-                                    <span>
-                                        <b>Delete</b>
-                                    </span>
-                                </small>
-                            </a>
-                        </div>
-                        <div class="col-6 mt-2">
-                            <a href="{% url 'edit_product' product.id %}" class="text-decoration-none">
-                                <small class="text-prpl">
-                                    <span>
-                                        <i class="fa-solid fa-pen-to-square mr-1 icon"></i>
-                                    </span>
-                                    <span>
-                                        <b>Edit</b>
-                                    </span>
-                                </small>
-                            </a>
-                        </div>
-                    </div>
+                        <a href="{% url 'product_details' product.id %}">
+                            <img src="{% static 'images/no-img.webp' %}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                        </a>
 
                     {% endif %}
 
+                    <div class="card-body text-center font-light">
+                        <p class="card-text"> 
+                            <strong>{{product.name}} - {{product.size}}</strong>
+                        </p>
+                    </div>
+                    <div class="card-footer font-light text-center">
+                        <p class="mb-0">
+                            {{product.price}}€
+                        </p>
+
+                        {% if request.user.is_superuser  %}
+
+                        <div class="row d-flex justify-content-between border-top border-light mt-2">
+                            <div class="col-6 mt-2">
+                                <a href="{% url 'delete_product' product.id %} " class="text-decoration-none">
+                                    <small class="text-danger">
+                                        <span>
+                                            <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
+                                        </span>
+                                        <span>
+                                            <b>Delete</b>
+                                        </span>
+                                    </small>
+                                </a>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <a href="{% url 'edit_product' product.id %}" class="text-decoration-none">
+                                    <small class="text-prpl">
+                                        <span>
+                                            <i class="fa-solid fa-pen-to-square mr-1 icon"></i>
+                                        </span>
+                                        <span>
+                                            <b>Edit</b>
+                                        </span>
+                                    </small>
+                                </a>
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                    </div>
                 </div>
             </div>
+
+            {% endfor %}
+
         </div>
+    </div>
 
-        {% endfor %}
+{% else %}
 
+<div class="container-fluid text-white py-5 text-center bg-darkground mx-auto">
+    <div class="p-5 text-center">
+        <p class="h4 text-center megrim">
+            <i class="fa-solid fa-skull-crossbones text-prpl"></i>
+            Oh no!
+            <i class="fa-solid fa-skull-crossbones text-prpl"></i>
+        </p>
+        <p class="h4 text-center megrim">There are no products here yet!</p>
+        <p class="h4 text-center megrim">Please check back later!</p>
+    </div>
+    <div class=" p-5 text-center">
+        <a href="{% url 'home' %}">
+            <button class="btn btn-lg button-bl-prpl text-light megrim mt-3 rounded-lg-0 px-4" type="submit">
+                Take me back home!
+            </button>
+        </a>
     </div>
 </div>
+
+{% endif %}
 
 {% endblock %}
