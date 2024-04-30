@@ -121,20 +121,6 @@ footer {
 
 /* Backgrounds and font colours */
 
-.bg-frame {
-    background-image: url(/static/images/container-img.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    text-align: center;
-    padding: 0% 2%;
-    height: 67vh !important;
-    margin: 1vh auto 0 auto;
-    -webkit-mask:radial-gradient(circle at 25% 90%, transparent , #fff 50%);
-    mask:radial-gradient(circle at 25% 90%, transparent , #fff 50%);
-    opacity: 0.75;
-}
-
 .bg-darkground {
     background-image: url(/static/images/peter-gargiulo-cGNCepznaV8-unsplash.jpg);
     background-repeat: no-repeat;
@@ -388,10 +374,6 @@ select:invalid, select option[value=""],
         font-size: x-large !important;
     }
 
-    .bg-frame {
-        margin-top: 3%;
-    }
-
     .main-content {
         padding: 4% !important;
         font-size: xx-large !important;
@@ -458,10 +440,6 @@ select:invalid, select option[value=""],
         background-size: 360% !important;
         background-position: top;
         height: 85vh !important;
-    }
-
-    .bg-frame {
-        height: 45vh !important;
     }
 
     .main-content {
@@ -579,6 +557,11 @@ select:invalid, select option[value=""],
     select[id="id_saved_country"] {
         width: 80vw !important;
     }
+
+    .signup .form-group,
+    .login .form-group {
+        width: 55vw !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -594,11 +577,6 @@ select:invalid, select option[value=""],
     .home-container {
         margin-top: 35vh !important;
         padding: 1%;
-    }
-
-    .bg-frame {
-        background-image: url(/static/images/container-img-mobile.webp);
-        height: 74vh !important;
     }
 
     .main-content {
@@ -651,6 +629,11 @@ select:invalid, select option[value=""],
     .remove-product {
         padding-bottom: 1.1rem
     }
+
+    .signup .form-group,
+    .login .form-group {
+        width: 80vw !important;
+    }
 }
 
 
@@ -669,12 +652,6 @@ select:invalid, select option[value=""],
     .home-container {
         margin-top: 30vh !important;
         padding: 0;
-    }
-
-    .bg-frame {
-        height: 80vh !important;
-        background-position: top;
-        margin-top: 3vh !important;
     }
 
     .allauth-frames .main-content {
@@ -696,11 +673,6 @@ select:invalid, select option[value=""],
         padding: 0 !important;
     }
 
-    .bg-frame {
-        background-image: none !important;
-        background-color: white;
-    }
-
     .main-content {
         margin-top: 1vh !important;
     }
@@ -710,6 +682,11 @@ select:invalid, select option[value=""],
 
     .bag {
         padding: 0.2rem !important;
+    }
+
+    .signup .form-group,
+    .login .form-group {
+        width: 90vw !important;
     }
 
 }

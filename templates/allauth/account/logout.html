@@ -6,12 +6,12 @@
 
 {% block content %}
 
-  <div class="bg-darkground">
-    <div class="bg-frame allauth-frames d-flex align-items-around">
-      <div class="main-content">
+  <div class="bg-darkground text-light text-center">
+    <div class="allauth-frames d-flex align-items-around">
+      <div class="main-content my-5">
         <h1>{% trans "Sign Out" %}</h1>
         <small>
-          <p class="text-prpl py-2">{% trans 'Are you sure you want to sign out?' %}</p>
+          <p class="mt-5 py-3">{% trans 'Are you sure you want to sign out?' %}</p>
         </small>
         <form method="post" action="{% url 'account_logout' %}">
           {% csrf_token %}

@@ -9,9 +9,9 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-  <div class="bg-darkground">
-    <div class="bg-frame allauth-frames">
-      <div class="main-content">
+  <div class="bg-darkground text-center text-light">
+    <div class="allauth-frames">
+      <div class="main-content my-2">
         <h1>{% trans "Sign In" %}</h1>
 
         {% get_providers as socialaccount_providers %}
@@ -19,7 +19,7 @@
         {% if socialaccount_providers %}
 
         <small>
-          <p class="text-secondary">
+          <p class="p-2">
 
             {% blocktrans with site.name as site_name %}
 
@@ -48,14 +48,16 @@
 
         {% else %}
 
-        <p class="text-secondary">
+        <p class="p-3">
           
           {% blocktrans %}
 
           <small>
             Please enter your email and password. <br>
             Don't have an account yet? 
-              <a href="{{ signup_url }}" class="text-secondary"><u>Sign up!</u></a>  
+              <a href="{{ signup_url }}" class="text-prpl">
+                <b><u>Sign up!</u></b>
+              </a>  
           </small>
 
           {% endblocktrans %}
@@ -68,7 +70,7 @@
 
           {% csrf_token %}
           {{ form|crispy }}
-          {% if redirect_field_value %}#
+          {% if redirect_field_value %}
 
           <input class="border border-dark" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
 

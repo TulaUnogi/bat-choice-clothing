@@ -9,15 +9,17 @@
 
 {% block content %}
 
-  <div class="bg-darkground">
-    <div class="bg-frame allauth-frames">
-      <div class="main-content">
+  <div class="bg-darkground text-light text-center">
+    <div class="allauth-frames">
+      <div class="main-content m-2">
         <h1>{% trans "Sign Up" %}</h1>
-        <small class="text-secondary">
+        <small class="p-2">
           <p>
             {% blocktrans %}
             Already have an account? Then please 
-            <a class="text-prpl" href="{{ login_url }}"><u>Sign in</u></a>!
+            <a class="text-prpl" href="{{ login_url }}">
+              <b><u>Sign in</u></b>
+            </a>!
             {% endblocktrans %}
           </p>
         </small>
