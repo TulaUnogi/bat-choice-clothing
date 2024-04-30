@@ -19,22 +19,10 @@ COLOURS = (
     ('MULTICOLOUR', 'MULTICOLOUR'),
 )
 
-CATEGORIES = (
-    ('unknown category', 'unknown category'),
-    ('tops', 'tops'),
-    ('trousers', 'trousers'),
-    ('skirts', 'skirts'),
-    ('dresses', 'dresses'),
-    ('footwear', 'footwear'),
-    ('outerwear', 'outerwear'),
-)
-
 
 # Categories of Products
 class Category(models.Model):
-    name = models.CharField(max_length=100, choices=CATEGORIES, 
-                            null=False, blank=False,
-                            default='unknown category') 
+    name = models.CharField(max_length=100, null=True, blank=True) 
 
     class Meta:
         verbose_name_plural = 'categories'
@@ -60,6 +48,7 @@ class Product(models.Model):
     secondary_colour = models.CharField(choices=COLOURS, default='BLACK', max_length=50)
     image = models.ImageField(null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
+    added_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural = 'products'
