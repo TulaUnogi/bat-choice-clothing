@@ -42,8 +42,13 @@
                             </div>
                             <div class="col-md-9">
                                 <small class="p-1">
-                                    <p class="m-0"><b>{{ item.product.name }}</b></p>                                
-                                    <p>{{ item.product.price }}</p>
+                                    <p class="m-0">
+                                        <b>
+                                            {{ item.product.name|truncatechars:15 }}
+                                         ({{ item.product.size }})
+                                        </b>
+                                    </p>                                
+                                    <p>{{ item.product.price }}€</p>
                                 </small>
                             </div>                            
                         </div>  
@@ -55,10 +60,10 @@
                     <div class="col-lg-8 col-sm-12 text-lg-left text-right justify-content-end justify-content-lg-start">
                         <small>
                             <p>
-                                <b>Subtotal:</b> {{ subtotal }}
+                                <b>Subtotal:</b> {{ subtotal }}€
                             </p>
                             <p>
-                                <b>Shipping:</b> {{ shipping|floatformat:2 }}
+                                <b>Shipping:</b> {{ shipping|floatformat:2 }}€
                             </p>
                         </small>
                         <form action="" method="POST" class="d-flex flex-row justify-content-lg-start justify-content-end discount">

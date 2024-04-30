@@ -19,13 +19,13 @@
     <div class="row mb-5 text-center text-lg-left">
         <div class="col-sm-12 col-lg-6 border-light border-right bag">
             <div class="table-responsive">
-                <table class="table-transparent">  
+                <table class="table-transparent mx-auto mx-md-0">  
                     <p class="megrim bag">Found {{ product_count }} items in bag:</p>                  
                     <tbody>
 
                     {% for item in bag_items %}
 
-                        <tr>
+                        <tr class="my-auto">
                             <td class="bag">
                                 
                                 {% if item.product.image %}
@@ -40,14 +40,19 @@
 
                             </td>
                             <td class="bag">
-                                <p class="my-sm-4 my-lg-0">{{ item.product.name }}</p>
+                                <p class="p-0 mb-0 mt-sm-0 mt-md-2 mt-lg-1 small-font">
+                                    {{ item.product.name|truncatechars:15 }}
+                                </p>
+                                <p class="small-font p-0 m-0">
+                                    ({{ item.product.size }})
+                                </p>
                             </td>
                             <td class="bag">
-                                <p class="my-sm-4 my-lg-0 text-center">{{ item.product.price }}€</p>
+                                <p class="text-center small-font">{{ item.product.price }}€</p>
                             </td>
                             <td class="bag">
-                                <a class="my-sm-4 my-lg-0 text-center remove-product" id="remove_{{ item.item_id }}">
-                                    <i class="fa-solid fa-trash text-prpl"></i>
+                                <a class="text-center" id="remove_{{ item.item_id }}">
+                                    <i class="fa-solid fa-trash text-prpl remove-product"></i>
                                 </a>
                             </td>
                         </tr>

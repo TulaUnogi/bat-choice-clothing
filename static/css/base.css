@@ -439,11 +439,9 @@ select:invalid, select option[value=""],
     .form-control-lg {
         width: 75% !important;
     }
-
-    
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     main {
         height: 85vh !important;
     }
@@ -530,6 +528,10 @@ select:invalid, select option[value=""],
         margin-top: 35% !important;
     }
 
+    .toast::-webkit-scrollbar {        
+        display: block !important;
+    }
+
     #pay_form fieldset, #userprofile_update {
         width: 90vw !important;
         margin: 0 auto !important;
@@ -559,6 +561,14 @@ select:invalid, select option[value=""],
 
     ::-webkit-scrollbar {
         display: none !important;
+    }
+
+    .checkout-products::-webkit-scrollbar {
+        display: block !important;
+    }
+
+    .table-transparent > tbody {
+        width: 95vw !important;
     }
 }
 
@@ -628,7 +638,10 @@ select:invalid, select option[value=""],
     .img-bag-checkout {
         width: 15vw !important;
     }
-
+    
+    .remove-product {
+        padding-bottom: 1.1rem
+    }
 }
 
 
