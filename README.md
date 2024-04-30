@@ -437,6 +437,7 @@ Creating a clone enables you to make a copy of the current version of this repos
 - [crimsonpython24 on Stack Overflow](https://stackoverflow.com/a/63047180/23072594) for an idea on how to do a product count
 - [Ashot Aleqsanyan on Stack Overflow](https://stackoverflow.com/a/56985340/23072594) for custom font integration for Stripe
 - [ferrangb on Stack Overflow](https://stackoverflow.com/a/27458036/23072594) for generating username from email
+- [Paolo Bergantino on Stack Overflow](https://stackoverflow.com/a/979538/23072594) for filtering items not older than a month (used for 'New In' products)
 
 
 > Acknowledgements 
