@@ -43,51 +43,71 @@
                     My Order History
                 </h2>
                 <div class="col py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left-white">
-                    <div class="table-responsive p-3">
 
-                        <table class="table-sm table-borderless text-light">
-                            <thead>
-                                <tr class="border-bottom border-white my-1">
-                                    <th class="p-3 text-center">
-                                        <b>Order Number</b>
-                                    </th>
-                                    <th class="p-3 text-center">
-                                        <b>Date</b>
-                                    </th>
-                                    <th class="p-3 text-center">
-                                        <b>Order Total</b>
-                                    </th>
-                                    <th class="p-3 text-center">
-                                        <b>Products</b>
-                                    </th>
-                                </tr>    
-                            </thead>
-                            <tbody>
-                                {% for order in orders %}
-                                    <tr class="p-3 text-center">
-                                        <td class="p-3 text-center">
-                                            <a href="{% url 'order_history' order.order_number %}" 
-                                                title="{{ order.order_number }}"
-                                                class="text-prpl small">
-                                                <b>{{ order.order_number|truncatechars:6 }}</b>
-                                            </a>
-                                        </td>
-                                        <td class="p-3 text-center small">{{ order.order_date_time }}</td>
-                                        <td class="p-3 text-center small">€{{ order.grand_total }}</td>
-                                        <td class="text-center p-3">
-                                            <ul class="list-unstyled text-center m-0">
-                                                {% for item in order.lineitems.all %}
-                                                    <li class="small p-1">
-                                                        {{ item.product.name }} x 1
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                    {% for order in orders %}
+
+                    <div class="text-left p-md-5 p-2 m-md-5 m-2 prpl-shadow">
+                        
+                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                  justify-content-between">
+                            <span class="mr-2 megrim">
+                                Order Number:
+                            </span>
+                            <span class="small-font text-sm-right text-left">
+                                <a href="{% url 'order_history' order.order_number %}" 
+                                   title="{{ order.order_number }}"
+                                   class="text-prpl">                                   
+                                    <b>{{ order.order_number|truncatechars:10 }}</b>
+                                </a>
+                            </span>
+                            
+                        </a>
+                        </p>
+                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                  justify-content-between">
+                            <span class="mr-2 megrim">
+                                Date:
+                            </span>
+                            <span class="small-font text-sm-right text-left">
+                                {{ order.order_date_time }}
+                            </span>
+                        </p>
+                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                  justify-content-between">
+                            <span class="mr-2 megrim">
+                                Order Status:
+                            </span>
+                            <span class="small-font text-sm-right text-left">
+                                {{ order.order_status }}
+                            </span>
+                        </p>
+                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                  justify-content-between">
+                            <span class="mr-2 megrim">
+                                Order Total:
+                            </span>
+                            <span class="small-font text-sm-right text-left">
+                                {{ order.order_total }}€
+                            </span>
+                        </p>
+                        <div class="p-2 d-flex flex-md-row flex-column justify-content-between">
+                            <span class="mr-2 megrim">
+                                Products:
+                            </span>
+                            <span class="small-font">
+                                <ul class="list-unstyled m-0">
+                                    {% for item in order.lineitems.all %}
+                                        <li class="p-1 text-sm-right text-left">
+                                            {{ item.product.name|truncatechars:15 }} x 1
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </span>                        
+                        </div>
                     </div>
+
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
