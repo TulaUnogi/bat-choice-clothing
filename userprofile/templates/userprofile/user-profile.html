@@ -17,9 +17,9 @@
         <div class="row mb-5 text-center text-lg-left">
             <div class="col-sm-12 col-lg-6">
                 <h2 class="uppercase display-4 text-center my-3">My Shipping Details</h2>
-                <div class="mt-4 my-2 p-5 mx-auto text-center">            
+                <div class="mt-4 my-2 p-4 mx-auto text-center">            
                     <form action="{% url 'my-profile' %}" method="POST" id="userprofile_update" 
-                            class="mx-auto my-input text-center rounded-0">
+                            class="mx-auto my-input text-center rounded-0 p-3">
                         
                         {% csrf_token %}
                         {{ form|crispy }}
