@@ -436,7 +436,6 @@ Creating a clone enables you to make a copy of the current version of this repos
 - [Devin B. on Stack Overflow](https://stackoverflow.com/a/52417275/23072594) for admin 404 image error fix
 - [crimsonpython24 on Stack Overflow](https://stackoverflow.com/a/63047180/23072594) for an idea on how to do a product count
 - [Ashot Aleqsanyan on Stack Overflow](https://stackoverflow.com/a/56985340/23072594) for custom font integration for Stripe
-- [Temani Afif on Stack Overflow](https://stackoverflow.com/a/58071275/23072594) for radial mask effect used on my bg-frame class elements
 - [ferrangb on Stack Overflow](https://stackoverflow.com/a/27458036/23072594) for generating username from email
 
 
