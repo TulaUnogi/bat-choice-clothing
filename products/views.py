@@ -8,6 +8,8 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
 
+from datetime import datetime, timedelta
+
 
 def products_all(request):
     """ All products view, that includes sorting and queries """
@@ -16,6 +18,7 @@ def products_all(request):
     query = None
     categories = None
     sort = None
+    new_in = None
     direction = None
 
     if request.GET:
@@ -45,6 +48,14 @@ def products_all(request):
     
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+
+        if 'new_in' in request.GET:
+            last_month = datetime.today() - timedelta(days=30)
+            new_in = Product.objects.filter(added_on__gte=last_month)
+            if not new_in:
+                messages.info(request, 'No new products currently! \
+                              Please come back at the next drop date!')
+
 
     current_sorting = f'{sort}_{direction}'
 
