@@ -58,16 +58,54 @@ Obvious choices for visibility would be Facebook, Twitter, Instagram. However, s
 Once a presence has been established on these platforms, and users have begun registering themselves to the site, we plan on keeping them informed and updated on everything Bat-Choice
 through a newsletter system. To avoid avoid coming across or being seen as spam, these 'newsletters' should be rolled out on a semi-regular basis. The key insights we would want to provide should show our users updates on currently stocked lines, seasonal discounting, stock highlights or even aspects of the growth/changes of the business.
 
+
 > Facebook page
 
 The sample facebook page has been created at the following address: https://www.facebook.com/bat.choice.clothing
 It includes basic information about company and posts related to the website.
 
+Top of the page:
 <img src="readme-images/fb-page-1.png" alt="Top of the page at the current state">
 
+An example of a post with a goth meme created to encourage engagement with the brand's posts:
 <img src="readme-images/fb-page-2.png" alt="A post including a 'goth vs visigoth' meme">
 
+Post advertising a discount for fb followers:
 <img src="readme-images/fb-page-3.png" alt="Example of a post advertising a discount">
+
+
+> Twitter
+
+Twitter example page can be found at the following address: https://twitter.com/BatChoiceClthg.
+This account will mostly feature engagement posts and happy customers outfits.
+
+View of the profile:
+<img src="readme-images/twitter-page.png" alt="Twitter profile">
+
+Engagement example post:
+<img src="readme-images/twitter.png" alt="Halfoween meme post">
+
+
+> Instagram:
+
+Instagram profile has been created with the idea of advertising selected items, sharing outfit ideas, uploading happy customers photos etc. A sponsored co-operation with a thrift- loving influencers is an idea for a future advertisement on this platform. Link to the profile can be found here: https://www.instagram.com/batchoice.clothing/.
+
+Profile page:
+<img src="readme-images/ig-page.png" alt="Profile page">
+
+Happy customers outfits in stories:
+<img src="readme-images/ig-customers-story.png" alt="Customer wearing red tartan skirt and black top">
+
+Sneak-peak of a future drop:
+
+<img src="readme-images/post-ig-1.png" alt="Three mini skirts">
+
+Outfit idea featuring item available in store:
+<img src="readme-images/post-ig-2.png" alt="Black bralet top, red tartan mini skirt, belt, and Killstar bag">
+
+Post promoting selected item available in store:
+<img src="readme-images/post-ig-3.png" alt="Iron Fist Gold Digger heels">
+
 
 
 ##### [ Back to Top ](#table-of-contents)
