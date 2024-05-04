@@ -26,22 +26,22 @@ def our_story(request):
 
 def reviews(request):
     """ A view to return the reviews page """
-    review_form = ReviewForm()
+    form = ReviewForm()
     now = timezone.now()
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
-        if review_form.is_valid():
-            review_form = ReviewForm()
-            review_form.order_review = form.cleaned_data['order_review']
-            review_form.rating = form.cleaned_data['rating']
-            review_form.order = form.cleaned_data['order']
-            review_form.review_date = now
+        if form.is_valid():
+            form = ReviewForm()
+            form.order_review = form.cleaned_data['order_review']
+            form.rating = form.cleaned_data['rating']
+            form.order = form.cleaned_data['order']
+            form.date = now
             if request.user.is_authenticated:
-                review_form.customer = request.user.email
+                form.customer = request.user.email
             else:
-                review_form.customer = request.order.email
-            review_form.save()
+                form.customer = request.order.email
+            form.save()
             messages.success(request, 'Thank you for sharing your opinion! \
                                         Your review has been submitted.')
             return redirect(reverse('reviews'))
@@ -52,7 +52,7 @@ def reviews(request):
     template = "about/reviews.html"
 
     context = {
-        'review_form': review_form,
+        'form': form,
     }
 
     return render(request, template, context)
