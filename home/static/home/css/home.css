@@ -5,7 +5,7 @@
     float: left;
     padding-left: 15%;
     color: white;
-    margin-top: 37vh !important;
+    margin-top: 37vh;
     backdrop-filter: blur(1px);
 }
 
@@ -31,7 +31,7 @@
 .carousel .one,
 .carousel .two,
 .carousel .three {
-    background-size: contain !important;
+    background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     -moz-background-size: contain !important;

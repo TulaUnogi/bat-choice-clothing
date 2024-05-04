@@ -11,7 +11,7 @@
     <div class="row w-100">
         <div id="carouselHomepageIndicators" class="carousel slide border-0 col-7 col-md-6 my-auto min-vw-100"
             data-ride="carousel" data-interval="7000">
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators d-none d-md-flex">
                 <li data-target="#carouselHomepageIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselHomepageIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselHomepageIndicators" data-slide-to="2"></li>
@@ -20,7 +20,7 @@
                 <div class="carousel-item one active">
                     <div class="d-flex align-items-end justify-content-start">
                         <div class="home-container float-left">
-                            <h1 class="text-uppercase">Join the coven</h1>
+                            <h2 class="text-uppercase">Join the coven</h2>
                             <p class="font-light">Sign up to our newsletter for news, events and promo codes!</p>
                             <!-- Subscribe modal button -->
                             <button data-toggle="modal" data-target="#subscribe"
@@ -33,7 +33,7 @@
                 <div class="carousel-item two">
                     <div class="d-flex align-items-end justify-content-start">
                         <div class="home-container float-left">
-                            <h1 class="text-uppercase">Become a thrift goddess</h1>
+                            <h2 class="text-uppercase">Become a thrift goddess</h2>
                             <p class="font-light">Find new treasures every Wednesday. No luck spells needed!</p>
                             <h4>
                                 <a href="{% url 'products' %}?new_in"
@@ -45,7 +45,7 @@
                 <div class="carousel-item three">
                     <div class="d-flex align-items-end justify-content-start">
                         <div class="home-container float-left">
-                            <h1 class="text-uppercase">Stomp into the darkness</h1>
+                            <h2 class="text-uppercase">Stomp into the darkness</h2>
                             <p class="font-light">Rock your style with our selection of footwear!</p>
                             <h4>
                                 <a href="{% url 'products' %}?category=footwear" class="button-bl-prpl btn btn-lg my-auto text-uppercase">Shop Shoes</a>

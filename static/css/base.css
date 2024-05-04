@@ -24,7 +24,7 @@ main {
     max-width: 100vw;
     margin: 0 auto !important;
     padding-top: 10vh !important;
-    height: 70vh !important;
+    height: 100vh !important;
     overflow-y: auto !important;
     overflow-x: hidden;
 }
@@ -125,13 +125,14 @@ footer {
     background-image: url(/static/images/peter-gargiulo-cGNCepznaV8-unsplash.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-attachment: fixed;
     width: 100vw;
-    height: 70vh !important;
+    height: 100vh !important;
     margin: 0 auto !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    z-index: -1;
 }
 
 .bg-purple {
@@ -423,11 +424,7 @@ select:invalid, select option[value=""],
     }
 }
 
-@media (max-width: 991px) {
-    main {
-        height: 85vh !important;
-    }
-
+@media (max-width: 991px) {    
     .dropdown { 
         position: static !important; 
     } 
@@ -437,9 +434,8 @@ select:invalid, select option[value=""],
 }
 
     .carousel .one, .carousel .two, .carousel .three {
-        background-size: 360% !important;
         background-position: top;
-        height: 85vh !important;
+        height: 100% !important;
     }
 
     .main-content {
@@ -464,7 +460,6 @@ select:invalid, select option[value=""],
     .bg-darkground {
         width: 100vw !important;
         height: 91vh !important;
-        background-size: cover;
     }
 
     .founders {  
@@ -565,15 +560,6 @@ select:invalid, select option[value=""],
 }
 
 @media (max-width: 576px) {
-    main {
-        height: 77vh !important;
-    }
-
-    .carousel .one, .carousel .two, .carousel .three {
-        height: 77vh !important;
-        background-size: cover;
-    }
-
     .home-container {
         margin-top: 35vh !important;
         padding: 1%;
@@ -654,8 +640,8 @@ select:invalid, select option[value=""],
 
 @media (max-width: 320px) {    
     .home-container {
-        margin-top: 30vh !important;
-        padding: 0;
+        margin-top: 27vh !important;
+        padding: 0 !important;
     }
 
     .allauth-frames .main-content {
