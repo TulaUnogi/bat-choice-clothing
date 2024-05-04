@@ -1,5 +1,12 @@
 from django import forms
-from .models import Order
+from .models import Order, Discount
+
+
+class DiscountForm(forms.ModelForm):
+
+    class Meta:
+        model = Discount
+        fields = ('discount_code',)
 
 
 class OrderForm(forms.ModelForm):

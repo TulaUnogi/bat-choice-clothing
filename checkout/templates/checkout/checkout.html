@@ -63,23 +63,26 @@
                                 <b>Subtotal:</b> {{ subtotal }}€
                             </p>
                             <p>
+                                <b>Discount:</b> {{ discount_value|floatformat:2 }}€
+                            </p>
+                            <p>
                                 <b>Shipping:</b> {{ shipping|floatformat:2 }}€
                             </p>
                         </small>
-                        <form action="" method="POST" class="d-flex flex-row justify-content-lg-start justify-content-end discount">
+                        <form action="{% url 'add_discount' %}" method="POST" class="d-flex flex-row justify-content-lg-start justify-content-end discount">
                             {% csrf_token %}
                             <label for="discount_input" aria-labelledby="discount_input">
                                 Enter your discount code here
                             </label>
                             <span>
-                                <input type="text" name="discount" id="discount_input" placeholder="Enter discount code" 
+                                <input type="text" name="discount_code" id="discount_input" placeholder="Enter discount code" 
                                    class="form-control border-dark rounded-0" autocomplete="name">
                             </span>
                             <span>
                                 <input class="btn btn-lg megrim rounded-0 px-2 font-weight-bold" type="submit" 
                                     value="%" aria-label="Add discount">
                             </span>
-                            
+               
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
                     </div>
