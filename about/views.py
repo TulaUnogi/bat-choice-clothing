@@ -1,4 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse)
+from django.contrib import messages
+from django.utils import timezone
+
+from .forms import ReviewForm
+
 
 def policies(request):
     """ A view to return the policies page """
@@ -15,3 +23,38 @@ def our_story(request):
     """ A view to return the faq page """
     
     return render(request, "about/our-story.html")
+
+def reviews(request):
+    """ A view to return the reviews page """
+    review_form = ReviewForm()
+    now = timezone.now()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            review_form = ReviewForm()
+            review_form.order_review = form.cleaned_data['order_review']
+            review_form.rating = form.cleaned_data['rating']
+            review_form.order = form.cleaned_data['order']
+            review_form.review_date = now
+            if request.user.is_authenticated:
+                review_form.customer = request.user.email
+            else:
+                review_form.customer = request.order.email
+            review_form.save()
+            messages.success(request, 'Thank you for sharing your opinion! \
+                                        Your review has been submitted.')
+            return redirect(reverse('reviews'))
+        else:
+            messages.error(request, "Sorry, there are some issues with your form. \
+                Please ensure you enter a valid data.")
+
+    template = "about/reviews.html"
+
+    context = {
+        'review_form': review_form,
+    }
+
+    return render(request, template, context)
+
+
