@@ -14,7 +14,23 @@
 }
 
 .carousel .one {
-    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), url('/static/images/newsletter.webp') !important;
+    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), 
+                url('/static/images/newsletter.webp') !important;
+}
+
+.carousel .two {
+    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), 
+                url('/static/images/shop-new.webp') !important;
+}
+
+.carousel .three {
+    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), 
+                url('/static/images/shop-shoes.webp') !important;
+}
+
+.carousel .one,
+.carousel .two,
+.carousel .three {
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
@@ -24,25 +40,6 @@
     bottom: 0;
 }
 
-.carousel .two {
-    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), url('/static/images/shop-new.webp') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    -moz-background-size: contain !important;
-    height: 70vh !important;
-    max-width: 100vw !important;
-}
-
-.carousel .three {
-    background: linear-gradient(rgba(255, 255, 255, 0.062), #00000081), url('/static/images/shop-shoes.webp') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    -moz-background-size: contain !important;
-    height: 70vh !important;
-    max-width: 100vw !important;
-}
 
 /* Newsletter */
 
