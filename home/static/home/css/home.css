@@ -43,3 +43,34 @@
     height: 70vh !important;
     max-width: 100vw !important;
 }
+
+/* Newsletter */
+
+#mc_embed_signup {
+    background: black;
+    clear: left; 
+    width: 600px;
+}
+
+.mc-field-group input {
+    width: 80% !important;
+    margin: auto !important;
+    clear: left;
+}
+
+.subscribe-modal {
+    z-index: 9999999999999999999999999 !important;
+}
+
+.modal-content {
+    background-image: url(/static/images/peter-gargiulo-cGNCepznaV8-unsplash.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    box-shadow: 3px 3px 45px #640152, -3px -3px 40px #640152 !important;
+}
+
+.chimp {
+    opacity: 0 !important;
+}
