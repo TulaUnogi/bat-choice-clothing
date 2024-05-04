@@ -52,5 +52,5 @@ def webhook(request):
     event_handler = event_map.get(event_type, handler.handle_webhook_event)
 
     response = event_handler(event)
-    print('success!')
+
     return response

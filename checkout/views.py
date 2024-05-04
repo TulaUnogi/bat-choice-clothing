@@ -60,9 +60,10 @@ def add_discount(request):
             messages.error(
                 request, "Invalid discount code! Please check if your code is correct!"
             )
-            print("Invalid discount code! Please check if your code is correct!")
     else:
-        print("invalid form")
+        messages.error(
+                request, "Invalid form! Please check if your data is correct!"
+            )
 
 
 def checkout(request):

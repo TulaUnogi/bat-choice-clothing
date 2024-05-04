@@ -97,7 +97,6 @@ def add_product(request):
             messages.info(request, 'Product added successfully!')
             return redirect(reverse('add_product'))
         else:
-            print('Failed to add product! Please ensure you entered correct data!')
             messages.error(
                 request, 'Failed to add product! Please ensure you entered correct data!'
             )
@@ -128,7 +127,6 @@ def edit_product(request, product_id):
             messages.success(request, 'Product updated successfully!')
             return redirect(reverse('product_details', args=[product.id]))
         else:
-            print('Failed to update product! Please ensure you entered correct data!')
             messages.error(
                 request, 'Failed to update product! Please ensure you entered correct data!'
             )
