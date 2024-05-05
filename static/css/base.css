@@ -524,6 +524,7 @@ select:invalid, select option[value=""],
     
     #pay_form input, 
     #userprofile_update input,
+    #review_form input,
     select[id="id_country"],
     select[id="id_saved_country"] {
         width: 90vw !important;        
@@ -560,9 +561,13 @@ select:invalid, select option[value=""],
     }
 
     #userprofile_update input,
+    #review_form input,
+    #review_form textarea,
+    select[id="id_rating"],
     select[id="id_country"],
     select[id="id_saved_country"] {
         width: 80vw !important;
+        border-radius: 0 !important;
     }
 
     .signup .form-group,

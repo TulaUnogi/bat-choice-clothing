@@ -10,21 +10,77 @@
 {% block content %}
 
 <div class="text-light p-5 bg-darkground">
-  <div class="height-capper">
-    <h2 class="my-3 text-center display-4">Reviews</h2>
-    <div class="middle-container">
-      <form action="{% url 'reviews' %}" method="POST" id="review_form" 
-            class="mx-auto my-input text-center rounded-0">
-          
-          {% csrf_token %}
-          {{ form|crispy }}
+    <div class="height-capper">    
+        <h2 class="my-3 text-center display-4">Reviews</h2>
+        <div class="row mb-5 text-center text-lg-left">
+            <div class="col-sm-12 col-lg-6">
+                <div class="mt-4 my-2"> 
 
-          <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light mx-auto" type="submit">
-              Submit
-          </button>
-      </form>
+                {% if reviews %}
+                
+                <div id="reviews-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    
+                        {% for review in reviews %}
+
+                        <div class="carousel-item active">
+
+                            {{ review }}
+
+                        </div>
+
+                        {% endfor %}
+                      
+                    </div>
+                </div> 
+                        
+
+                {% else %}
+                <div class=" p-5 text-center">
+                    <p class="h4 text-center megrim">
+                        <i class="fa-solid fa-star text-prpl"></i>
+                        No rewiews here yet! 
+                        <i class="fa-solid fa-star text-prpl"></i>
+                    </p>
+                    <p class="h4 text-center megrim">Be the first one to share your opinion!</p>
+                </div>
+
+                {% endif %}
+            </div>
+
+        </div>                    
+        <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
+            <h2 class="uppercase text-center my-3">
+                Share your opinion!
+            </h2>
+
+            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-auto border-left-white">
+
+                {% if user.is_authenticated %}
+
+                <form action="{% url 'reviews' %}" method="POST" id="review_form" 
+                      class="mx-auto my-input text-center rounded-0">
+              
+                    {% csrf_token %}
+                    {{ form|crispy }}
+      
+                    <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 mb-5 megrim text-light mx-auto" type="submit">
+                        Submit
+                    </button>
+                </form>
+
+                {% else %}
+
+                <p class="megrim"> 
+                    Please Sign in to be able to write a review!
+                </p>
+
+                {% endif %}
+
+            </div>
+
+            
+        </div>
     </div>
-  </div>
 </div>
-
 {% endblock %}
