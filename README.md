@@ -283,7 +283,21 @@ To better visualise it I used [this colour palette generator](https://coolors.co
 
 ## Technology used 
 
-
+- Html - for page structure
+- CSS - for custom styling
+- Python - for the backend
+- Javascript - used acrossed the website
+- Django - framework used to build this project
+- Jinja - templating language rendering logic within html documents
+- Bootstrap 5 - front end framework used by me alongside Django, helps with fast and efficient styling
+- Heroku PostgreSQL - used as the database
+- Font Awesome - for various icons used acrossed the website
+- Google Fonts- for fonts used acrossed the website
+- GitHub - for storing the code and for the projects Kanban
+- Heroku - for hosting and deployement of this project
+- Cloudinary - hosting the static files 
+- Git - version control tool
+- Stripe - for making payments
 
 ##### [ Back to Top ](#table-of-contents)
 
