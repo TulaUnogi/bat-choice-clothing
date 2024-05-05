@@ -11,125 +11,127 @@
 {% block content %}
 
     <div class="bg-darkground text-light">
+        <div class="height-capper">
         
-        {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
 
-        <div class="row mb-5 text-center text-lg-left">
-            <div class="col-sm-12 col-lg-6">
-                <h2 class="uppercase display-4 text-center my-3">My Shipping Details</h2>
-                <div class="mt-4 my-2 p-4 mx-auto text-center">            
-                    <form action="{% url 'my-profile' %}" method="POST" id="userprofile_update" 
-                            class="mx-auto my-input text-center rounded-0 p-3">
-                        
-                        {% csrf_token %}
-                        {{ form|crispy }}
-
-                        <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light mx-auto" type="submit">
-                            Update
-                        </button>
-                    </form>
-                    <a href="{% url 'delete_profile' %}" class="text-center mt-3">
-                        <button class="btn btn-lg button-bl-prpl button-delete rounded-0 mt-3 megrim text-light" type="button">
-                            <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
-                            Delete Profile
-                            <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
-                        </button>
-                    </a>
-                </div>
-
-            </div>
-            <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
-                <h2 class="uppercase display-4 text-center my-3">
-                    My Order History
-                </h2>
-                <div class="col py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left-white">
-
-                    {% for order in orders %}
-
-                    <div class="text-left p-md-5 p-2 m-md-5 m-2 prpl-shadow">
-                        
-                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
-                                  justify-content-between">
-                            <span class="mr-2 megrim">
-                                Order Number:
-                            </span>
-                            <span class="small-font text-sm-right text-left">
-                                <a href="{% url 'order_history' order.order_number %}" 
-                                   title="{{ order.order_number }}"
-                                   class="text-prpl">                                   
-                                    <b>{{ order.order_number|truncatechars:10 }}</b>
-                                </a>
-                            </span>
+            <div class="row mb-5 text-center text-lg-left">
+                <div class="col-sm-12 col-lg-6">
+                    <h2 class="uppercase display-4 text-center my-3">My Shipping Details</h2>
+                    <div class="mt-4 my-2 p-4 mx-auto text-center">            
+                        <form action="{% url 'my-profile' %}" method="POST" id="userprofile_update" 
+                                class="mx-auto my-input text-center rounded-0 p-3">
                             
+                            {% csrf_token %}
+                            {{ form|crispy }}
+
+                            <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light mx-auto" type="submit">
+                                Update
+                            </button>
+                        </form>
+                        <a href="{% url 'delete_profile' %}" class="text-center mt-3">
+                            <button class="btn btn-lg button-bl-prpl button-delete rounded-0 mt-3 megrim text-light" type="button">
+                                <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
+                                Delete Profile
+                                <i class="fa-solid fa-skull-crossbones icon text-danger"></i>
+                            </button>
                         </a>
-                        </p>
-                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
-                                  justify-content-between">
-                            <span class="mr-2 megrim">
-                                Date:
-                            </span>
-                            <span class="small-font text-sm-right text-left">
-                                {{ order.order_date_time }}
-                            </span>
-                        </p>
-                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
-                                  justify-content-between">
-                            <span class="mr-2 megrim">
-                                Order Status:
-                            </span>
-                            <span class="small-font text-sm-right text-left">
-                                {{ order.order_status }}
-                            </span>
-                        </p>
-                        <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
-                                  justify-content-between">
-                            <span class="mr-2 megrim">
-                                Order Total:
-                            </span>
-                            <span class="small-font text-sm-right text-left">
-                                {{ order.order_total }}€
-                            </span>
-                        </p>
-                        <div class="p-2 d-flex flex-md-row flex-column justify-content-between">
-                            <span class="mr-2 megrim">
-                                Products:
-                            </span>
-                            <span class="small-font">
-                                <ul class="list-unstyled m-0">
-                                    {% for item in order.lineitems.all %}
-                                        <li class="p-1 text-sm-right text-left">
-                                            {{ item.product.name|truncatechars:15 }} x 1
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </span>                        
-                        </div>
                     </div>
 
-                    {% endfor %}
+                </div>
+                <div class="col-sm-12 col-lg-6 py-lg-0 mt-5 mt-lg-0 border-sm-top">
+                    <h2 class="uppercase display-4 text-center my-3">
+                        My Order History
+                    </h2>
+                    <div class="col py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left-white">
 
+                        {% for order in orders %}
+
+                        <div class="text-left p-md-5 p-2 m-md-5 m-2 prpl-shadow">
+                            
+                            <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                    justify-content-between">
+                                <span class="mr-2 megrim">
+                                    Order Number:
+                                </span>
+                                <span class="small-font text-sm-right text-left">
+                                    <a href="{% url 'order_history' order.order_number %}" 
+                                    title="{{ order.order_number }}"
+                                    class="text-prpl">                                   
+                                        <b>{{ order.order_number|truncatechars:10 }}</b>
+                                    </a>
+                                </span>
+                                
+                            </a>
+                            </p>
+                            <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                    justify-content-between">
+                                <span class="mr-2 megrim">
+                                    Date:
+                                </span>
+                                <span class="small-font text-sm-right text-left">
+                                    {{ order.order_date_time }}
+                                </span>
+                            </p>
+                            <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                    justify-content-between">
+                                <span class="mr-2 megrim">
+                                    Order Status:
+                                </span>
+                                <span class="small-font text-sm-right text-left">
+                                    {{ order.order_status }}
+                                </span>
+                            </p>
+                            <p class="border-bottom border-dark p-2 d-flex flex-md-row flex-column
+                                    justify-content-between">
+                                <span class="mr-2 megrim">
+                                    Order Total:
+                                </span>
+                                <span class="small-font text-sm-right text-left">
+                                    {{ order.order_total }}€
+                                </span>
+                            </p>
+                            <div class="p-2 d-flex flex-md-row flex-column justify-content-between">
+                                <span class="mr-2 megrim">
+                                    Products:
+                                </span>
+                                <span class="small-font">
+                                    <ul class="list-unstyled m-0">
+                                        {% for item in order.lineitems.all %}
+                                            <li class="p-1 text-sm-right text-left">
+                                                {{ item.product.name|truncatechars:15 }} x 1
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </span>                        
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        {% else %}
+            
+            {% else %}
 
-        <div class="row-fluid d-flex justify-content-center">
-            <div class="col-lg-7 text-center">
-                <h1 class="display-4 m-5">Please Log in</h1>
-                <p>
-                    To access this page you need to 
-                    <a href="{% url 'account_login' %}" aria-label="Log in" class="text-prpl">log in</a> 
-                    first.
-                </p>
-                <p>If you don't have an account yet please 
-                    <a href="{% url 'signup' %}" aria-label="Sign up" class="text-prpl">sign up</a>!
-                </p>
+            <div class="row-fluid d-flex justify-content-center">
+                <div class="col-lg-7 text-center">
+                    <h1 class="display-4 m-5">Please Log in</h1>
+                    <p>
+                        To access this page you need to 
+                        <a href="{% url 'account_login' %}" aria-label="Log in" class="text-prpl">log in</a> 
+                        first.
+                    </p>
+                    <p>If you don't have an account yet please 
+                        <a href="{% url 'signup' %}" aria-label="Sign up" class="text-prpl">sign up</a>!
+                    </p>
+                </div>
             </div>
-        </div>
 
-        {% endif %}
-    
+            {% endif %}
+        
+        </div>
     </div>
 
 {% endblock %}

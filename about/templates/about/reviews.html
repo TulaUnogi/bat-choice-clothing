@@ -10,18 +10,20 @@
 {% block content %}
 
 <div class="text-light p-5 bg-darkground">
-  <h2 class="my-3 text-center display-4">Reviews</h2>
-  <div class="middle-container">
-    <form action="{% url 'reviews' %}" method="POST" id="review_form" 
-          class="mx-auto my-input text-center rounded-0">
-        
-        {% csrf_token %}
-        {{ form|crispy }}
+  <div class="height-capper">
+    <h2 class="my-3 text-center display-4">Reviews</h2>
+    <div class="middle-container">
+      <form action="{% url 'reviews' %}" method="POST" id="review_form" 
+            class="mx-auto my-input text-center rounded-0">
+          
+          {% csrf_token %}
+          {{ form|crispy }}
 
-        <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light mx-auto" type="submit">
-            Submit
-        </button>
-    </form>
+          <button class="btn btn-lg button-bl-prpl rounded-0 mt-3 megrim text-light mx-auto" type="submit">
+              Submit
+          </button>
+      </form>
+    </div>
   </div>
 </div>
 

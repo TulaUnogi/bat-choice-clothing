@@ -8,39 +8,40 @@
 
 {% block content %}
 <div class="bg-darkground text-light d-sm-block d-lg-flex flex-lg-row justify-content-lg-between">
-  <div class="col-12 mx-auto py-3 d-lg-none d-flex flex-row justify-content-center">
-    <img class="founders mx-auto" src="{% static 'images/founders.webp' %}" alt="Alt couple- founders">
+  <div class="height-capper">
+    <div class="col-12 mx-auto py-3 d-lg-none d-flex flex-row justify-content-center">
+      <img class="founders mx-auto" src="{% static 'images/founders.webp' %}" alt="Alt couple- founders">
+    </div>
+    <div class="col-lg-4 col-12 mx-auto">
+      <h2 class="p-3 display-4 uppercase text-center text-lg-left">Our Story</h1>
+        <p class="font-light p-3 text-center text-lg-left">
+          When in 2020 pandemic hit just as we were graduating from the Fashion Design Academy in Dublin
+          we thought that the world is about to end. <br>
+          Back in those days we would have never thought that we're gonna be in the place we are now!
+          Coming out of the dark pandemic times we realised just how much we care about our planet 
+          and caring for it's sustainability. <br>
+          From our combined love to alt fashion and thrifting we decided to create the very first Irish 
+          online alternative thrift store! <br>
+          There's no more need to leave your bat cave to score some gothic gems anymore - just get cosy 
+          and let's get thrifting!
+        </p>      
+    </div>
+    <div class="col-4 mx-auto px-3 d-none d-lg-flex flex-column align-items-center">
+      <img class="founders mx-auto" src="{% static 'images/founders.webp' %}" alt="Alt couple- founders">
+    </div>
+    <div class="col-12 col-lg-4 mx-auto">
+      <h2 class="p-3 display-4 uppercase text-center text-lg-right">Our Promise</h1>
+        <p class="font-light p-3 text-center text-lg-right">
+          We're a small business with a big dream! <br>
+          We love making our customers happy while sharing the spirit of sustainability! <br>
+          We promise that all of our products (even if some of them may still have their tags on!)
+          have been handpicked by us to guarantee that they are sourced by sustainable means. <br>
+          Although most of our products are in a used/ vintage condition we always make sure to deliver
+          the highest possible quality and to provide you with a description of any visible defects or 
+          signs of wear and tear. <br>
+          Happy thrifting!
+        </p>
+    </div>
   </div>
-  <div class="col-lg-4 col-12 mx-auto">
-    <h2 class="p-3 display-4 uppercase text-center text-lg-left">Our Story</h1>
-      <p class="font-light p-3 text-center text-lg-left">
-        When in 2020 pandemic hit just as we were graduating from the Fashion Design Academy in Dublin
-        we thought that the world is about to end. <br>
-        Back in those days we would have never thought that we're gonna be in the place we are now!
-        Coming out of the dark pandemic times we realised just how much we care about our planet 
-        and caring for it's sustainability. <br>
-        From our combined love to alt fashion and thrifting we decided to create the very first Irish 
-        online alternative thrift store! <br>
-        There's no more need to leave your bat cave to score some gothic gems anymore - just get cosy 
-        and let's get thrifting!
-      </p>      
-  </div>
-  <div class="col-4 mx-auto px-3 d-none d-lg-flex flex-column align-items-center">
-    <img class="founders mx-auto" src="{% static 'images/founders.webp' %}" alt="Alt couple- founders">
-  </div>
-  <div class="col-12 col-lg-4 mx-auto">
-    <h2 class="p-3 display-4 uppercase text-center text-lg-right">Our Promise</h1>
-      <p class="font-light p-3 text-center text-lg-right">
-        We're a small business with a big dream! <br>
-        We love making our customers happy while sharing the spirit of sustainability! <br>
-        We promise that all of our products (even if some of them may still have their tags on!)
-        have been handpicked by us to guarantee that they are sourced by sustainable means. <br>
-        Although most of our products are in a used/ vintage condition we always make sure to deliver
-        the highest possible quality and to provide you with a description of any visible defects or 
-        signs of wear and tear. <br>
-        Happy thrifting!
-      </p>
-  </div>
-  
 </div>
 {% endblock %}
