@@ -1,11 +1,13 @@
 from django.shortcuts import (
     render,
     redirect,
-    reverse)
+    reverse,
+    get_object_or_404)
 from django.contrib import messages
 from django.utils import timezone
 
 from checkout.models import Order
+from .models import Review
 from .forms import ReviewForm
 
 
@@ -34,11 +36,6 @@ def reviews(request):
         form = ReviewForm(request.POST)
         try:
             if form.is_valid():
-                form = ReviewForm()
-                existing_order = Order.objects.filter(
-                    order_number=request.POST.get("order_number")
-                ).first()
-                request.session["order_number"] == existing_order.order_number
                 form.order_review = form.cleaned_data['order_review']
                 form.rating = form.cleaned_data['rating']
                 form.order = form.cleaned_data['order']
@@ -55,9 +52,12 @@ def reviews(request):
                 messages.error(request, "Sorry, there are some issues with your form. \
                 Please ensure you enter a valid data.")
         except ValueError as e:
+            print(e)
             messages.error(request, "Sorry, this order does not exist! \
                 Please enter full and valid order number!")
             return redirect(reverse('reviews'))
+        
+        reviews = get_object_or_404(Review, order=request.order)
 
     template = "about/reviews.html"
 
