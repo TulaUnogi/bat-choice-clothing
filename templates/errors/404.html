@@ -8,16 +8,14 @@
 
 {% block content %}
 
-    <div class="bg-darkground text-center text-light">
+    <div class="bg-darkground text-center text-light d-flex flex-column align-content-center">
 
-        <div class="main-content my-2 mx-auto">
-            <h1 class="display-1 text-prpl border-bottom border-light mt-3">
-                <u>404</u>
-            </h1>
-            <h2 class="ml-5 mt-0 mb-3">-Page not found!</h2>
-            <p class="py-2">We're sorry, this page might have been removed or does not exist.</p>
+        <div class="main-content m-auto">
+            <h1 class="display-1 text-prpl">404</h1>
+            <h2 class="pt-2 pb-4">Page not found!</h2>
+            <p class="py-3 border-top border-light font-italic">We're sorry, this page might have been removed or does not exist.</p>
             <a href="{% url 'home' %}">
-                <button class="mx-auto btn btn-lg button-bl-prpl text-light megrim mt-3 rounded-lg-0 px-4 my-2" 
+                <button class="mx-auto btn btn-lg button-bl-prpl text-light megrim rounded-lg-0 px-4 my-1" 
                         type="button">
                     Take me back home!
                 </button>
