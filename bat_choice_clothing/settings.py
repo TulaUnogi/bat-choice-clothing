@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # Setting up debug
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['8000-tulaunogi-batchoiceclot-y8abkjs09jj.ws-eu111.gitpod.io',
+ALLOWED_HOSTS = ['8000-tulaunogi-batchoiceclot-ba7fdxuauyg.ws-eu114.gitpod.io',
                  'bat-choice-clothing-ff8ff2b21dca.herokuapp.com',
                  'localhost',]
 
@@ -118,7 +118,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = ''
 
 
 WSGI_APPLICATION = 'bat_choice_clothing.wsgi.application'
