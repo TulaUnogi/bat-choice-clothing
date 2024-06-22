@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MinValueValidator
+from decimal import Decimal
 
 
 COLOURS = (
@@ -43,7 +45,7 @@ class Product(models.Model):
     description = models.TextField()
     condition = models.CharField(max_length=200, null=True, blank=True)
     size = models.CharField(max_length=20, null=True, blank=True)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     primary_colour = models.CharField(choices=COLOURS, default='BLACK', max_length=50)
     secondary_colour = models.CharField(choices=COLOURS, default='BLACK', max_length=50)
     image = models.ImageField(null=True, blank=True)
