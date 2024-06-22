@@ -1,12 +1,10 @@
 from django.shortcuts import (
     render,
     redirect,
-    reverse,
-    get_object_or_404)
+    reverse)
 from django.contrib import messages
 from django.utils import timezone
 
-from checkout.models import Order
 from .models import Review
 from .forms import ReviewForm
 
@@ -28,9 +26,10 @@ def our_story(request):
     return render(request, "about/our-story.html")
 
 def reviews(request):
-    """ A view to return the reviews page """
+    """ A view to return the reviews page and form"""
     form = ReviewForm()
     now = timezone.now()
+    user_reviews = Review.objects.all()
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -57,14 +56,11 @@ def reviews(request):
                 Please enter full and valid order number!")
             return redirect(reverse('reviews'))
         
-        reviews = get_object_or_404(Review, order=request.order)
-
     template = "about/reviews.html"
 
     context = {
         'form': form,
+        'user_reviews': user_reviews,
     }
 
     return render(request, template, context)
-
-
