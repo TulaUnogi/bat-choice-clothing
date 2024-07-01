@@ -25,7 +25,10 @@ class UserProfile(models.Model):
     saved_address_line2 = models.CharField(max_length=200, null=True, blank=True)
     saved_region = models.CharField(max_length=85, null=True, blank=True)
     saved_city = models.CharField(max_length=85, null=True, blank=True)
-    saved_postcode = models.CharField(max_length=30, null=True, blank=True)
+    saved_postcode = models.CharField(max_length=30, null=True,
+        blank=True, validators=[RegexValidator(
+            regex=r'^[\d\-a-zA-Z]+$', 
+            message="Only letters, numbers and hyphens allowed.")])
     saved_country = CountryField(blank_label="Country *", null=True, blank=True)
 
     def __str__(self):
