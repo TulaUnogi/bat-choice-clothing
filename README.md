@@ -490,6 +490,8 @@ Creating a clone enables you to make a copy of the current version of this repos
 - [Ashot Aleqsanyan on Stack Overflow](https://stackoverflow.com/a/56985340/23072594) for custom font integration for Stripe
 - [ferrangb on Stack Overflow](https://stackoverflow.com/a/27458036/23072594) for generating username from email
 - [Paolo Bergantino on Stack Overflow](https://stackoverflow.com/a/979538/23072594) for filtering items not older than a month (used for 'New In' products)
+- [potts18 on Stack Overflow](https://stackoverflow.com/a/19131360) for an easy regex based solution to validate phone numbers
+-[toraman on Stack Overflow](https://stackoverflow.com/a/48520908) for regex pattern used in my postcode validation
 
 
 > Acknowledgements 
