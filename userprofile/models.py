@@ -20,7 +20,8 @@ class UserProfile(models.Model):
         max_length=16, blank=True, null=True, validators=[RegexValidator(
             regex=r'^\+?1?\d{9,15}$', 
             message="Phone number must be entered in the format: '+123456789'.\
-                     Up to 15 digits allowed.")])
+                     Up to 15 digits allowed.",
+            code="invalid")])
     saved_address_line1 = models.CharField(max_length=200, null=True, blank=True)
     saved_address_line2 = models.CharField(max_length=200, null=True, blank=True)
     saved_region = models.CharField(max_length=85, null=True, blank=True)
@@ -28,7 +29,8 @@ class UserProfile(models.Model):
     saved_postcode = models.CharField(max_length=30, null=True,
         blank=True, validators=[RegexValidator(
             regex=r'^[\d\-a-zA-Z]+$', 
-            message="Only letters, numbers and hyphens allowed.")])
+            message="Only letters, numbers and hyphens allowed.",
+            code="invalid")])
     saved_country = CountryField(blank_label="Country *", null=True, blank=True)
 
     def __str__(self):
