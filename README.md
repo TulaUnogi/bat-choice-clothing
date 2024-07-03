@@ -497,7 +497,11 @@ Creating a clone enables you to make a copy of the current version of this repos
 > Acknowledgements 
 
 - Tutors:
-    - Holly for helping me with Stripe orders not processing 
-
+    - Holly for helping me with Stripe orders not processing
+    - Jason for helping with category sorting
+    - John for helping with reviews saving and disappearing trash icon in bag
+    - Oisin for spotting lacking .save() that was preventing products getting sold out
+    - Sarah for helping with Internal Server Error for allauth in production
+- My Mentor Narender Singh for all the patience and support
 
 ##### [ Back to Top ](#table-of-contents)
