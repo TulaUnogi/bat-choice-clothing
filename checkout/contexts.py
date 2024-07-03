@@ -7,6 +7,11 @@ from products.models import Product
 
 
 def in_bag(request):
+    """
+    Displays final version of the bag contents,
+    allows User to apply discount code, calculates 
+    shipping and grand total for User to pay.
+    """
     bag_items = []
     subtotal = 0
     total = 0
@@ -30,10 +35,12 @@ def in_bag(request):
 
     if subtotal < settings.FREE_SHIPPING_TRESHOLD:
         free_shipping_delta = settings.FREE_SHIPPING_TRESHOLD - subtotal
+
         if subtotal >= settings.MINIMUM_SHIPPING_COST:
             shipping = subtotal * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE / 100)
-            if shipping < settings.MINIMUM_SHIPPING_COST:
-                shipping = settings.MINIMUM_SHIPPING_COST
+
+        if shipping < settings.MINIMUM_SHIPPING_COST:
+            shipping = settings.MINIMUM_SHIPPING_COST
     else:
         shipping = 0
         free_shipping_delta = 0
