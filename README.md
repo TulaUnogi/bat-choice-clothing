@@ -299,19 +299,20 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 ## Technology used 
 
-- Html - for page structure
-- CSS - for custom styling
-- Python - for the backend
-- Javascript - used acrossed the website
+- Html 5 - for page structure
+- CSS 3 - for custom styling
+- Python 3- for the backend
+- JavaScript - for Stripe Elements and contact form
+- jQuery - for simplified JavaScript handling in templates
 - Django - framework used to build this project
 - Jinja - templating language rendering logic within html documents
-- Bootstrap 5 - front end framework used by me alongside Django, helps with fast and efficient styling
-- Heroku PostgreSQL - used as the database
+- Bootstrap 4 - front end framework used by me alongside Django, helps with fast and efficient styling
+- ElephantSQL - used as the database
 - Font Awesome - for various icons used acrossed the website
-- Google Fonts- for fonts used acrossed the website
+- Google Fonts - for fonts used acrossed the website
 - GitHub - for storing the code and for the projects Kanban
 - Heroku - for hosting and deployement of this project
-- Cloudinary - hosting the static files 
+- Amazon Web Services (AWS) - hosting the static files 
 - Git - version control tool
 - Stripe - for making payments
 
