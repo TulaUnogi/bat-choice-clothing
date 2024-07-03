@@ -248,18 +248,34 @@ To better visualise it I used [this colour palette generator](https://coolors.co
 
 ### Overview
 
+This project has been started alongside GitHub Projects to plan and track the workflow which would help me to manage the expected workload. After setting out the milestones and epics for my project I broke them down into a set of user stories and smaller tasks, which helped me monitor my progress and finish all of the mandatory features. Outside of user stories I also included separate issues for creating each module of this README file, to help me keep on track with documentation. To see the project's Kanban page please click [here](https://github.com/users/TulaUnogi/projects/4)
 
 
 #### User Stories
 
+Initial stage of the project included UX planning. I thought about the features and functionality I would expect from the first uses of the website and based on that I created a set of 14 User Stories. I labelled 12 of them as mandatory and the on, as they provide the core functionality and source of important informations for the User. The remaining 2 Stories are labelled as NINTH- Nice To Have, Not Important, as they provide some improvements, but are not necessary for the User to enjoy the website's base functionality. 
 
+The User Stories include the acceptance criteria and are broken down into smaller, bite- size tasks that I would tick on completion, so I could easily track my progress. During the coding session I would record the encountered bugs, issues and solutions related to the Story in the comments below. Once all of the tasks in the Issue are completed I would move the User Story form "In progress" to "Completed" card in my project's Kanban.
 
 > List of Mandatory User Stories
 
+1. [USER STORY: Navigation](https://github.com/TulaUnogi/bat-choice-clothing/issues/19)
+2. [USER STORY: User Profile](https://github.com/TulaUnogi/bat-choice-clothing/issues/20)
+3. [USER STORY: Products display](https://github.com/TulaUnogi/bat-choice-clothing/issues/21)
+4. [USER STORY: Product filtering and searching](https://github.com/TulaUnogi/bat-choice-clothing/issues/22)
+5. [USER STORY: Shopping Basket](https://github.com/TulaUnogi/bat-choice-clothing/issues/23)
+6. [USER STORY: Checkout](https://github.com/TulaUnogi/bat-choice-clothing/issues/24)
+7. [USER STORY: About Us](https://github.com/TulaUnogi/bat-choice-clothing/issues/25)
+8. [USER STORY: Contact form](https://github.com/TulaUnogi/bat-choice-clothing/issues/26)
+9. [USER STORY: Newsletter](https://github.com/TulaUnogi/bat-choice-clothing/issues/27)
+10. [USER STORY: Custom error pages](https://github.com/TulaUnogi/bat-choice-clothing/issues/28)
+11. [USER STORY: Stock Management](https://github.com/TulaUnogi/bat-choice-clothing/issues/1)
+12. [USER STORY: SEO](https://github.com/TulaUnogi/bat-choice-clothing/issues/37)
 
 > NINTH: Not Important, Nice To Have
 
-
+13. [USER STORY: Filtering by colour and size](https://github.com/TulaUnogi/bat-choice-clothing/issues/30)
+14. [USER STORY: Change products grid](https://github.com/TulaUnogi/bat-choice-clothing/issues/29)
 
 ##### [ Back to Top ](#table-of-contents)
 
