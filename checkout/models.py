@@ -23,6 +23,18 @@ ORDER_STATUS = (
 )
 
 
+class Discount(models.Model):
+    """Stores active discount codes and their values"""
+
+    discount_code = models.CharField(max_length=30, null=True, blank=True,
+        	                         unique=True)
+    percent = models.PositiveIntegerField(null=True, default=0)
+    is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.percent}% off with code: {self.discount_code}'
+
+
 class Order(models.Model):
     """
     Stores all customer order data and calculates order total
@@ -98,8 +110,8 @@ class Order(models.Model):
                 self.shipping_cost = (self.order_subtotal 
                                     * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE
                                                 / 100))
-                if self.shipping_cost < settings.MINIMUM_SHIPPING_COST:
-                    self.shipping_cost = settings.MINIMUM_SHIPPING_COST
+            if self.shipping_cost < settings.MINIMUM_SHIPPING_COST:
+                self.shipping_cost = settings.MINIMUM_SHIPPING_COST
         else:
             self.shipping_cost = 0
         self.save()
@@ -148,16 +160,4 @@ class OrderLineItem(models.Model):
         Override default save function to set the product_total.
         """
         self.product_total = self.product.price * self.product_quantity
-        super().save(*args, **kwargs)    
-
-
-class Discount(models.Model):
-    """Stores active discount codes and their values"""
-
-    discount_code = models.CharField(max_length=30, null=True, blank=True,
-        	                         unique=True)
-    percent = models.PositiveIntegerField(null=True, default=0)
-    is_active = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f'{self.percent}% off with code: {self.discount_code}'
+        super().save(*args, **kwargs)
