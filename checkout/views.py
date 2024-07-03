@@ -9,7 +9,7 @@ from .models import OrderLineItem, Order, Discount
 from products.models import Product
 from userprofile.forms import ProfileForm
 from userprofile.models import UserProfile
-from bag.contexts import in_bag
+from .contexts import in_bag
 import stripe
 import json
 
@@ -89,16 +89,24 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            for item_id, item_data in bag.items():
+            for item_id, item_data in bag.items():  
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            product_quantity=item_data,
-                        )
-                        order_line_item.save()
+                    if product.availability == 'IN STOCK':
+                        if isinstance(item_data, int):
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                product_quantity=item_data,
+                            )
+                            order_line_item.save()
+                        product.availability = 'SOLD OUT'
+                        product.save()
+                    else:
+                        messages.error(request, "We're sorry, but one or more of the products \
+                            in your bag is already sold out!")
+                        order.delete()
+                        return redirect(reverse('bag_view'))
                 except Product.DoesNotExist:
                     messages.error(
                         request,
@@ -107,11 +115,7 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse("bag_view"))
-                # except Product.quantity == 0:
-                #     messages.error(request, "We're sorry, but one or more of the products \
-                #         in your bag is already sold out!")
-                #     order.delete()
-                #     return redirect(reverse('bag_view'))
+
             request.session["info_save"] = "info_save" in request.POST
             return redirect(reverse("success_checkout_page", args=[order.order_number]))
         else:
@@ -120,7 +124,6 @@ def checkout(request):
                 "Oops! There was an error with your form! \
                 Please make sure to provide correct information.",
             )
-
     else:
         bag = request.session.get("bag", {})
         if not bag:
