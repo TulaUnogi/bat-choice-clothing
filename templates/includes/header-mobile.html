@@ -1,10 +1,12 @@
 <div class="container-fluid w-100 grey-banner flex-row d-sm-flex d-lg-none p-2">
     <ul class="w-100 m-auto text-center mobile-menu d-flex col-7 justify-content-around">
         <li class="list-inline-item dropdown m-0">
-            <a class="text-dark nav-link py-2 text-center" href="" id="search-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="text-dark nav-link py-2 text-center" href="" id="search-toggle" 
+               data-toggle="dropdown" role="button" aria-label="Toggle search bar" aria-haspopup="true" aria-expanded="false">
                 <i class="fa-solid fa-magnifying-glass text-secondary"></i>
             </a>
-            <form method="GET" action="{% url 'products' %}" id="searchForm" class="form-inline collapse navbar-collapse dropdown-menu rounded-0" aria-labelledby="search-toggle">
+            <form method="GET" action="{% url 'products' %}" id="searchForm" class="form-inline collapse navbar-collapse dropdown-menu rounded-0" 
+                  aria-labelledby="search-toggle">
                 <div class="dropdown-item p-2 input-group">
                     <input class="form-control rounded-0 border-dark" type="text" name="q" placeholder="Search" aria-label="Search">
                     <div class="input-group-append">
@@ -16,7 +18,8 @@
             </form>
         </li>
         <li class="list-inline-item dropdown ">
-            <a class="text-dark nav-link py-2 text-center" href="" id="user-sm-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <a class="text-dark nav-link py-2 text-center" href="" id="user-sm-toggle" data-toggle="dropdown" role="button"
+               aria-label="Toggle profile options" aria-haspopup="true" aria-expanded="false">
                 <i class="fa-solid fa-user text-secondary"></i>
             </a>
             <div class="dropdown-menu rounded-0" aria-labelledby="user-sm-toggle">
@@ -33,7 +36,8 @@
             </div>
         </li>   
         <li class="list-inline-item">
-            <a class="{% if subtotal > 0 %} text-prpl font-weight-bold{% else %}text-secondary{% endif %} text-center py-2 nav-link" href="{% url 'bag_view' %}">   
+            <a class="{% if subtotal > 0 %} text-prpl font-weight-bold{% else %}text-secondary{% endif %} text-center py-2 nav-link" 
+               aria-label="View bag" href="{% url 'bag_view' %}">   
                 <i class="fa-solid fa-bag-shopping"></i>
             </a>
         </li>
