@@ -52,11 +52,20 @@ Possibly even into international spaces.
 
 ### Business Model and Marketing
 
+#### Business Model
+
+Bat Choice Clothing has a plan on providing sustainable high quality used and vintage alternative style clothes and footwear for our online customers.
+Due to being a small online business and using a storage space based in Founder's private place the company would save on the high costs of renting a retail unit in a city. The savings generated through that would be spent towards better quality clothing sourced locally from thrift and vintage shops, flea markets, car boot sales, internet auctions (in some cases) and wholesalers.
+Product pricing would vary between the items depending on their style, brand and condition. Providing users with a good reselling value by continous online research to ensure appropriate market price match and prevent overpricing will build the company's trust within the thrifting community and carefully curated collections will make it stand out amongst the competitors like Depop, Ebay or Amazon.
+Business would mainly focus around female customers aged 16+, interested in goth, punk, emo and other styles within the wide spectrum of alternative fashion, music and lifestyle. After Bat Choice Clothing becomes a recognisable brand in the Internet, the product range would expand to include also male clothing and accessories to attract a broader audience. The "big picture" future plan includes engaging the local goth micro-brands to sell their arts and crafts on Bat Choice Clothing's website to share the spirit of creativity and upcycling.
+With the goth and alternative community growing rapidly within the past few years altogether with society's increasing environmental awareness and vintage clothes simply being "in" there are high hopes for this company's big success.
+
+#### Marketing
+
 The initial starting points for getting grounded, would be advertising through various forms of Social Media. 
 Obvious choices for visibility would be Facebook, Twitter, Instagram. However, spreading out and creating tendrils on other platfroms such as Tiktok would only help with visibility as well as providing website traffic and growth at a future date. 
 
-Once a presence has been established on these platforms, and users have begun registering themselves to the site, we plan on keeping them informed and updated on everything Bat-Choice
-through a newsletter system. To avoid avoid coming across or being seen as spam, these 'newsletters' should be rolled out on a semi-regular basis. The key insights we would want to provide should show our users updates on currently stocked lines, seasonal discounting, stock highlights or even aspects of the growth/changes of the business.
+Once a presence has been established on these platforms, and users have begun registering themselves to the site, we plan on keeping them informed and updated on everything Bat-Choice through a newsletter system. To avoid avoid coming across or being seen as spam, these 'newsletters' should be rolled out on a semi-regular basis. The key insights we would want to provide should show our users updates on currently stocked lines, seasonal discounting, stock highlights or even aspects of the growth/changes of the business and charity events and organisations supported by Bat Choice Clothing.
 
 
 > Facebook page
