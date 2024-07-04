@@ -44,26 +44,27 @@ def add_discount(request):
     form = DiscountForm(request.POST)
     if not form.is_valid():
         try:
-            order_form = OrderForm()
             shop_discount = Discount.objects.filter(
                 discount_code=request.POST.get("discount_code")
             ).first()
-            request.session["discount_code"] = shop_discount.discount_code
-            return render(
-                request=request,
-                template_name="checkout/checkout.html",
-                context={"order_form": order_form},
-            )
+            if shop_discount:
+                request.session["discount_code"] = shop_discount.discount_code
+                return redirect(reverse("checkout"))
+            else:
+                raise Discount.DoesNotExist
         except Discount.DoesNotExist:
-            request.session["discount_id"] = None
-            return redirect(reverse("checkout"))
+            request.session["discount_id"] = None       
             messages.error(
-                request, "Invalid discount code! Please check if your code is correct!"
+                request, 
+                "Invalid discount code! Please check if your code is correct!"
             )
+            return redirect(reverse("checkout"))
     else:
         messages.error(
-                request, "Invalid form! Please check if your data is correct!"
+                request, 
+                "Invalid form! Please check if your data is correct!"
             )
+        return redirect(reverse("checkout"))
 
 
 def checkout(request):
@@ -73,6 +74,7 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == "POST":
+        print(request.POST)
         bag = request.session.get("bag", {})
         form_data = {
             "full_name": request.POST["full_name"],
@@ -88,7 +90,20 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
+            discount_code = request.session["discount_code"]
+            order = order_form.save(commit=False)
+            if discount_code:
+                try:
+                    discount = Discount.objects.get(discount_code=discount_code, is_active=True)
+                    order.discount = discount
+                except Discount.DoesNotExist:
+                    order.discount_value = 0
+            else:
+                order.discount_value = 0
+            order.update_discounted_total()
+            order.update_grand_total()
+            order.save()
+
             for item_id, item_data in bag.items():  
                 try:
                     product = Product.objects.get(id=item_id)
@@ -103,8 +118,11 @@ def checkout(request):
                         product.availability = 'SOLD OUT'
                         product.save()
                     else:
-                        messages.error(request, "We're sorry, but one or more of the products \
-                            in your bag is already sold out!")
+                        messages.error(
+                            request, 
+                            "We're sorry, but one or more of the products \
+                            in your bag is already sold out!"
+                        )                                      
                         order.delete()
                         return redirect(reverse('bag_view'))
                 except Product.DoesNotExist:

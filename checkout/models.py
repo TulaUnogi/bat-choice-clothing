@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
 
 from products.models import Product
 from userprofile.models import UserProfile
@@ -28,7 +28,8 @@ class Discount(models.Model):
 
     discount_code = models.CharField(max_length=30, null=True, blank=True,
         	                         unique=True)
-    percent = models.PositiveIntegerField(null=True, default=0)
+    percent = models.PositiveIntegerField(null=False, default=0,
+        validators=[MinValueValidator(1), MaxValueValidator(100)])
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
@@ -42,7 +43,7 @@ class Order(models.Model):
     
     order_date_time = models.DateTimeField(auto_now_add=True)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                      null=True, blank=True, related_name='orders')
+        null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=100, null=False, blank=False, default="")
     email = models.EmailField(max_length=300, null=False, blank=False)
     phone_number = models.CharField(
@@ -69,9 +70,11 @@ class Order(models.Model):
                                     blank=False, default="Awaiting Fulfillment")
     order_subtotal = models.DecimalField(max_digits=6, decimal_places=2, 
                                          null=False, default=0)
-    discount = models.OneToOneField("Discount", null=True, 
+    discount = models.ForeignKey(Discount, null=True, blank=True, 
                                     on_delete=models.CASCADE,
                                     related_name="discount") # one code per order
+    discount_value = models.DecimalField(max_digits=6, decimal_places=2,
+                                      null=False, default=0)
     order_total = models.DecimalField(max_digits=6, decimal_places=2,
                                       null=False, default=0)
     shipping_cost = models.DecimalField(max_digits=6, decimal_places=2,
@@ -94,12 +97,11 @@ class Order(models.Model):
     def update_discounted_total(self):
         # Calculate discount value
         if self.discount:
-            discount_value = self.subtotal * Decimal(self.discount.percent / 100)
-            self.save()
+            self.discount_value = self.order_subtotal * Decimal(self.discount.percent / 100)
         else:
-            discount_value = 0
+            self.discount_value = 0
         # Calculate total
-        self.order_total = self.order_subtotal - discount_value
+        self.order_total = self.order_subtotal - self.discount_value
         self.save()
         return self.order_total
 
