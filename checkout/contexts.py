@@ -67,7 +67,9 @@ def in_bag(request):
         "free_shipping_delta": free_shipping_delta,
         "free_shipping_treshold": settings.FREE_SHIPPING_TRESHOLD,
         "discount_value": discount_value,
+        "total": total,
         "grand_total": grand_total,
     }
+
 
     return context
