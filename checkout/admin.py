@@ -13,18 +13,18 @@ class OrderAdmin(admin.ModelAdmin):
 
     readonly_fields = ('order_number', 'order_date_time',
                        'order_total', 'shipping_cost',
-                       'grand_total',)
+                       'grand_total', 'discount_value')
 
     fields = ('order_number', 'user_profile','order_date_time',
               'order_total', 'shipping_cost',
-              'grand_total', 'full_name', 'email', 
+              'grand_total','discount_value' , 'full_name', 'email', 
               'phone_number', 'address_line1',
               'address_line2', 'region', 'city', 
               'postcode', 'country', 'order_status',)
     
     list_display = ('order_number', 'order_date_time',
                     'order_total', 'shipping_cost',
-                       'grand_total',)
+                    'discount_value', 'grand_total',)
 
     ordering = ('-order_date_time',)
 
