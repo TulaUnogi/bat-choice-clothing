@@ -60,7 +60,7 @@ class Order(models.Model):
     city = models.CharField(max_length=85, null=False, blank=False)
     postcode = models.CharField(
         max_length=30, null=True, blank=True, validators=[RegexValidator(
-            regex=r'^[\d\-a-zA-Z]+$', 
+            regex=r'^[\d\-a-zA-Z]+$',
             message="Only letters, numbers and hyphens allowed.",
             code="invalid")])
     country = CountryField(blank_label="Country *", null=False, blank=False)
@@ -68,9 +68,9 @@ class Order(models.Model):
                                     db_index=True, editable=False)
     order_status = models.CharField(choices=ORDER_STATUS, max_length=40, null=False,
                                     blank=False, default="Awaiting Fulfillment")
-    order_subtotal = models.DecimalField(max_digits=6, decimal_places=2, 
+    order_subtotal = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, default=0)
-    discount = models.ForeignKey(Discount, null=True, blank=True, 
+    discount = models.ForeignKey(Discount, null=True, blank=True,
                                     on_delete=models.CASCADE,
                                     related_name="discount") # one code per order
     discount_value = models.DecimalField(max_digits=6, decimal_places=2,

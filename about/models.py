@@ -10,8 +10,9 @@ RATING = (
 )
 
 class Review(models.Model):
-    customer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                      null=True, blank=True)
+    customer = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL, null=True, blank=True
+    )
     order = models.CharField(max_length=32, null=False, blank=False)
     rating = models.PositiveIntegerField(choices=RATING)
     review_date = models.DateTimeField(auto_now_add=True)

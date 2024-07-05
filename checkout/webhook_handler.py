@@ -64,7 +64,7 @@ class Stripe_Webhook_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-        
+
         # Update profile information after info_save is checked
         profile = None
         username = intent.metadata.username
@@ -85,8 +85,7 @@ class Stripe_Webhook_Handler:
                     )
                 profile.saved_region = shipping_details.address.state
                 profile.save()
-        
-        
+
         order_exists = False
         attempt = 1
 
@@ -109,7 +108,7 @@ class Stripe_Webhook_Handler:
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
-        
+
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(

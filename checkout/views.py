@@ -55,13 +55,13 @@ def add_discount(request):
         except Discount.DoesNotExist:
             request.session["discount_id"] = None       
             messages.error(
-                request, 
+                request,
                 "Invalid discount code! Please check if your code is correct!"
             )
             return redirect(reverse("checkout"))
     else:
         messages.error(
-                request, 
+                request,
                 "Invalid form! Please check if your data is correct!"
             )
         return redirect(reverse("checkout"))
@@ -126,7 +126,7 @@ def checkout(request):
                             request, 
                             "We're sorry, but one or more of the products \
                             in your bag is already sold out!"
-                        )                                      
+                        )
                         order.delete()
                         return redirect(reverse('bag_view'))
                 except Product.DoesNotExist:
