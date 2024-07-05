@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://bat-choice-clothing-ff8ff2b21dca.herokuapp.com/sitemap.xml
