@@ -90,20 +90,24 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            discount_code = request.session["discount_code"]
-            order = order_form.save(commit=False)
-            if discount_code:
-                try:
-                    discount = Discount.objects.get(discount_code=discount_code, is_active=True)
-                    order.discount = discount
-                except Discount.DoesNotExist:
+            if "discount_code" in request.session:
+                discount_code = request.session["discount_code"]
+                order = order_form.save(commit=False)
+                print(discount_code)
+                if discount_code:
+                    try:
+                        discount = Discount.objects.get(discount_code=discount_code, is_active=True)
+                        print(discount)
+                        order.discount = discount
+                    except Discount.DoesNotExist:
+                        order.discount_value = 0
+                else:
                     order.discount_value = 0
+                order.update_discounted_total()
+                order.update_grand_total()
+                order.save()
             else:
-                order.discount_value = 0
-            order.update_discounted_total()
-            order.update_grand_total()
-            order.save()
-
+                order = order_form.save()
             for item_id, item_data in bag.items():  
                 try:
                     product = Product.objects.get(id=item_id)
@@ -234,6 +238,8 @@ def success_checkout_page(request, order_number):
 
     if "bag" in request.session:
         del request.session["bag"]
+    if "discount_code" in request.session:
+        del request.session["discount_code"]
 
     template = "checkout/success-checkout-page.html"
     context = {
