@@ -44,7 +44,8 @@
                         My Order History
                     </h2>
                     <div class="col py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-sm-auto border-left-white">
-
+                        
+                        {% if orders %}
                         {% for order in orders %}
 
                         <div class="text-left p-md-5 p-2 m-md-5 m-2 prpl-shadow">
@@ -108,6 +109,16 @@
                         </div>
 
                         {% endfor %}
+                        {% else %}
+
+                        <div class="text-left p-md-5 p-2 m-md-5 m-2">                      
+                                <p class="h4 text-center megrim">
+                                    <i class="fa-solid fa-star text-prpl"></i>
+                                    You don't have any orders here yet!
+                                    <i class="fa-solid fa-star text-prpl"></i>
+                                </p>
+
+                        {% endif %}
 
                     </div>
                 </div>
