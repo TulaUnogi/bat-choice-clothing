@@ -292,6 +292,18 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 ## Features implemented
 
+1. [USER STORY: Navigation](https://github.com/TulaUnogi/bat-choice-clothing/issues/19)
+2. [USER STORY: User Profile](https://github.com/TulaUnogi/bat-choice-clothing/issues/20)
+3. [USER STORY: Products display](https://github.com/TulaUnogi/bat-choice-clothing/issues/21)
+4. [USER STORY: Product filtering and searching](https://github.com/TulaUnogi/bat-choice-clothing/issues/22)
+5. [USER STORY: Shopping Basket](https://github.com/TulaUnogi/bat-choice-clothing/issues/23)
+6. [USER STORY: Checkout](https://github.com/TulaUnogi/bat-choice-clothing/issues/24)
+7. [USER STORY: About Us](https://github.com/TulaUnogi/bat-choice-clothing/issues/25)
+8. [USER STORY: Contact form](https://github.com/TulaUnogi/bat-choice-clothing/issues/26)
+9. [USER STORY: Newsletter](https://github.com/TulaUnogi/bat-choice-clothing/issues/27)
+10. [USER STORY: Custom error pages](https://github.com/TulaUnogi/bat-choice-clothing/issues/28)
+11. [USER STORY: Stock Management](https://github.com/TulaUnogi/bat-choice-clothing/issues/1)
+12. [USER STORY: SEO](https://github.com/TulaUnogi/bat-choice-clothing/issues/37)
 
 
 ##### [ Back to Top ](#table-of-contents)
@@ -300,7 +312,8 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 ## Features Left to Implement
 
-
+13. [USER STORY: Filtering by colour and size](https://github.com/TulaUnogi/bat-choice-clothing/issues/30)
+14. [USER STORY: Change products grid](https://github.com/TulaUnogi/bat-choice-clothing/issues/29)
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -333,9 +346,27 @@ The User Stories include the acceptance criteria and are broken down into smalle
 
 ### Responsiveness
 
+The website has been tested on multiple device sizes including:
+- Manually: desktop, laptop (Lenovo Ideapad Gaming) and mobile phone (Xiaomi Redmi Note 12s)
+- Online: various device sizes used by Chrome DevTools and [Am I Responsive? page](https://ui.dev/amiresponsive)
+
+The responsiveness is good throughout the website.
+
+Below you can see some results returned by [Am I Responsive? page](https://ui.dev/amiresponsive)
+
+- Home page:
+<img src="readme-images/responsiveness.png" alt="Responsiveness on different devices- homepage">
+
+- Products page:
+<img src="readme-images/responsiveness-products.png" alt="Responsiveness on different devices- products">
+
+- About Us page:
+<img src="readme-images/responsiveness-about.png" alt="Responsiveness on different devices- about us">
 
 
 ### Code validation
+
+
 
 
 
