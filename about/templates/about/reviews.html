@@ -9,7 +9,7 @@
 
 {% block content %}
 
-<div class="text-light p-5 bg-darkground">
+<div class="text-light p-0 p-md-2 p-lg-5 bg-darkground">
     <div class="height-capper">    
         <h2 class="my-3 text-center display-4">Reviews</h2>
         <div class="row mb-5 text-center text-lg-left">
@@ -78,13 +78,13 @@
                 Share your opinion!
             </h2>
 
-            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 my-auto pl-lg-5 p-auto border-left-white">
+            <div class="col-sm-12 col-lg-6 py-0 px-1 mt-5 mt-lg-0 pl-lg-5 p-auto border-left-white">
 
                 {% if user.is_authenticated %}
 
                 <form action="{% url 'reviews' %}" method="POST" id="review_form" 
                       class="mx-auto my-input text-center rounded-0">
-              
+                    
                     {% csrf_token %}
                     {{ form|crispy }}
       

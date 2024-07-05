@@ -256,7 +256,7 @@ label[for="id_remember"] {
     height: unset;
 }
 
-input {
+input, textarea {
     border: 2px solid black !important;
     border-radius: 0 !important;
     padding: 0 !important;
@@ -264,7 +264,7 @@ input {
     background: white !important;
 }
 
-input:focus {
+input:focus, textarea:focus {
     box-shadow: 3px 3px 15px #7e0167, -3px -3px 10px #7e0167 !important;
 }
 
@@ -517,7 +517,9 @@ select:invalid, select option[value=""],
         display: block !important;
     }
 
-    #pay_form fieldset, #userprofile_update  {
+    #pay_form fieldset, 
+    #userprofile_update,
+    #review_form {
         width: 90vw !important;
         margin: 0 auto !important;
     }
@@ -526,7 +528,10 @@ select:invalid, select option[value=""],
     #userprofile_update input,
     #review_form input,
     select[id="id_country"],
-    select[id="id_saved_country"] {
+    select[id="id_saved_country"],
+    select[id="id_rating"],
+    #id_order input,
+    #review_form textarea {
         width: 90vw !important;        
     }
 
@@ -561,9 +566,6 @@ select:invalid, select option[value=""],
     }
 
     #userprofile_update input,
-    #review_form input,
-    #review_form textarea,
-    select[id="id_rating"],
     select[id="id_country"],
     select[id="id_saved_country"] {
         width: 80vw !important;
@@ -573,6 +575,10 @@ select:invalid, select option[value=""],
     .signup .form-group,
     .login .form-group {
         width: 55vw !important;
+    }
+
+    .border-left-white {
+        border: none;
     }
 }
 
