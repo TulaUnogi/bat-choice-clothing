@@ -366,8 +366,93 @@ Below you can see some results returned by [Am I Responsive? page](https://ui.de
 
 ### Code validation
 
+#### Account Registration Tests
+
+| Test |Result  |
+|--|--|
+| User can create profile | Pass |
+| User can log into profile | Pass |
+| User can log out of profile | Pass |
+| Toasts are displaying | Pass |
+| Toasts are dismissable | Pass |
 
 
+---
+
+#### User Navigation Tests
+
+| Test | Result  |
+|--|--|
+| User can easily navigate to Homepage from other pages | Pass |
+| User can easily navigate to Product pages: New In, Clothing and Shoes | Pass |
+| User can access About pages | Pass|
+| User can easily navigate to Contact Us | Pass |
+| User access their account page|Pass|
+| User access their bag after adding items |Pass|
+| User access checkout after adding items to bag |Pass|
+| User can access their profile page after logging in |Pass|
+| SuperUser can access Django Admin page|Pass|
+| SuperUser can access Product Management|Pass|
+
+
+---
+
+#### Account Authorisation Tests
+
+| Test | Result  |
+|--|--|
+| Only Superuser can access Django Admin and Product Management pages |Pass|
+| Non authorised user won't access User's bag | Pass |
+| Non authorised user won't access User's checkout | Pass |
+| Non authorised user won't save their details at checkout | Pass |
+| Non authorised user won't access User's profile page | Pass |
+| Non authorised user won't be able to write a review | Pass |
+| Non authorised user can add items to bag and purchase items | Pass |
+
+
+---
+
+#### Ordering process and Discounts Tests
+
+| Test |Result  |
+|--|--|
+|User can add items to bag| Pass |
+|User can view all of their added items in bag | Pass |
+|User can delete their bag items before processing to checkout | Pass |
+|User can add a discount code | Pass |
+|User can see an error message when passing an invalid discount code | Pass |
+|User can make more than one order | Pass |
+|User can see their order history in their profile | Pass |
+|User can see the order status information | Pass |
+
+
+---
+
+#### Admin and Product Management Tests
+
+| Test |Result  |
+|--|--|
+|Items display correctly on front-end when updated / added |Pass|
+|Admin can change the order status |Pass|
+|Admin can delete the products |Pass|
+
+
+#### Reviews Tests
+
+| Test |Result  |
+|User can see the displayed order reviews|Pass|
+|Registered users can review their orders|Pass|
+|Error toast displayed when reviewed order does not exist|Pass|
+|--|--|
+---
+
+
+#### Sending emails Tests
+
+|Confirmation email is sent to the user after registration|Pass|
+|User can send an email through a Contact Us page |Pass|
+|Order confirmation email is sent after completing an order |Pass|
+|User receives newsletter emails after subscribing to a newsletter|Pass|
 
 
 ##### [ Back to Top ](#table-of-contents)
